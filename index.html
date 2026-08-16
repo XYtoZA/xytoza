@@ -1,0 +1,2138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XYtoZA — Dari Generasi X & Y untuk Generasi Z & Alpha</title>
+  <meta name="description" content="XYtoZA (Eks-Wai-To-Zia) — Band rock alternatif bermotivasi. Lagu pertama: Satu Paket. Dari Generasi X & Y untuk Generasi Z & Alpha." />
+
+  <!-- Google Fonts: Bebas Neue (heading), Barlow + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&family=Barlow:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =========================================================
+       XYtoZA — Landing Page Stylesheet (inline)
+       Palette: deep black + amber/gold (#f5b800)
+       ========================================================= */
+
+    :root {
+      --bg: #0a0a0b;
+      --bg-2: #111114;
+      --bg-3: #16161a;
+      --surface: #1c1c20;
+      --line: rgba(255, 255, 255, 0.08);
+      --line-strong: rgba(255, 255, 255, 0.18);
+      --text: #f4f4f5;
+      --text-muted: #a1a1aa;
+      --text-dim: #71717a;
+      --accent: #ff6a00;
+      --accent-soft: rgba(255, 106, 0, 0.12);
+      --accent-strong: #ff7f2a;
+      --shadow-amber: 0 20px 60px -20px rgba(255,106,0,0.35);
+      --radius: 14px;
+      --radius-lg: 22px;
+      --maxw: 1200px;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      font-family: 'Inter', 'Barlow', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Display heading */
+    h1, h2, h3, .display {
+      font-family: 'Bebas Neue', 'Barlow', sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      line-height: 0.95;
+      text-transform: uppercase;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    .container {
+      width: 100%;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Accent text */
+    .accent { color: var(--accent); }
+    .eyebrow {
+      font-family: 'Barlow', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    #marquee {
+      background: var(--accent);
+      padding: 12px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      margin: 0;
+      position: relative;
+    }
+    #marquee .container {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    #marquee .marquee-track {
+      display: inline-flex;
+      gap: 48px;
+      white-space: nowrap;
+      animation: marquee-scroll 20s linear infinite;
+    }
+    #marquee .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      font-family: 'Bebas Neue', 'Barlow', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    #marquee .marquee-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--text);
+      display: inline-block;
+    }
+    #marquee::before,
+    #marquee::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: rgba(0,0,0,0.18);
+      pointer-events: none;
+    }
+    #marquee::before { left: calc((100% - var(--maxw)) / 2); }
+    #marquee::after { right: calc((100% - var(--maxw)) / 2); }
+    @keyframes marquee-scroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ============ NAVBAR ============ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 18px 0;
+      transition: all 0.4s var(--ease);
+      background: rgba(10, 10, 11, 0);
+      backdrop-filter: blur(0px);
+    }
+    .nav.scrolled {
+      background: rgba(10, 10, 11, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 0;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 0;
+      color: var(--text);
+      display: flex;
+      align-items: baseline;
+      gap: 0;
+    }
+    .logo .xy,
+    .logo .za { color: var(--text); }
+    .logo .to {
+      color: var(--accent);
+      font-size: 0.9em;
+      line-height: 1;
+      letter-spacing: 0;
+      margin: 0;
+      text-transform: uppercase;
+      display: inline-block;
+      transform: translateY(1px);
+    }
+    .logo .dot { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Barlow', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      position: relative;
+      transition: color 0.3s var(--ease);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width 0.3s var(--ease);
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      padding: 10px 22px;
+      background: var(--accent);
+      color: #0a0a0b;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      transition: all 0.3s var(--ease);
+    }
+    .nav-cta:hover {
+      background: var(--accent-strong);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-amber);
+    }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+      cursor: pointer;
+    }
+    .burger span {
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      transition: all 0.3s var(--ease);
+    }
+    .burger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger.active span:nth-child(2) { opacity: 0; }
+    .burger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ============ HERO ============ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 140px 0 80px;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 30%, rgba(245, 184, 0, 0.18), transparent 60%),
+        radial-gradient(ellipse 60% 50% at 20% 80%, rgba(245, 184, 0, 0.08), transparent 60%);
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black, transparent 80%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-text .gen-line {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(18px, 2vw, 22px);
+      color: var(--text-muted);
+      letter-spacing: 0.3em;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .hero-text .gen-line span { color: var(--accent); }
+
+    /* Small lowercase label: use a non-all-caps font and disable transform */
+    .hero-text .gen-line .small-read {
+      font-family: 'Barlow', 'Inter', sans-serif;
+      text-transform: none;
+      letter-spacing: 0.28em;
+      font-weight: 600;
+      color: var(--text-muted);
+      display: inline-block;
+      margin-right: 8px;
+      font-size: 14px;
+    }
+
+    .hero-title {
+      /* Increased ~10% from previous reduced size */
+      font-size: clamp(53px, 9.2vw, 132px);
+      line-height: 0.82;
+      margin-bottom: 28px;
+      font-family: 'Permanent Marker', 'Bebas Neue', 'Barlow', sans-serif;
+      text-transform: none;
+      letter-spacing: 0.02em;
+    }
+    .hero-title img {
+      display: block;
+      height: auto;
+      object-fit: contain;
+      margin: 0;
+      transform-origin: left center;
+    }
+    .hero-logo-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .hero-logo-stack .hero-logo-top {
+      width: clamp(110px, 16vw, 200px);
+      max-width: 200px;
+    }
+    .hero-logo-stack .hero-logo {
+      width: clamp(168px, 32.2vw, 476px);
+      max-width: 476px;
+    }
+    /* Make hero title parts inline so they appear on one line */
+    .hero-title .row1,
+    .hero-title .row2,
+    .hero-title .row3 {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+    .hero-title .row1 { color: var(--accent); }
+    .hero-title .row2 { color: #ffffff; }
+    .hero-title .row3 { color: var(--accent); }
+
+    .hero-tagline {
+      font-family: 'Barlow', sans-serif;
+      font-size: clamp(16px, 1.6vw, 20px);
+      font-weight: 500;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin-bottom: 40px;
+      line-height: 1.5;
+    }
+    .hero-tagline strong { color: var(--text); font-weight: 600; }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border-radius: 999px;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: all 0.35s var(--ease);
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #0a0a0b;
+    }
+    .btn-primary:hover {
+      background: var(--accent-strong);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-amber);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--line-strong);
+    }
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    /* Listen block: large white pill + DSP icon links */
+    .listen-block {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 8px;
+    }
+    .listen-now {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 34px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #0a0a0b;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: 0 8px 30px -12px rgba(0,0,0,0.6);
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+    .listen-now:hover { transform: translateY(-3px); box-shadow: 0 18px 50px -20px rgba(0,0,0,0.6); background: var(--accent-strong); }
+
+    .dsp-icons { display: flex; gap: 12px; align-items: center; }
+    .dsp-link {
+      width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center;
+      border-radius: 999px; background: transparent; color: var(--text); border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.18s var(--ease);
+    }
+    .dsp-link svg { width: 18px; height: 18px; }
+    .dsp-link:hover { transform: translateY(-3px); border-color: var(--accent); color: var(--accent); }
+    .btn svg { width: 16px; height: 16px; }
+
+    /* Above-footer image (copied from index.html) */
+    .above-footer-img { display:flex; justify-content:center; align-items:center; margin: 48px 0 24px; }
+    .above-footer-img img { max-width: 840px; width: 90%; height: auto; display: block; }
+
+    /* Hero side visual */
+    .hero-visual {
+      position: relative;
+      aspect-ratio: 4 / 5;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .hero-visual img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: grayscale(40%) contrast(1.05);
+      transition: transform 1.2s var(--ease);
+    }
+    .hero-visual:hover img { transform: scale(1.05); }
+    .hero-visual::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 30%, rgba(10,10,11,0.85) 100%),
+                  linear-gradient(135deg, rgba(245,184,0,0.15), transparent 50%);
+    }
+    .hero-visual .label {
+      position: absolute;
+      bottom: 24px; left: 24px;
+      z-index: 2;
+    }
+    .hero-visual .label .gen {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 42px;
+      line-height: 1;
+      color: var(--accent);
+    }
+    .hero-visual .label .sub {
+      font-family: 'Barlow', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Floating stat chips */
+    .hero-stats {
+      position: absolute;
+      bottom: 60px;
+      left: 24px;
+      display: flex;
+      gap: 32px;
+      z-index: 3;
+    }
+    .stat .num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat .lbl {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-top: 4px;
+    }
+
+    /* ============ SECTION COMMON ============ */
+    section {
+      padding: 120px 0;
+      position: relative;
+    }
+    .section-head {
+      margin-bottom: 64px;
+      max-width: 720px;
+    }
+    .section-head .eyebrow { margin-bottom: 18px; }
+    .section-title {
+      font-size: clamp(48px, 7vw, 96px);
+      margin-bottom: 18px;
+    }
+    .section-desc {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 620px;
+    }
+
+    /* ============ ABOUT ============ */
+    .about {
+      background: var(--bg-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    /* Right-column bridge (copied/adapted from index.css) */
+    .gen-bridge { display: flex; flex-direction: column; }
+    .gen-row { display: flex; align-items: center; gap: 20px; padding: 18px 22px; border-left: 3px solid; margin-bottom: 8px; background: rgba(255,255,255,0.02); transition: transform 0.28s var(--ease); }
+    .gen-row:hover { transform: translateX(8px); }
+    .gen-row.xy { border-color: var(--accent); }
+    .gen-row.za { border-color: var(--accent-strong); }
+    .vision-hook { margin: 18px 0 18px 0; }
+    .vision-hook details { width: 100%; border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); padding: 18px 20px; background: rgba(255,255,255,0.02); }
+    .vision-hook summary { font-family: 'Bebas Neue', sans-serif; font-size: 15px; cursor: pointer; color: var(--accent); list-style: none; outline: none; }
+    .vision-hook summary::-webkit-details-marker { display: none; }
+    .vision-hook p { margin: 16px 0 18px; color: var(--text-muted); line-height: 1.75; font-size: 14px; }
+    .vision-hook .btn-primary { display: inline-flex; padding: 12px 20px; border-radius: 999px; background: var(--accent); color: #0a0a0b; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .vision-hook .btn-primary:hover { background: var(--accent-strong); }
+    .gen-row.small-action { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .gen-row.small-action .gen-desc { margin: 0; }
+    .gen-row.small-action .btn-small { padding: 8px 14px; font-size: 11px; border-radius: 999px; letter-spacing: 0.06em; }
+    .gen-row .gen-label { font-family: 'Bebas Neue', sans-serif; font-size: 32px; color: var(--accent); min-width: 70px; }
+    .gen-row.za .gen-label { color: var(--accent-strong); }
+    .gen-row .gen-desc { font-size: 13px; letter-spacing: 0.04em; color: var(--text-dim); line-height: 1.5; }
+    .bridge-arrow { text-align: center; font-family: 'Bebas Neue', sans-serif; font-size: 15px; color: var(--accent); letter-spacing: 0.3em; padding: 10px 0; opacity: 0.7; }
+    .bridge-center { display:flex; justify-content:center; }
+    .about .section-head { margin-bottom: 8px; }
+    .bridge-image {
+      display: block;
+      width: 100%;
+      max-width: 1000px;
+      height: auto;
+      margin: 8px auto 0;
+      border-radius: 20px;
+      object-fit: contain;
+    }
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-size: 16px;
+    }
+    .about-text p strong { color: var(--text); font-weight: 600; }
+    .vm-cards {
+      display: grid;
+      gap: 20px;
+    }
+    .team {
+      position: relative;
+      min-height: 700px;
+      overflow: hidden;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: #09090a;
+    }
+    .team-overlay,
+    .team::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .team::before {
+      background: url('https://ik.imagekit.io/5bnhlcghq/tandatanya1.png?updatedAt=1785089618494') center/cover no-repeat;
+      opacity: 1;
+      filter: saturate(1) brightness(1);
+    }
+    .team-overlay {
+      background: linear-gradient(180deg, rgba(10,10,11,0.02) 0%, rgba(10,10,11,0.08) 45%, rgba(10,10,11,0.75) 100%);
+    }
+    .team-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 100%;
+      padding: 0 0 64px;
+    }
+    .team-panel {
+      display: none;
+    }
+    .team-label,
+    .person-badge {
+      display: inline-flex;
+      margin-bottom: 14px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #0a0a0b;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 800;
+      box-shadow: 0 8px 26px rgba(245,184,0,0.16);
+    }
+    .team-name,
+    .person-card h3 {
+      font-size: clamp(28px, 3vw, 36px);
+      line-height: 1.05;
+      margin: 0 0 14px;
+      color: #ffffff;
+    }
+    .team-meta,
+    .person-meta {
+      color: rgba(255,255,255,0.78);
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+    .team-description,
+    .person-card p {
+      color: rgba(255,255,255,0.86);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+    .team-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      align-items: end;
+    }
+    .person-card {
+      padding: 28px;
+      border-radius: var(--radius-lg);
+      background: rgba(10,10,11,0.35);
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(10px);
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      box-shadow: none;
+    }
+    .person-card h3 {
+      margin: 0 0 10px;
+      font-size: 28px;
+      color: #ffffff;
+    }
+    @media (max-width: 1200px) {
+      .team-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 780px) {
+      .team-cards { grid-template-columns: 1fr; }
+    }
+    .vm-card {
+      padding: 32px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      transition: all 0.4s var(--ease);
+      position: relative;
+      overflow: hidden;
+    }
+    .vm-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--accent);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.4s var(--ease);
+    }
+    .vm-card:hover {
+      border-color: var(--line-strong);
+      transform: translateY(-4px);
+    }
+    .vm-card:hover::before { transform: scaleY(1); }
+    .vm-card .label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.3em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .vm-card h3 {
+      font-size: 32px;
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+    .vm-card p {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    /* ============ MUSIC ============ */
+    .music { background: var(--bg); }
+    .music-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+    .music-card {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: center;
+      background: linear-gradient(145deg, var(--bg-3), var(--bg-2));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      min-height: 320px;
+    }
+    .music-card::before {
+      content: '';
+      position: absolute;
+      top: -70px; right: -70px;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, var(--accent-soft), transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .album-art {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 24px 45px -20px rgba(0,0,0,0.75);
+    }
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 30px 60px -20px rgba(0,0,0,0.8);
+    }
+    .album-art img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: contrast(1.1) saturate(0.85);
+    }
+    .album-art .play-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(10,10,11,0.35);
+      opacity: 0;
+      transition: opacity 0.4s var(--ease);
+    }
+    .album-art:hover .play-overlay { opacity: 1; }
+    .play-btn {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #0a0a0b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s var(--ease);
+      transform: scale(0.85);
+    }
+    .album-art:hover .play-btn { transform: scale(1); }
+    .play-btn svg { width: 28px; height: 28px; margin-left: 3px; }
+    .play-btn:hover { background: var(--accent-strong); }
+
+    .track-meta {
+      position: relative;
+      z-index: 2;
+    }
+    .track-meta .label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.3em;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .track-title {
+      font-size: clamp(34px, 4vw, 48px);
+      margin-bottom: 10px;
+      line-height: 1.05;
+      background: linear-gradient(180deg, var(--text), #b8b8bd);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .track-sub {
+      font-family: 'Barlow', sans-serif;
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      letter-spacing: 0.05em;
+    }
+    .track-sub span { color: var(--accent); margin: 0 8px; }
+
+    .lyrics-snippet {
+      padding: 24px 28px;
+      border-left: 2px solid var(--accent);
+      background: rgba(255,255,255,0.02);
+      margin-bottom: 32px;
+      border-radius: 0 8px 8px 0;
+    }
+    .lyrics-snippet p {
+      font-family: 'Barlow', sans-serif;
+      font-style: italic;
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+    .lyrics-snippet p span { color: var(--text-muted); }
+
+    .track-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ============ DSP LINKS ============ */
+    .dsp {
+      background: var(--bg-2);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .dsp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    .dsp-card {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 24px 26px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      transition: all 0.4s var(--ease);
+      position: relative;
+      overflow: hidden;
+    }
+    .dsp-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--accent-soft), transparent 50%);
+      opacity: 0;
+      transition: opacity 0.4s var(--ease);
+    }
+    .dsp-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px -12px rgba(245,184,0,0.25);
+    }
+    .dsp-card:hover::after { opacity: 1; }
+    .dsp-icon {
+      width: 48px; height: 48px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      position: relative;
+      z-index: 2;
+    }
+    .dsp-icon svg { width: 24px; height: 24px; }
+    .dsp-info { position: relative; z-index: 2; }
+    .dsp-info .name {
+      font-family: 'Barlow', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .dsp-info .action {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .dsp-card:hover .dsp-info .action { color: var(--accent); }
+    .dsp-arrow {
+      margin-left: auto;
+      color: var(--text-dim);
+      transition: all 0.3s var(--ease);
+      position: relative; z-index: 2;
+    }
+    .dsp-card:hover .dsp-arrow {
+      color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    /* Footer DSP compact list */
+    .footer-dsp {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-dsp .dsp-card {
+      padding: 10px 12px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    .footer-dsp .dsp-icon { width: 36px; height: 36px; border-radius: 8px; }
+    .footer-dsp .dsp-info .name { font-size: 14px; font-weight: 700; }
+    .footer-dsp .dsp-info .action { font-size: 11px; color: var(--text-dim); }
+    .footer-dsp .dsp-arrow { display: none; }
+
+    /* ============ TOUR / SCHEDULE ============ */
+    .tour {
+      background: var(--bg);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .tour-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.85fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .tour-photo {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    }
+    .tour-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .tour-list { display: flex; flex-direction: column; gap: 18px; }
+    .tour-item {
+      display: grid;
+      grid-template-columns: 72px 1fr 110px;
+      gap: 18px;
+      align-items: center;
+      padding: 18px 22px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.03);
+      background: rgba(255,255,255,0.01);
+      position: relative;
+    }
+    .tour-item + .tour-item { border-top: 1px solid rgba(255,255,255,0.02); }
+
+    .date-box {
+      width: 72px; height: 72px; display: flex; flex-direction: column; justify-content: center; align-items: center;
+      border-radius: 12px; border: 1px solid rgba(255,255,255,0.06); color: var(--text);
+      background: linear-gradient(180deg, rgba(255,106,0,0.12), rgba(255,106,0,0.02));
+      font-family: 'Bebas Neue', sans-serif;
+      box-shadow: 0 8px 24px -12px rgba(0,0,0,0.7);
+    }
+    .date-box .month { color: rgba(255,255,255,0.85); }
+    .date-box .day { color: #fff; font-weight: 700; }
+    .date-box .month { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); }
+    .date-box .day { font-size: 22px; line-height: 1; margin-top: 4px; color: var(--accent); }
+
+    .tour-item .info .title { font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--text); }
+    .tour-item .info .meta { font-size: 13px; color: var(--text-dim); margin-top: 6px; }
+    .tour-item .more { margin-left: 12px; }
+    .tour-item .more .btn { padding: 10px 14px; border-radius: 10px; font-size: 13px; background:#2b2b2b; color:#fff; border:1px solid rgba(255,255,255,0.04); }
+    .tour-item .more .btn:hover { background:#303030; border-color:var(--accent); color:var(--accent); }
+
+    @media (max-width: 960px) {
+      .tour-grid { grid-template-columns: 1fr; }
+      .tour-photo { order: 2; }
+    }
+
+    /* ============ BOOKING ============ */
+    .booking {
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+    .booking::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: -10%;
+      width: 60%; height: 80%;
+      background: radial-gradient(ellipse, var(--accent-soft), transparent 70%);
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .booking-text h2 {
+      font-size: clamp(48px, 7vw, 96px);
+      margin-bottom: 20px;
+    }
+    .booking-text p {
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      font-size: 16px;
+    }
+    .contact-list {
+      list-style: none;
+      margin-top: 24px;
+    }
+    .contact-list li {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: 'Barlow', sans-serif;
+    }
+    .contact-list .ic {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-list .ic svg { width: 18px; height: 18px; }
+    .contact-list .lbl small {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 2px;
+    }
+    .contact-list .lbl strong {
+      font-weight: 600;
+      color: var(--text);
+      font-size: 15px;
+    }
+
+    .booking-form {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+    }
+    .booking-form h3 {
+      font-size: 28px;
+      margin-bottom: 6px;
+    }
+    .booking-form .sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .form-group { margin-bottom: 14px; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 6px;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 600;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 14px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      transition: all 0.3s var(--ease);
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 90px;
+      font-family: 'Inter', sans-serif;
+    }
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--accent);
+      color: #0a0a0b;
+      border-radius: 10px;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+      margin-top: 6px;
+    }
+    .form-submit:hover {
+      background: var(--accent-strong);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-amber);
+    }
+
+    /* ============ FOOTER ============ */
+    footer {
+      background: var(--bg-2);
+      border-top: 1px solid var(--line);
+      padding: 60px 0 30px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--line);
+    }
+    .footer-brand .logo { font-size: 36px; margin-bottom: 14px; }
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 14px;
+      max-width: 320px;
+      margin-bottom: 20px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-social a {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: all 0.3s var(--ease);
+    }
+    .footer-social a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .footer-social svg { width: 16px; height: 16px; }
+    .social-section {
+      background: var(--bg);
+      padding: 0 0 60px;
+    }
+    .social-card {
+      background: linear-gradient(135deg, rgba(245,184,0,0.10), rgba(255,255,255,0.03));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      align-items: center;
+    }
+    .social-intro h3 {
+      font-size: clamp(28px, 3.2vw, 38px);
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+    .social-intro p {
+      color: var(--text-muted);
+      font-size: 15px;
+      max-width: 580px;
+    }
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: flex-start;
+    }
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      transition: all 0.3s var(--ease);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .social-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px -12px rgba(245,184,0,0.35);
+    }
+    .social-link svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .footer-col h4 {
+      font-family: 'Barlow', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a {
+      color: var(--text-muted);
+      font-size: 14px;
+      transition: color 0.3s var(--ease);
+    }
+    .footer-col a:hover { color: var(--text); }
+
+    .footer-faq {
+      padding: 40px 0 0;
+      border-top: 1px solid var(--line);
+      margin-top: 40px;
+    }
+    .faq-card {
+      border-radius: 24px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
+      overflow: hidden;
+      max-width: 100%;
+    }
+    .faq-header {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 2.4vw, 2.6rem);
+      margin: 0;
+      padding: 28px 28px 0;
+      color: var(--text);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .faq-list {
+      padding: 0 0 20px;
+    }
+    .faq-item {
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .faq-item:first-of-type {
+      border-top: none;
+    }
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 22px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'Barlow', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: none;
+      color: var(--text);
+      background: transparent;
+      transition: background 0.2s ease;
+    }
+    .faq-item summary:hover {
+      background: rgba(255,255,255,0.06);
+    }
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+    .faq-item summary:after {
+      content: '+';
+      font-size: 1.2rem;
+      color: var(--accent);
+      transition: transform 0.3s ease;
+    }
+    .faq-item[open] summary:after {
+      content: '-';
+      transform: rotate(180deg);
+    }
+    .faq-item p {
+      margin: 0;
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-size: 14px;
+      padding: 0 28px 20px;
+    }
+    .faq-item p a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .faq-item p a:hover { text-decoration: underline; }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 28px;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: #040404;
+      border-radius: 18px;
+      margin-top: 26px;
+      text-align: center;
+    }
+    .footer-bottom p {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.5;
+      letter-spacing: 0.02em;
+      margin: 0;
+    }
+    .footer-bottom .accent { color: var(--accent); }
+
+    .site-credit {
+      display: none;
+    }
+
+    /* ============ ANIMATIONS ============ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 0 0 var(--accent-soft); }
+      50% { box-shadow: 0 0 0 14px transparent; }
+    }
+    .pulse { animation: pulse-glow 2.5s infinite; }
+
+    @keyframes scroll-down {
+      0% { transform: translateY(0); opacity: 0; }
+      40% { opacity: 1; }
+      80% { transform: translateY(14px); opacity: 0; }
+      100% { opacity: 0; }
+    }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 24px;
+      height: 40px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      display: flex;
+      justify-content: center;
+      padding-top: 8px;
+      z-index: 3;
+    }
+    .scroll-indicator::before {
+      content: '';
+      width: 2px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 2px;
+      animation: scroll-down 1.8s infinite;
+    }
+
+    /* ============ MOBILE NAV ============ */
+    .mobile-menu {
+      position: fixed;
+      top: 0; right: -100%;
+      width: 80%;
+      max-width: 360px;
+      height: 100vh;
+      background: var(--bg-2);
+      border-left: 1px solid var(--line);
+      z-index: 99;
+      padding: 100px 32px 32px;
+      transition: right 0.4s var(--ease);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .mobile-menu.active { right: 0; }
+    .mobile-menu a {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.06em;
+      color: var(--text);
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      transition: color 0.3s var(--ease);
+    }
+    .mobile-menu a:hover { color: var(--accent); padding-left: 8px; }
+    .mobile-menu .nav-cta {
+      margin-top: 24px;
+      align-self: flex-start;
+    }
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+      z-index: 98;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s var(--ease);
+    }
+    .overlay.active { opacity: 1; visibility: visible; }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 960px) {
+      .hero-content { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { max-width: 420px; }
+      .hero-stats { position: static; margin-top: 40px; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .music-grid { grid-template-columns: 1fr; gap: 24px; }
+      .music-card { grid-template-columns: 1fr; gap: 30px; padding: 28px; }
+      .booking-grid { grid-template-columns: 1fr; gap: 48px; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .burger { display: flex; }
+      section { padding: 80px 0; }
+      .hero { padding: 120px 0 60px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn { justify-content: center; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .scroll-indicator { display: none; }
+      .hero-stats { gap: 20px; flex-wrap: wrap; }
+      .booking-form { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#home" class="logo"><span class="xy">XY</span><span class="to">TO</span><span class="za">ZA</span><span class="dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="song.html">Music</a></li>
+        <li><a href="#dsp">Listen</a></li>
+        <li><a href="#tour">Tour</a></li>
+        <li><a href="artikel/rilis_lagu_satu_paket.html">Artikel</a></li>
+        <li><a href="ourstory.html">Our Story</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Contact</a>
+      <div class="burger" id="burger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="overlay" id="overlay"></div>
+  <aside class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#music">Music</a>
+    <a href="#dsp">Listen</a>
+    <a href="#tour">Tour</a>
+    <a href="artikel/rilis_lagu_satu_paket.html">Artikel</a>
+    <a href="ourstory.html">Our Story</a>
+    <a href="#contact" class="nav-cta">Contact</a>
+  </aside>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <div class="hero-text">
+        <p class="gen-line"><span class="small-read">dibaca:</span> eksway to zia</p>
+        <h1 class="hero-title">
+          <div class="hero-logo-stack">
+            <img src="https://ik.imagekit.io/5bnhlcghq/logoxytozarm.png" alt="XYtoZA" class="hero-logo" />
+          </div>
+        </h1>
+        <p class="hero-tagline">
+          Dari <strong>Generasi X &amp; Y</strong> untuk <strong>Generasi Z &amp; Alpha</strong>.
+          karena Api Semangat harus terus diestafetkan dan musik adalah satu-satunya bahasa yang tidak mengenal batas usia
+        </p>
+        <div class="listen-block">
+          <a href="#dsp" class="listen-now">LISTEN NOW</a>
+
+          <div class="dsp-icons" aria-hidden="false">
+            <a href="#dsp" class="dsp-link" aria-label="Spotify">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+            </a>
+            <a href="#dsp" class="dsp-link" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="#dsp" class="dsp-link" aria-label="Apple Music">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.54 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+            </a>
+            <a href="#dsp" class="dsp-link" aria-label="Deezer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.944 16.712H24v2.256h-5.056zM18.944 13.168H24v2.254h-5.056zM18.944 9.617H24v2.254h-5.056zM0 16.712h5.056v2.256H0zM12.472 16.712h5.057v2.256h-5.057zM6.237 16.712h5.055v2.256H6.237zM12.472 13.168h5.057v2.254h-5.057zM6.237 13.168h5.055v2.254H6.237zM12.472 9.617h5.057v2.254h-5.057z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=800&q=80" alt="XYtoZA live performance" />
+        <div class="label">
+          <div class="gen">SOUND OF DRIVE</div>
+          <div class="sub">Just Listen & Get Inpired</div>
+        </div>
+      </div>
+    </div>    
+    </header>
+
+  <!-- MARQUEE -->
+  <div id="marquee">
+    <div class="container">
+      <div class="marquee-track">
+        <span class="marquee-item">Drive Forward <span class="marquee-dot"></span></span>
+        <span class="marquee-item">Sound of Drive <span class="marquee-dot"></span></span>
+        <span class="marquee-item">From Gen X &amp; Y <span class="marquee-dot"></span></span>
+        <span class="marquee-item">To Gen Z &amp; Alpha <span class="marquee-dot"></span></span>
+        <span class="marquee-item">30 Tracks: The Survivors' Playlist <span class="marquee-dot"></span></span>
+        <span class="marquee-item">Just Listen And Get Inspired <span class="marquee-dot"></span></span>
+        <span class="marquee-item">Drive Forward <span class="marquee-dot"></span></span>
+        <span class="marquee-item">Sound of Drive <span class="marquee-dot"></span></span>
+        <span class="marquee-item">From Gen X &amp; Y <span class="marquee-dot"></span></span>
+        <span class="marquee-item">To Gen Z &amp; Alpha <span class="marquee-dot"></span></span>
+        <span class="marquee-item">30 Tracks: The Survivors' Playlist <span class="marquee-dot"></span></span>
+        <span class="marquee-item">Just Listen And Get Inspired <span class="marquee-dot"></span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ABOUT / VISION & MISSION ============ -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Tentang kami</span>
+        <h2 class="section-title">ABOUT US</h2>
+      </div>
+
+      <div class="bridge-center">
+        <img src="https://ik.imagekit.io/5bnhlcghq/xytoza.a1.png?updatedAt=1777903729820" alt="XYtoZA bridge image" class="bridge-image" />
+      </div>
+      <br>
+      <br>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            XYtoZA adalah resonansi yang lahir dari satu keyakinan: bahwa musik tidak
+            mengenal limitasi usia. Kami, para personil dari <strong>Generasi X</strong> dan
+            <strong>Generasi Y</strong>, meramu setiap pengalaman, luka, dan kemenangan hidup
+            menjadi distorsi semangat yang murni.
+          </p>
+          <p>
+            Kami tidak sekadar bermain musik. Kami sedang membangun jalur frekuensi untuk
+            menyampaikan bahwa hidup layak diperjuangkan di era mana pun. Dari era analog
+            hingga AI, semangat juang adalah nada yang abadi.
+          </p>
+          <p>
+            Karya kami adalah persembahan khusus untuk <strong>Gen Z</strong> dan
+            <strong>Alpha</strong>. Kami menanamkan setiap nada ke dalam memori implisit
+            kalian sedini mungkin — sebagai benteng pelindung sebelum mental block sempat
+            mengunci potensi kalian. Di tangan kalianlah, kemungkinan masa depan akan bergema.
+          </p>
+        </div>
+
+        <div class="about-visual reveal">
+          <div class="gen-bridge">
+            <div class="gen-row xy small-action">
+              <span class="gen-label">VISI</span>
+              <span class="gen-desc">Sound Of Drive</span>
+              <a href="artikel/visi.html" class="btn btn-primary btn-small">Read More</a>
+            </div>
+            <div class="gen-row xy small-action">
+              <span class="gen-label">MISI</span>
+              <span class="gen-desc">30 Tracks: &amp; The Survivors' Playlist</span>
+              <a href="artikel/visi.html" class="btn btn-primary btn-small">Read More</a>
+            </div>
+            <div class="bridge-arrow">▼ SOUND OF DRIVE ▼</div>
+            <div class="gen-row za"><span class="gen-label">Gen X & Y</span><span class="gen-desc">Sahabat lama yang siap berbagi cerita.</span></div>
+            <div class="gen-row za"><span class="gen-label">Gen Z & Alpha</span><span class="gen-desc">Sahabat baru yang membawa energi segar.</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TOUR SCHEDULE (baru) ============ -->
+  <section class="tour" id="tour">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">UP COMING SHOWS</span>
+        <h2 class="section-title">Time to Rise<br>and Sing as One</h2>
+        <p class="section-desc">Jadwal tur dan showcase kami. Sampai berjumpa di kotamu!</p>
+      </div>
+
+      <div class="tour-grid reveal">
+        <div class="tour-photo">
+          <img src="https://ik.imagekit.io/5bnhlcghq/personilx.png" alt="Personil XYtoZA" />
+        </div>
+
+        <div>
+          <div class="tour-list">
+            <div class="tour-item">
+              <div class="date-box">
+                <div class="month">2026</div>
+                <div class="day">08/10</div>    
+              </div>
+              <div class="info">
+                <div class="title">BRAGA FEST</div>
+                <div class="meta">Bandung, ID</div>
+              </div>
+              <div class="more"><a href="#" class="btn">MORE INFO</a></div>
+            </div>
+
+            <div class="tour-item">
+              <div class="date-box">
+                <div class="month">2026</div>
+                <div class="day">16/10</div>
+              </div>
+              <div class="info">
+                <div class="title">TO BE CONFIRM</div>
+                <div class="meta">Bali, ID</div>
+              </div>
+              <div class="more"><a href="#" class="btn">MORE INFO</a></div>
+            </div>
+
+            <div class="tour-item">
+              <div class="date-box">
+                <div class="month">2026</div>
+                <div class="day">02/11</div>
+              </div>
+              <div class="info">
+                <div class="title">SHOW CASE</div>
+                <div class="meta">Jakarta, ID</div>
+              </div>
+              <div class="more"><a href="#" class="btn">MORE INFO</a></div>
+            </div>
+
+            <div class="tour-item">
+              <div class="date-box">
+                <div class="month">2026</div>
+                <div class="day">18/11</div>
+              </div>
+              <div class="info">
+                <div class="title">TO BE CONFIRM</div>
+                <div class="meta">Jakarta, ID</div>
+              </div>
+              <div class="more"><a href="#" class="btn">MORE INFO</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MUSIC ============ -->
+  <section class="music" id="music">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Album "OBROLAN CERMIN"</span>
+        <h2 class="section-title">Sound Of Drive</h2>
+        <p class="section-desc">
+          10 Lagu pertama kami yang sudah dirilis di berbagai platform digital. Musik yang lahir dari pengalaman hidup, dan dikemas dalam nada yang memotivasi.
+        </p>
+      </div>
+
+      <div class="music-grid reveal">
+        <div class="music-card">
+          <div class="album-art">
+            <img src="https://ik.imagekit.io/5bnhlcghq/Satu%20Paket.png?updatedAt=1777542511500" alt="Satu Paket - Album Art" />
+            <div class="play-overlay">
+              <a href="#dsp" class="play-btn pulse" aria-label="Play Satu Paket">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="track-meta">
+            <div class="label">Sound Of Drive</div>
+            <h3 class="track-title">Satu Paket</h3>
+            <p class="track-sub">XYtoZA <span>·</span> Pop Rock <span>·</span> 3:49</p>
+          </div>
+        </div>
+
+        <div class="music-card">
+          <div class="album-art">
+            <img src="https://ik.imagekit.io/5bnhlcghq/Tabur%20Tuai.png?updatedAt=1777542515029" alt="Tabur Tuai - Album Art" />
+            <div class="play-overlay">
+              <a href="#dsp" class="play-btn pulse" aria-label="Play Tabur Tuai">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="track-meta">
+            <div class="label">Sound Of Drive</div>
+            <h3 class="track-title">Tabur Tuai</h3>
+            <p class="track-sub">XYtoZA <span>·</span> Pop Rock <span>·</span> 3:42</p>
+          </div>
+        </div>
+
+        <div class="music-card">
+          <div class="album-art">
+            <img src="https://ik.imagekit.io/5bnhlcghq/Pencinta%20Kehidupan.png?updatedAt=1777540928552" alt="Lanjutkan - Album Art" />
+            <div class="play-overlay">
+              <a href="#dsp" class="play-btn pulse" aria-label="Play Lanjutkan">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="track-meta">
+            <div class="label">Sound Of Drive</div>
+            <h3 class="track-title">Lanjutkan</h3>
+            <p class="track-sub">XYtoZA <span>·</span> Pop Rock <span>·</span> 3:42</p>
+          </div>
+        </div>
+
+        <div class="music-card">
+          <div class="album-art">
+            <img src="https://ik.imagekit.io/5bnhlcghq/Jangan%20Pernah%20Menyerah.png?updatedAt=1777542517622" alt="Minggir Loe Miskin - Album Art" />
+            <div class="play-overlay">
+              <a href="#dsp" class="play-btn pulse" aria-label="Play Minggir Loe Miskin">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="track-meta">
+            <div class="label">Sound Of Drive</div>
+            <h3 class="track-title">Minggir Loe Miskin</h3>
+            <p class="track-sub">XYtoZA <span>·</span> Pop Rock <span>·</span> 3:51</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TEAM ============ -->
+  <section class="team" id="team">
+    <div class="team-overlay"></div>
+    <div class="container team-content">
+      <div class="team-cards">
+        <div class="person-card reveal">
+          <div class="team-label">Vocal / Bass</div>
+          <h3>Sigit Sae</h3>
+          <div class="person-meta">Gen Y · Bandung</div>
+          </div>
+        <div class="person-card reveal">
+          <div class="person-badge">Drums</div>
+          <h3>Rahmat Bros</h3>
+          <div class="person-meta">Gen Y · Bandung</div>
+          </div>
+        <div class="person-card reveal">
+          <div class="person-badge">Guitar</div>
+          <h3>James Argo</h3>
+          <div class="person-meta">Gen X · Bandung</div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ CONTACT ============ -->
+  <section class="booking" id="contact">
+    <div class="container booking-grid">
+      <div class="booking-text reveal">
+        <span class="eyebrow">Contact</span>
+        <h2 class="section-title">LET'S TALK!</h2>
+        <p>
+          Buka panggung, festival, acara sekolah, atau event korporat? Kami siap bawain
+          semangat ke mana saja. Isi form di samping, atau hubungi langsung
+          kontak kami di bawah ini.
+        </p>
+
+        <ul class="contact-list">
+          <li>
+            <div class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="lbl">
+              <small>Email</small>
+              <strong>admin@xytoza.com</strong>
+            </div>
+          </li>
+          <li>
+            <div class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="lbl">
+              <small>WhatsApp / Phone</small>
+              <strong>+62 812-3456-7890</strong>
+            </div>
+          </li>
+          <li>
+            <div class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="lbl">
+              <small>Base Location</small>
+              <strong>Bandung, Indonesia</strong>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <form class="booking-form reveal" onsubmit="handleSubmit(event)">
+        <h3>Contact Form</h3>
+        <p class="sub">Kami balas dalam 1×24 jam kerja.</p>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nama</label>
+            <input type="text" name="name" placeholder="Nama Anda" required />
+          </div>
+          <div class="form-group">
+            <label>Instansi / Event</label>
+            <input type="text" name="org" placeholder="Nama event / instansi" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="email@anda.com" required />
+          </div>
+          <div class="form-group">
+            <label>No. WhatsApp</label>
+            <input type="tel" name="phone" placeholder="+62 ..." required />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Tanggal Event</label>
+            <input type="date" name="date" />
+          </div>
+          <div class="form-group">
+            <label>Jenis Acara</label>
+            <select name="type">
+              <option value="">Pilih jenis</option>
+              <option>Festival</option>
+              <option>Corporate Event</option>
+              <option>Sekolah / Kampus</option>
+              <option>Private Gig</option>
+              <option>Private Event</option>
+              <option>Lainnya</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group full">
+          <label>Pesan</label>
+          <textarea name="message" placeholder="Ceritakan sedikit tentang acara Anda..."></textarea>
+        </div>
+
+        <button type="submit" class="form-submit">Kirim Pesan</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Inserted image from index.html above footer -->
+  <div class="above-footer-img">
+    <img src="https://i.ibb.co.com/mrLhYsvy/xy21.png" alt="XYtoZA" loading="lazy" />
+  </div>
+
+  <section class="social-section">
+    <div class="container">
+      <div class="social-card reveal">
+        <div class="social-intro">
+          <h3>Connect With Us</h3>
+          <p>Official - Media Sosial resmi kami.</p>
+        </div>
+        <div class="social-links">
+          <a href="https://www.instagram.com/xy_to_za?igsh=dzRjMnFrdDFiOXdy" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            Instagram
+          </a>
+          <a href="https://www.youtube.com/@xy_to_za" target="_blank" rel="noopener" class="social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            YouTube
+          </a>
+          <a href="https://www.tiktok.com/@xy_to_za?_r=1&_t=ZS-93e2FTCpdLE" target="_blank" rel="noopener" class="social-link" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.83a8.16 8.16 0 0 0 4.77 1.52V6.89a4.85 4.85 0 0 1-1.84-.2z"/></svg>
+            TikTok
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Streaming Platforms</span>
+        <h2 class="section-title">Stream<br>Anywhere</h2>
+        <p class="section-desc">Dengarkan karya kami di platform musik favoritmu</p>
+      </div>
+
+      <div id="dsp" class="dsp-grid">
+        <a href="https://open.spotify.com" target="_blank" rel="noopener" class="dsp-card reveal">
+          <div class="dsp-icon" style="background: rgba(30,215,96,0.12); color:#1ed760;">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424a.624.624 0 0 1-.858.205c-2.349-1.435-5.304-1.76-8.785-.964a.624.624 0 1 1-.277-1.217c3.808-.87 7.077-.496 9.712 1.118a.624.624 0 0 1 .208.858zm1.223-2.722a.78.78 0 0 1-1.072.257c-2.687-1.653-6.785-2.131-9.965-1.166a.78.78 0 1 1-.454-1.494c3.633-1.102 8.147-.568 11.234 1.33a.78.78 0 0 1 .257 1.073zm.105-2.835C14.692 8.95 9.375 8.775 6.297 9.71a.936.936 0 1 1-.543-1.79c3.532-1.072 9.404-.866 13.115 1.337a.936.936 0 0 1-.955 1.61z"/></svg>
+          </div>
+          <div class="dsp-info">
+            <div class="name">Spotify</div>
+            <div class="action">Play now</div>
+          </div>
+          <div class="dsp-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <a href="https://music.apple.com" target="_blank" rel="noopener" class="dsp-card reveal">
+          <div class="dsp-icon" style="background: #fc3c44; color:#ffffff;">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.54 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+          </div>
+          <div class="dsp-info">
+            <div class="name">Apple Music</div>
+            <div class="action">Play now</div>
+          </div>
+          <div class="dsp-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <a href="https://youtube.com" target="_blank" rel="noopener" class="dsp-card reveal">
+          <div class="dsp-icon" style="background: rgba(255,0,0,0.12); color:#ff0000;">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </div>
+          <div class="dsp-info">
+            <div class="name">YouTube</div>
+            <div class="action">Watch video</div>
+          </div>
+          <div class="dsp-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <a href="https://music.youtube.com" target="_blank" rel="noopener" class="dsp-card reveal">
+          <div class="dsp-icon" style="background: rgba(255,0,0,0.12); color:#ff0000;">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm5.28 16.26c-.21.414-.486.708-.9.87-.36.144-1.062.246-1.926.27-.954.024-1.866.036-2.454.036-.66 0-1.5 0-2.454-.036-.864-.024-1.566-.126-1.926-.27-.414-.162-.69-.456-.9-.87-.21-.414-.318-.96-.318-1.614V9.354c0-.654.108-1.2.318-1.614.21-.414.486-.708.9-.87.36-.144 1.062-.246 1.926-.27.954-.024 1.866-.036 2.454-.036.66 0 1.5 0 2.454.036.864.024 1.566.126 1.926.27.414.162.69.456.9.87.21.414.318.96.318 1.614v5.292c0 .654-.108 1.2-.318 1.614zM9.6 14.592l4.8-2.736-4.8-2.736v5.472z"/></svg>
+          </div>
+          <div class="dsp-info">
+            <div class="name">YouTube Music</div>
+            <div class="action">Stream now</div>
+          </div>
+          <div class="dsp-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <a href="https://www.deezer.com" target="_blank" rel="noopener" class="dsp-card reveal">
+          <div class="dsp-icon" style="background: #ef5466; color:#ffffff;">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.944 16.712H24v2.256h-5.056zM18.944 13.168H24v2.254h-5.056zM18.944 9.617H24v2.254h-5.056zM0 16.712h5.056v2.256H0zM12.472 16.712h5.057v2.256h-5.057zM6.237 16.712h5.055v2.256H6.237zM12.472 13.168h5.057v2.254h-5.057zM6.237 13.168h5.055v2.254H6.237zM12.472 9.617h5.057v2.254h-5.057z"/></svg>
+          </div>
+          <div class="dsp-info">
+            <div class="name">Deezer</div>
+            <div class="action">Stream now</div>
+          </div>
+          <div class="dsp-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+        
+        <a href="https://soundcloud.com" target="_blank" rel="noopener" class="dsp-card reveal">
+          <div class="dsp-icon" style="background: rgba(255,85,85,0.08); color:#ff5500;">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.997 12.5c0-2.485-2.015-4.5-4.5-4.5-.3 0-.589.03-.868.084A4.003 4.003 0 0 0 12 6c-2.206 0-4 1.794-4 4v.5H5.5C3.015 10.5 1 12.515 1 15s2.015 4.5 4.5 4.5h16.497v-7z"/></svg>
+          </div>
+          <div class="dsp-info">
+            <div class="name">SoundCloud</div>
+            <div class="action">Listen now</div>
+          </div>
+          <div class="dsp-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <a href="https://tidal.com" target="_blank" rel="noopener" class="dsp-card reveal">
+          <div class="dsp-icon" style="background: linear-gradient(135deg,#0ca8ff,#7b61ff); color:#fff;">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h7v7H3V3zm11 0h7v7h-7V3zM3 14h7v7H3v-7zm11 0h7v7h-7v-7z"/></svg>
+          </div>
+          <div class="dsp-info">
+            <div class="name">TIDAL</div>
+            <div class="action">Stream high‑res</div>
+          </div>
+          <div class="dsp-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+
+        <a href="https://pandora.com" target="_blank" rel="noopener" class="dsp-card reveal">
+          <div class="dsp-icon" style="background: rgba(0,120,200,0.08); color:#0078c8;">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 6h3v12H4zM9 6h3v12H9zM14 6h3v12h-3zM19 6h1v12h-1z"/></svg>
+          </div>
+          <div class="dsp-info">
+            <div class="name">Pandora</div>
+            <div class="action">Listen now</div>
+          </div>
+          <div class="dsp-arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+      </div>
+
+      <div class="footer-faq reveal">
+        <div class="faq-card">
+          <h3 class="faq-header">FAQ XYtoZA</h3>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>Bagaimana prosedur booking konser XYtoZA?</summary>
+              <p>Kirim proposal acara lengkap ke <a href="mailto:booking@xytoza.live">booking@xytoza.live</a>. Tim kami akan merespons dalam 2–3 hari kerja.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Apakah XYtoZA menerima kolaborasi konten media?</summary>
+              <p>Ya, untuk konten media dan kerja sama kreatif silakan hubungi tim media kami di <a href="mailto:media@xytoza.live">media@xytoza.live</a>.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Dimana saya bisa membeli merchandise resmi?</summary>
+              <p>Merch resmi XYtoZA tersedia eksklusif di store resmi kami dan selama tur konser berlangsung.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Bolehkah saya gunakan lagu XYtoZA untuk video YouTube/TikTok?</summary>
+              <p>Penggunaan non-komersial diperbolehkan sesuai kebijakan platform. Untuk penggunaan komersial, ajukan izin resmi ke <a href="mailto:media@xytoza.live">media@xytoza.live</a>.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Bagaimana cara kirim demo musik atau karya?</summary>
+              <p>Kami terbuka untuk talenta baru. Kirimkan tautan demo (bukan lampiran besar) ke <a href="mailto:demo@xytoza.live">demo@xytoza.live</a>.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Bolehkah saya mengirim kado atau surat untuk XYtoZA?</summary>
+              <p>Kami menghargai dukungan Anda. Surat/kado kecil bisa diserahkan melalui tim operasional saat konser, tetapi hindari makanan basi dan barang pecah belah.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Kapan jadwal tur berikutnya akan dirilis?</summary>
+              <p>Jadwal tur terbaru akan diumumkan di Instagram resmi <a href="https://www.instagram.com/xytoza.official" target="_blank">@xytoza.official</a> dan label <a href="https://www.instagram.com/xytoza.label" target="_blank">@xytoza.label</a>.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 <span class="accent">XYtoZA</span>. Dari Generasi X & Y untuk Generasi Z & Alpha. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ JAVASCRIPT (inline) ============ -->
+  <script>
+    // Navbar scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 30) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    });
+
+    // Mobile menu toggle
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('overlay');
+
+    function toggleMenu() {
+      burger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      overlay.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+    burger.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', toggleMenu));
+
+    // Scroll reveal animation
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+
+    // Booking form (demo handler)
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      const original = btn.textContent;
+      btn.textContent = 'Terkirim ✓ Terima kasih!';
+      btn.style.background = '#1ed760';
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.style.background = '';
+        e.target.reset();
+      }, 2600);
+    }
+  </script>
+
+</body>
+</html>
