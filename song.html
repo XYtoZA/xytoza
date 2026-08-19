@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>30 Tracks Sound Of Drive — XYtoZA</title>
+  <meta name="description" content="Semua lagu XYtoZA. 30 Tracks Sound of Drive. Dengarkan SATU PAKET dari album OBROLAN CERMIN." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&family=Barlow:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0b;
+      --bg-2: #111114;
+      --bg-3: #16161a;
+      --surface: #1c1c20;
+      --line: rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.18);
+      --text: #f4f4f5;
+      --text-muted: #a1a1aa;
+      --text-dim: #71717a;
+      --accent: #ff6a00;
+      --accent-soft: rgba(255,106,0,0.12);
+      --accent-strong: #ff7f2a;
+      --shadow-amber: 0 20px 60px -20px rgba(255,106,0,0.35);
+      --radius: 14px;
+      --radius-lg: 22px;
+      --maxw: 1200px;
+      --ease: cubic-bezier(0.22,1,0.36,1);
+      --red: #d62828;
+      --purple: #7c3aed;
+      --electric: #06d6a0;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:130px}
+    body{font-family:'Inter','Barlow',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    h1,h2,h3,.display{font-family:'Bebas Neue','Barlow',sans-serif;font-weight:400;letter-spacing:0.02em;line-height:0.95;text-transform:uppercase}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    button{font-family:inherit;cursor:pointer;border:none;background:none}
+    .container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 24px}
+    .accent{color:var(--accent)}
+    .eyebrow{font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--accent);display:inline-flex;align-items:center;gap:10px}
+    .eyebrow::before{content:'';width:28px;height:1px;background:var(--accent);display:inline-block}
+
+    /* ═══ NAVBAR ═══ */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;transition:all 0.4s var(--ease);background:rgba(10,10,11,0);backdrop-filter:blur(0)}
+    .nav.scrolled{background:rgba(10,10,11,0.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:12px 0}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between}
+    .logo{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0;color:var(--text);display:flex;align-items:baseline;gap:0}
+    .logo .xy,
+    .logo .za{color:var(--text)}
+    .logo .to{color:var(--accent);font-size:0.9em;line-height:1;letter-spacing:0;margin:0;text-transform:uppercase;display:inline-block;transform:translateY(1px)}
+    .logo .dot{color:var(--accent)}
+    .nav-links{display:flex;align-items:center;gap:36px;list-style:none}
+    .nav-links a{font-family:'Barlow',sans-serif;font-size:14px;font-weight:500;color:var(--text-muted);letter-spacing:0.04em;text-transform:uppercase;position:relative;transition:color 0.3s var(--ease)}
+    .nav-links a::after{content:'';position:absolute;bottom:-6px;left:0;width:0;height:1px;background:var(--accent);transition:width 0.3s var(--ease)}
+    .nav-links a:hover{color:var(--text)}
+    .nav-links a:hover::after{width:100%}
+    .nav-links a.active{color:var(--accent)}
+    .nav-links a.active::after{width:100%}
+    .nav-cta{padding:10px 22px;background:var(--accent);color:#0a0a0b;font-family:'Barlow',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;border-radius:999px;transition:all 0.3s var(--ease)}
+    .nav-cta:hover{background:var(--accent-strong);transform:translateY(-2px);box-shadow:var(--shadow-amber)}
+    .burger{display:none;flex-direction:column;gap:5px;padding:8px;cursor:pointer}
+    .burger span{width:24px;height:2px;background:var(--text);transition:all 0.3s var(--ease)}
+    .burger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .burger.active span:nth-child(2){opacity:0}
+    .burger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .mobile-menu{position:fixed;top:0;right:-100%;width:80%;max-width:360px;height:100vh;background:var(--bg-2);border-left:1px solid var(--line);z-index:99;padding:100px 32px 32px;transition:right 0.4s var(--ease);display:flex;flex-direction:column;gap:8px}
+    .mobile-menu.active{right:0}
+    .mobile-menu a{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:0.06em;color:var(--text);padding:14px 0;border-bottom:1px solid var(--line);transition:color 0.3s var(--ease)}
+    .mobile-menu a:hover{color:var(--accent);padding-left:8px}
+    .mobile-menu .nav-cta{margin-top:24px;align-self:flex-start}
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);z-index:98;opacity:0;visibility:hidden;transition:all 0.4s var(--ease)}
+    .overlay.active{opacity:1;visibility:visible}
+
+    /* ═══ PAGE HERO ═══ */
+    .page-hero{position:relative;min-height:42vh;display:flex;align-items:flex-end;padding:140px 0 60px;overflow:hidden;margin-top:0}
+    .page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 80% at 50% 0%,rgba(255,106,0,0.12) 0%,transparent 65%),linear-gradient(180deg,var(--bg-2) 0%,var(--bg) 100%);z-index:0}
+    .page-hero::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,106,0,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,106,0,0.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black,transparent 80%);z-index:0}
+    .page-hero-inner{position:relative;z-index:2;width:100%}
+    .page-hero .eyebrow{margin-bottom:20px}
+    .page-hero h1{font-size:clamp(48px,9vw,110px);line-height:0.88;margin-bottom:16px}
+    .page-hero h1 span{color:var(--accent)}
+    .page-hero-sub{font-size:clamp(15px,1.5vw,18px);color:var(--text-muted);max-width:560px;line-height:1.6}
+    .page-hero-sub strong{color:var(--text);font-weight:600}
+    .hero-stat-row{display:flex;gap:40px;margin-top:28px}
+    .hero-stat{display:flex;flex-direction:column}
+    .hero-stat-num{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:var(--accent);line-height:1}
+    .hero-stat-label{font-size:11px;letter-spacing:0.25em;text-transform:uppercase;color:var(--text-dim);margin-top:4px}
+
+    /* ═══ MARQUEE ═══ */
+    #marquee{background:var(--accent);padding:12px 0;overflow:hidden;white-space:nowrap}
+    .marquee-track{display:inline-flex;gap:50px;animation:marqueeScroll 22s linear infinite}
+    .marquee-item{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.18em;color:var(--bg);display:inline-flex;align-items:center;gap:16px}
+    .marquee-dot{width:5px;height:5px;background:var(--bg);border-radius:50%}
+    @keyframes marqueeScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+    /* ═══ TABS BAR ═══ */
+    .tabs-bar{position:sticky;top:68px;z-index:80;background:var(--bg-2);border-bottom:1px solid var(--line);display:flex;align-items:center;overflow-x:auto;-webkit-overflow-scrolling:touch}
+    .tabs-bar::-webkit-scrollbar{height:0}
+    .tab-btn{flex-shrink:0;font-family:'Bebas Neue',sans-serif;font-size:0.95rem;letter-spacing:0.1em;padding:18px 28px;border:none;background:transparent;color:var(--text-dim);cursor:pointer;border-bottom:3px solid transparent;transition:color 0.2s,border-color 0.2s;white-space:nowrap}
+    .tab-btn:hover{color:var(--text-muted)}
+    .tab-btn.active{color:var(--accent);border-bottom-color:var(--accent)}
+    .tab-count{font-size:0.65rem;letter-spacing:0.2em;margin-left:6px;opacity:0.5}
+
+    /* ═══ MAIN ═══ */
+    #main{max-width:var(--maxw);margin:0 auto;padding:60px 24px 120px}
+
+    /* ═══ ALBUM BLOCK ═══ */
+    .album-block{margin-bottom:80px;scroll-margin-top:140px}
+    .album-header{display:flex;align-items:flex-end;gap:24px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+    .album-num{font-family:'Bebas Neue',sans-serif;font-size:4.5rem;color:rgba(255,106,0,0.12);line-height:1;flex-shrink:0}
+    .album-meta{flex:1}
+    .album-label{font-size:0.68rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--electric);margin-bottom:4px;font-family:'Barlow',sans-serif;font-weight:600}
+    .album-title{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:0.05em;line-height:1}
+    .album-title.a1{color:var(--accent)}
+    .album-title.a2{color:var(--red)}
+    .album-title.a3{color:var(--purple)}
+    .album-desc{font-size:14px;color:var(--text-muted);margin-top:6px;line-height:1.6}
+
+    /* ═══ SONG ROW ═══ */
+    .songs-list{display:flex;flex-direction:column;gap:4px}
+    .song-row{position:relative;background:var(--surface);border:1px solid rgba(255,255,255,0.04);border-radius:6px;transition:background 0.25s,border-color 0.25s;overflow:hidden}
+    .song-row:hover{background:#22222a;border-color:rgba(255,106,0,0.15)}
+    .song-row.released{border-color:rgba(255,106,0,0.2)}
+    .song-row.released:hover{border-color:rgba(255,106,0,0.4)}
+    .song-row.coming-soon{opacity:0.45}
+    .song-row.coming-soon:hover{opacity:0.6}
+
+    .song-main{display:grid;grid-template-columns:52px 64px 1fr auto;align-items:center;gap:0;cursor:pointer;padding:0}
+
+    .song-num{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:rgba(255,106,0,0.25);text-align:center;padding:16px 12px;min-width:52px;line-height:1;transition:color 0.2s}
+    .song-row:hover .song-num{color:var(--accent)}
+    .song-row.released .song-num{color:var(--accent)}
+
+    .song-photo{width:64px;height:64px;position:relative;overflow:hidden;flex-shrink:0;background:var(--bg-3)}
+    .song-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s var(--ease)}
+    .song-row:hover .song-photo img{transform:scale(1.08)}
+    .song-photo-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--surface),var(--bg-3))}
+    .song-photo-ph svg{width:22px;height:22px;color:rgba(255,106,0,0.15)}
+
+    .song-info{padding:14px 16px;border-left:1px solid rgba(255,255,255,0.04);min-width:0}
+    .song-title{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:0.04em;line-height:1.1;margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .song-row.released .song-title{color:var(--accent)}
+    .song-row.coming-soon .song-title{color:var(--text-dim)}
+    .song-tags{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+    .song-tag{font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;padding:2px 8px;border:1px solid rgba(139,149,168,0.2);color:var(--text-dim);border-radius:3px;font-family:'Barlow',sans-serif;font-weight:600}
+    .song-tag.released-tag{border-color:rgba(255,106,0,0.4);color:var(--accent)}
+    .song-tag.cs-tag{border-color:rgba(255,255,255,0.06);color:var(--text-dim);font-style:italic}
+
+    .song-actions{display:flex;align-items:center;gap:0;padding:0 14px;flex-shrink:0}
+    .lyric-btn{display:flex;align-items:center;gap:5px;font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim);background:none;border:1px solid rgba(255,255,255,0.08);padding:6px 10px;cursor:pointer;transition:color 0.2s,border-color 0.2s;font-family:'Barlow',sans-serif;font-weight:600;margin-right:8px;border-radius:4px}
+    .lyric-btn:hover{color:var(--electric);border-color:var(--electric)}
+    .lyric-btn.open{color:var(--electric);border-color:var(--electric);background:rgba(6,214,160,0.06)}
+    .lyric-btn svg{width:11px;height:11px;transition:transform 0.2s}
+    .lyric-btn.open svg{transform:rotate(180deg)}
+    .play-main{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;border:2px solid rgba(255,106,0,0.3);background:transparent;cursor:pointer;flex-shrink:0;transition:border-color 0.2s,background 0.2s}
+    .play-main:hover{border-color:var(--accent);background:var(--accent-soft)}
+    .play-main svg{width:13px;height:13px;fill:var(--accent);margin-left:2px}
+    .song-row.coming-soon .play-main{border-color:rgba(255,255,255,0.06);cursor:default}
+    .song-row.coming-soon .play-main svg{fill:var(--text-dim);opacity:0.3}
+
+    /* ═══ PLATFORM PANEL ═══ */
+    .platform-panel{display:none;padding:16px 20px 16px 130px;background:rgba(13,17,23,0.9);border-top:1px solid rgba(255,255,255,0.04)}
+    .platform-panel.show{display:block;animation:slideDown 0.25s ease}
+    .platform-panel-inner{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .platform-label{font-size:0.62rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--text-dim);margin-right:4px;flex-shrink:0;font-family:'Barlow',sans-serif;font-weight:600}
+    .plat-btn{display:inline-flex;align-items:center;gap:6px;font-family:'Barlow',sans-serif;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;padding:8px 14px;border-radius:4px;font-weight:700;transition:opacity 0.2s,transform 0.15s;cursor:pointer;border:none}
+    .plat-btn:hover{opacity:0.85;transform:translateY(-1px)}
+    .plat-btn svg{width:14px;height:14px;flex-shrink:0}
+    .plat-spotify{background:#1DB954;color:#000}
+    .plat-yt{background:#FF0000;color:#fff}
+    .plat-ytmusic{background:#FF0000;color:#fff}
+    .plat-apple{background:#fc3c44;color:#fff}
+    .plat-tidal{background:#000;color:#fff;border:1px solid rgba(255,255,255,0.2)}
+    .plat-deezer{background:#ef5466;color:#fff}
+    .plat-amazon{background:#232F3E;color:#ff9900}
+    .plat-joox{background:#00b388;color:#fff}
+
+    /* ═══ LYRICS PANEL ═══ */
+    .lyrics-panel{display:none;padding:24px 24px 24px 130px;background:rgba(10,12,18,0.95);border-top:1px solid rgba(6,214,160,0.1)}
+    .lyrics-panel.show{display:block;animation:slideDown 0.25s ease}
+    .lyrics-inner{max-width:600px}
+    .lyrics-title{font-family:'Bebas Neue',sans-serif;font-size:0.9rem;letter-spacing:0.2em;color:var(--electric);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+    .lyrics-title::after{content:'';flex:1;height:1px;background:rgba(6,214,160,0.15)}
+    .lyrics-body{font-family:'Barlow',sans-serif;font-size:0.92rem;color:rgba(244,244,245,0.7);line-height:2.1;white-space:pre-line}
+
+    @keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+
+    /* ═══ ALL PLATFORMS ═══ */
+    .all-platforms{background:var(--bg-2);padding:60px 24px;border-top:1px solid var(--line)}
+    .all-platforms-inner{max-width:var(--maxw);margin:0 auto}
+    .all-platforms h3{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.08em;margin-bottom:8px}
+    .all-platforms p{font-size:14px;color:var(--text-muted);margin-bottom:28px}
+    .all-plat-grid{display:flex;gap:10px;flex-wrap:wrap}
+
+    /* ═══ FOOTER ═══ */
+    footer{background:var(--bg-2);border-top:1px solid var(--line);padding:60px 0 30px}
+    .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid var(--line)}
+    .footer-brand .logo{font-size:36px;margin-bottom:14px}
+    .footer-brand p{color:var(--text-muted);font-size:14px;max-width:320px;margin-bottom:20px}
+    .footer-social{display:flex;gap:12px}
+    .footer-social a{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--text-muted);transition:all 0.3s var(--ease)}
+    .footer-social a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
+    .footer-social svg{width:16px;height:16px}
+    .footer-col h4{font-family:'Barlow',sans-serif;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;font-weight:600}
+    .footer-col ul{list-style:none}
+    .footer-col li{margin-bottom:10px}
+    .footer-col a{color:var(--text-muted);font-size:14px;transition:color 0.3s var(--ease)}
+    .footer-col a:hover{color:var(--text)}
+    .footer-bottom{display:flex;justify-content:center;align-items:center;padding:24px 28px;flex-wrap:wrap;gap:12px;background:#040404;border-radius:18px;margin-top:26px;text-align:center}
+    .footer-bottom p{font-family:'Inter',sans-serif;font-size:14px;color:var(--text);line-height:1.5;letter-spacing:0.02em;margin:0}
+    .footer-bottom .accent{color:var(--accent)}
+
+    /* ═══ REVEAL ═══ */
+    .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s var(--ease),transform 0.7s var(--ease)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* ═══ RESPONSIVE ═══ */
+    @media(max-width:960px){
+      .song-main{grid-template-columns:44px 56px 1fr auto}
+      .song-photo{width:56px;height:56px}
+      .platform-panel,.lyrics-panel{padding-left:100px}
+      .footer-top{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:720px){
+      .nav-links{display:none}.nav-cta{display:none}.burger{display:flex}
+      .page-hero{min-height:38vh;padding:120px 0 48px}
+      .hero-stat-row{gap:24px}
+      .song-main{grid-template-columns:40px 48px 1fr}
+      .song-photo{width:48px;height:48px}
+      .song-actions{display:none}
+      .platform-panel,.lyrics-panel{padding-left:16px}
+      .album-num{font-size:3rem}
+      .footer-top{grid-template-columns:1fr;gap:32px}
+      .footer-bottom{flex-direction:column;text-align:center}
+    }
+    @media(max-width:480px){
+      .song-main{grid-template-columns:32px 40px 1fr}
+      .song-photo{width:40px;height:40px}
+      .song-num{font-size:1.1rem;padding:12px 8px;min-width:32px}
+      .song-info{padding:10px 12px}
+      .song-title{font-size:1rem}
+      .platform-panel,.lyrics-panel{padding-left:12px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="index.html#home" class="logo"><span class="xy">XY</span><span class="to">TO</span><span class="za">ZA</span><span class="dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="song.html" class="active">Music</a></li>
+        <li><a href="index.html#dsp">Listen</a></li>
+        <li><a href="index.html#tour">Tour</a></li>
+        <li><a href="artikel/rilis_lagu_satu_paket.html">Artikel</a></li>
+        <li><a href="ourstory.html">Our Story</a></li>
+      </ul>
+      <a href="index.html#contact" class="nav-cta">Contact</a>
+      <div class="burger" id="burger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="mobile-menu" id="mobileMenu">
+    <a href="index.html#about">About</a>
+    <a href="song.html">Music</a>
+    <a href="index.html#dsp">Listen</a>
+    <a href="index.html#tour">Tour</a>
+    <a href="artikel/rilis_lagu_satu_paket.html">Artikel</a>
+    <a href="ourstory.html">Our Story</a>
+    <a href="index.html#contact" class="nav-cta">Contact</a>
+  </aside>
+
+  <!-- ═══ PAGE HERO ═══ -->
+  <header class="page-hero">
+    <div class="container page-hero-inner">
+      <span class="eyebrow reveal">The Survivors' Playlist</span>
+      <h1 class="reveal"><span>30</span> TRACKS<br/>SOUND OF DRIVE</h1>
+      <p class="page-hero-sub reveal">3 Album · 30 lagu yang lahir dari <strong>pengalaman, luka, dan kemenangan</strong> hidup. Setiap track adalah surat untuk generasi setelah kami.</p>
+      <div class="hero-stat-row reveal">
+        <div class="hero-stat"><span class="hero-stat-num">3</span><span class="hero-stat-label">Album</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">30</span><span class="hero-stat-label">Lagu</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">8+</span><span class="hero-stat-label">Platform</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MARQUEE -->
+  <div id="marquee">
+    <div class="container">
+      <div class="marquee-track">
+        <span class="marquee-item">Drive Forward <span class="marquee-dot"></span></span>
+        <span class="marquee-item">Sound of Drive <span class="marquee-dot"></span></span>
+        <span class="marquee-item">From Gen X &amp; Y <span class="marquee-dot"></span></span>
+        <span class="marquee-item">To Gen Z &amp; Alpha <span class="marquee-dot"></span></span>
+        <span class="marquee-item">30 Tracks: The Survivors' Playlist <span class="marquee-dot"></span></span>
+        <span class="marquee-item">Just Listen And Get Inspired <span class="marquee-dot"></span></span>
+        <span class="marquee-item">Drive Forward <span class="marquee-dot"></span></span>
+        <span class="marquee-item">Sound of Drive <span class="marquee-dot"></span></span>
+        <span class="marquee-item">From Gen X &amp; Y <span class="marquee-dot"></span></span>
+        <span class="marquee-item">To Gen Z &amp; Alpha <span class="marquee-dot"></span></span>
+        <span class="marquee-item">30 Tracks: The Survivors' Playlist <span class="marquee-dot"></span></span>
+        <span class="marquee-item">Just Listen And Get Inspired <span class="marquee-dot"></span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ TABS ═══ -->
+  <div class="tabs-bar" id="tabsBar">
+    <button class="tab-btn active" onclick="scrollToAlbum('album1',this)">Album #1 · Obrolan Cermin <span class="tab-count">01–10</span></button>
+    <button class="tab-btn" onclick="scrollToAlbum('album2',this)">Album #2 · Coming Soon <span class="tab-count">11–20</span></button>
+    <button class="tab-btn" onclick="scrollToAlbum('album3',this)">Album #3 · Coming Soon <span class="tab-count">21–30</span></button>
+  </div>
+
+  <!-- ═══ MAIN ═══ -->
+  <div id="main">
+
+    <!-- ─── ALBUM 1 ─── -->
+    <div class="album-block reveal" id="album1">
+      <div class="album-header">
+        <div class="album-num">01</div>
+        <div class="album-meta">
+          <div class="album-label">Album Pertama · Sound of Drive</div>
+          <div class="album-title a1">OBROLAN CERMIN</div>
+          <div class="album-desc">10 lagu tentang keberanian memulai, melewati batas diri, dan bangkit dari keterpurukan.</div>
+        </div>
+      </div>
+      <div class="songs-list" id="list-album1"></div>
+    </div>
+
+    <!-- ─── ALBUM 2 ─── -->
+    <div class="album-block reveal" id="album2">
+      <div class="album-header">
+        <div class="album-num">02</div>
+        <div class="album-meta">
+          <div class="album-label">Album Kedua · Sound of Drive</div>
+          <div class="album-title a2">Coming Soon</div>
+          <div class="album-desc">10 lagu tentang ketangguhan, menemukan makna dalam kesulitan, dan tetap berdiri saat badai melanda.</div>
+        </div>
+      </div>
+      <div class="songs-list" id="list-album2"></div>
+    </div>
+
+    <!-- ─── ALBUM 3 ─── -->
+    <div class="album-block reveal" id="album3">
+      <div class="album-header">
+        <div class="album-num">03</div>
+        <div class="album-meta">
+          <div class="album-label">Album Ketiga · Sound of Drive</div>
+          <div class="album-title a3">Coming Soon</div>
+          <div class="album-desc">10 lagu tentang kemenangan sejati, perayaan proses, dan warisan semangat lintas generasi.</div>
+        </div>
+      </div>
+      <div class="songs-list" id="list-album3"></div>
+    </div>
+
+  </div>
+
+  <!-- ═══ ALL PLATFORMS ═══ -->
+  <section class="all-platforms">
+    <div class="all-platforms-inner">
+      <span class="eyebrow" style="margin-bottom:12px">Tersedia Di</span>
+      <h3>SEMUA PLATFORM MUSIK DIGITAL</h3>
+      <p>Sound of Drive tersedia di seluruh platform streaming dan download musik resmi.</p>
+      <div class="all-plat-grid">
+        <a href="#" class="plat-btn plat-spotify" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>Spotify</a>
+        <a href="#" class="plat-btn plat-yt" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>YouTube</a>
+        <a href="#" class="plat-btn plat-apple" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.54 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>Apple Music</a>
+        <a href="#" class="plat-btn plat-ytmusic" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm0 19.104c-3.924 0-7.104-3.18-7.104-7.104S8.076 4.896 12 4.896s7.104 3.18 7.104 7.104-3.18 7.104-7.104 7.104zm0-13.332c-3.432 0-6.228 2.796-6.228 6.228S8.568 18.228 12 18.228s6.228-2.796 6.228-6.228S15.432 5.772 12 5.772zM9.684 15.54V8.46L16.2 12l-6.516 3.54z"/></svg>YT Music</a>
+        <a href="#" class="plat-btn plat-deezer" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.944 16.712H24v2.256h-5.056zM18.944 13.168H24v2.254h-5.056zM18.944 9.617H24v2.254h-5.056zM0 16.712h5.056v2.256H0zM12.472 16.712h5.057v2.256h-5.057zM6.237 16.712h5.055v2.256H6.237zM12.472 13.168h5.057v2.254h-5.057zM6.237 13.168h5.055v2.254H6.237zM12.472 9.617h5.057v2.254h-5.057z"/></svg>Deezer</a>
+        <a href="#" class="plat-btn plat-tidal" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.012 3.992L8.008 7.996 4.004 3.992 0 7.996l4.004 4.004 4.004-4.004 4.004 4.004 4.004-4.004-4.004-4.008z"/></svg>Tidal</a>
+        <a href="#" class="plat-btn plat-amazon" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.685zm3.186 7.705c-.209.189-.512.201-.745.076-1.051-.872-1.238-1.276-1.814-2.106-1.735 1.769-2.962 2.299-5.209 2.299-2.66 0-4.731-1.642-4.731-4.925 0-2.565 1.391-4.309 3.37-5.164 1.715-.754 4.11-.891 5.942-1.098v-.41c0-.753.06-1.642-.383-2.294-.385-.579-1.124-.82-1.775-.82-1.205 0-2.277.618-2.54 1.897-.054.285-.261.567-.549.582l-3.076-.333c-.259-.056-.548-.266-.472-.66C5.765 2.012 8.391.571 10.733.069c1.188-.258 2.741-.258 3.928.002 2.54.517 4.018 2.084 4.018 5.024v6.799c0 2.048.85 2.949 1.648 4.057.281.394.344.867-.017 1.162-.893.745-2.485 2.128-3.361 2.905l-.005-.323z"/></svg>Amazon Music</a>
+        <a href="#" class="plat-btn plat-joox" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>JOOX</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo"><span class="xy">XY</span><span class="to">TO</span><span class="za">ZA</span><span class="dot">.</span></div>
+          <p>Dari Generasi X & Y untuk Generasi Z & Alpha. Karena api semangat harus terus diestafetkan.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+            <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
+            <a href="#" aria-label="Spotify"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Home</a></li><li><a href="our-story.html">Our Story</a></li><li><a href="music.html">Music</a></li><li><a href="index.html#tour">Tour</a></li></ul></div>
+        <div class="footer-col"><h4>Listen On</h4><ul><li><a href="#">Spotify</a></li><li><a href="#">Apple Music</a></li><li><a href="#">YouTube Music</a></li><li><a href="#">Deezer</a></li></ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul><li><a href="index.html#contact">Booking</a></li><li><a href="#">Management</a></li><li><a href="#">Press Kit</a></li><li><a href="#">Merchandise</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><p>© 2026 <span class="accent">XYtoZA</span>. Dari Generasi X & Y untuk Generasi Z & Alpha. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <!-- ═══ JAVASCRIPT ═══ -->
+  <script>
+  // ═══════════════════════════════════════════════════════════
+  // SONG DATA — 30 lagu, hanya SATU PAKET (num 01) yang released
+  // ═══════════════════════════════════════════════════════════
+  const SONGS = [
+    // ── ALBUM 1: OBROLAN CERMIN (01–10) ──
+    {num:1,album:'album1',title:'SATU PAKET',tags:['Rock Alternative','Album 1'],released:true,
+     photo:'https://ik.imagekit.io/5bnhlcghq/ChatGPT%20Image%20Aug%2012,%202026,%2006_30_10%20PM.png',
+     platforms:{spotify:'#',youtube:'#',apple:'#',ytmusic:'#',deezer:'#',tidal:'#',amazon:'#',joox:'#'},
+     lyrics:`Hidup ini satu paket tak bisa ditawar\nAda senang ada sedih, menangis dan tertawa\nHidup ini satu paket tak bisa ditawar\nSiang malam hujan panas\nDatang pergi jatuh bangkit\n\nHidup ini mudah tapi juga susah\nHidup menyenangkan kadang menyedihkan\nHidup mengasyikan juga membosankan\nHidup ini indah juga melelahkan\n\nJika nanti bahagia rendah hati tak sombong\nBila nanti bersedih tetap sabar dan tabah\nBila nanti terjadi… Bergumulah…`},
+    {num:2,album:'album1',title:'Coming Soon',tags:['Rock Alternative','Album 1'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:3,album:'album1',title:'Coming Soon',tags:['Rock Alternative','Album 1'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:4,album:'album1',title:'Coming Soon',tags:['Rock Alternative','Album 1'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:5,album:'album1',title:'Coming Soon',tags:['Rock Alternative','Album 1'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:6,album:'album1',title:'Coming Soon',tags:['Rock Alternative','Album 1'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:7,album:'album1',title:'Coming Soon',tags:['Rock Alternative','Album 1'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:8,album:'album1',title:'Coming Soon',tags:['Rock Alternative','Album 1'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:9,album:'album1',title:'Coming Soon',tags:['Rock Alternative','Album 1'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:10,album:'album1',title:'Coming Soon',tags:['Rock Alternative','Album 1'],released:false,photo:'',platforms:{},lyrics:''},
+
+    // ── ALBUM 2: Coming Soon (11–20) ──
+    {num:11,album:'album2',title:'Coming Soon',tags:['Rock Alternative','Album 2'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:12,album:'album2',title:'Coming Soon',tags:['Rock Alternative','Album 2'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:13,album:'album2',title:'Coming Soon',tags:['Rock Alternative','Album 2'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:14,album:'album2',title:'Coming Soon',tags:['Rock Alternative','Album 2'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:15,album:'album2',title:'Coming Soon',tags:['Rock Alternative','Album 2'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:16,album:'album2',title:'Coming Soon',tags:['Rock Alternative','Album 2'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:17,album:'album2',title:'Coming Soon',tags:['Rock Alternative','Album 2'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:18,album:'album2',title:'Coming Soon',tags:['Rock Alternative','Album 2'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:19,album:'album2',title:'Coming Soon',tags:['Rock Alternative','Album 2'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:20,album:'album2',title:'Coming Soon',tags:['Rock Alternative','Album 2'],released:false,photo:'',platforms:{},lyrics:''},
+
+    // ── ALBUM 3: Coming Soon (21–30) ──
+    {num:21,album:'album3',title:'Coming Soon',tags:['Rock Alternative','Album 3'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:22,album:'album3',title:'Coming Soon',tags:['Rock Alternative','Album 3'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:23,album:'album3',title:'Coming Soon',tags:['Rock Alternative','Album 3'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:24,album:'album3',title:'Coming Soon',tags:['Rock Alternative','Album 3'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:25,album:'album3',title:'Coming Soon',tags:['Rock Alternative','Album 3'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:26,album:'album3',title:'Coming Soon',tags:['Rock Alternative','Album 3'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:27,album:'album3',title:'Coming Soon',tags:['Rock Alternative','Album 3'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:28,album:'album3',title:'Coming Soon',tags:['Rock Alternative','Album 3'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:29,album:'album3',title:'Coming Soon',tags:['Rock Alternative','Album 3'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:30,album:'album3',title:'Coming Soon',tags:['Rock Alternative','Album 3'],released:false,photo:'',platforms:{},lyrics:''},
+  ];
+
+  // ═══════════════════════════════════════════════════════════
+  // SVG ICONS
+  // ═══════════════════════════════════════════════════════════
+  const MUSIC_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>';
+  const PLAY_ICON = '<svg viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>';
+  const CHEVRON_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>';
+
+  // DSP SVGs
+  const DSP_SVGS = {
+    spotify:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>',
+    youtube:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>',
+    apple:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.54 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>',
+    ytmusic:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm0 19.104c-3.924 0-7.104-3.18-7.104-7.104S8.076 4.896 12 4.896s7.104 3.18 7.104 7.104-3.18 7.104-7.104 7.104zm0-13.332c-3.432 0-6.228 2.796-6.228 6.228S8.568 18.228 12 18.228s6.228-2.796 6.228-6.228S15.432 5.772 12 5.772zM9.684 15.54V8.46L16.2 12l-6.516 3.54z"/></svg>',
+    deezer:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.944 16.712H24v2.256h-5.056zM18.944 13.168H24v2.254h-5.056zM18.944 9.617H24v2.254h-5.056zM0 16.712h5.056v2.256H0zM12.472 16.712h5.057v2.256h-5.057zM6.237 16.712h5.055v2.256H6.237zM12.472 13.168h5.057v2.254h-5.057zM6.237 13.168h5.055v2.254H6.237z"/></svg>',
+    tidal:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.012 3.992L8.008 7.996 4.004 3.992 0 7.996l4.004 4.004 4.004-4.004 4.004 4.004 4.004-4.004-4.004-4.008z"/></svg>',
+    amazon:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.685zm3.186 7.705c-.209.189-.512.201-.745.076-1.051-.872-1.238-1.276-1.814-2.106-1.735 1.769-2.962 2.299-5.209 2.299-2.66 0-4.731-1.642-4.731-4.925 0-2.565 1.391-4.309 3.37-5.164 1.715-.754 4.11-.891 5.942-1.098v-.41c0-.753.06-1.642-.383-2.294-.385-.579-1.124-.82-1.775-.82-1.205 0-2.277.618-2.54 1.897-.054.285-.261.567-.549.582l-3.076-.333c-.259-.056-.548-.266-.472-.66C5.765 2.012 8.391.571 10.733.069c1.188-.258 2.741-.258 3.928.002 2.54.517 4.018 2.084 4.018 5.024v6.799c0 2.048.85 2.949 1.648 4.057.281.394.344.867-.017 1.162-.893.745-2.485 2.128-3.361 2.905l-.005-.323z"/></svg>',
+    joox:'<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>'
+  };
+
+  const DSP_CLASSES = {
+    spotify:'plat-spotify',youtube:'plat-yt',apple:'plat-apple',ytmusic:'plat-ytmusic',
+    deezer:'plat-deezer',tidal:'plat-tidal',amazon:'plat-amazon',joox:'plat-joox'
+  };
+  const DSP_NAMES = {
+    spotify:'Spotify',youtube:'YouTube',apple:'Apple Music',ytmusic:'YT Music',
+    deezer:'Deezer',tidal:'Tidal',amazon:'Amazon Music',joox:'JOOX'
+  };
+
+  // ═══════════════════════════════════════════════════════════
+  // RENDER SONGS
+  // ═══════════════════════════════════════════════════════════
+  function renderSongs() {
+    ['album1','album2','album3'].forEach(albumId => {
+      const list = document.getElementById('list-' + albumId);
+      if (!list) return;
+      const albumSongs = SONGS.filter(s => s.album === albumId);
+      list.innerHTML = albumSongs.map(song => buildSongRow(song)).join('');
+    });
+  }
+
+  function buildSongRow(song) {
+    const isReleased = song.released;
+    const rowClass = isReleased ? 'released' : 'coming-soon';
+    const numStr = String(song.num).padStart(2,'0');
+
+    // Photo
+    const photoHTML = song.photo
+      ? `<img src="${song.photo}" alt="${song.title}" />`
+      : `<div class="song-photo-ph">${MUSIC_ICON}</div>`;
+
+    // Tags
+    const tagHTML = isReleased
+      ? song.tags.map(t => `<span class="song-tag released-tag">${t}</span>`).join('') + '<span class="song-tag released-tag">Released</span>'
+      : song.tags.map(t => `<span class="song-tag cs-tag">${t}</span>`).join('') + '<span class="song-tag cs-tag">Coming Soon</span>';
+
+    // Platform panel (only for released)
+    let platformHTML = '';
+    if (isReleased && song.platforms) {
+      const btns = Object.entries(song.platforms).map(([key, url]) => {
+        if (!DSP_SVGS[key]) return '';
+        return `<a href="${url}" class="plat-btn ${DSP_CLASSES[key]}" target="_blank" rel="noopener">${DSP_SVGS[key]}${DSP_NAMES[key]}</a>`;
+      }).join('');
+      platformHTML = `<div class="platform-panel" id="plat-${song.num}"><div class="platform-panel-inner"><span class="platform-label">Dengarkan di</span>${btns}</div></div>`;
+    }
+
+    // Lyrics panel (only for released with lyrics)
+    let lyricsHTML = '';
+    if (isReleased && song.lyrics) {
+      lyricsHTML = `<div class="lyrics-panel" id="lyric-${song.num}"><div class="lyrics-inner"><div class="lyrics-title">Lirik — ${song.title}</div><div class="lyrics-body">${song.lyrics}</div></div></div>`;
+    }
+
+    // Actions
+    const lyricBtnHTML = isReleased && song.lyrics
+      ? `<button class="lyric-btn" onclick="toggleLyric(${song.num},this)" aria-label="Lirik">LIRIK ${CHEVRON_ICON}</button>`
+      : '';
+    const playBtnHTML = isReleased
+      ? `<button class="play-main" onclick="togglePlatform(${song.num})" aria-label="Play">${PLAY_ICON}</button>`
+      : `<button class="play-main" aria-label="Coming Soon" style="cursor:default">${PLAY_ICON}</button>`;
+
+    return `
+      <div class="song-row ${rowClass}" data-num="${song.num}">
+        <div class="song-main">
+          <div class="song-num">${numStr}</div>
+          <div class="song-photo">${photoHTML}</div>
+          <div class="song-info">
+            <div class="song-title">${song.title}</div>
+            <div class="song-tags">${tagHTML}</div>
+          </div>
+          <div class="song-actions">
+            ${lyricBtnHTML}
+            ${playBtnHTML}
+          </div>
+        </div>
+        ${platformHTML}
+        ${lyricsHTML}
+      </div>`;
+  }
+
+  // ═══════════════════════════════════════════════════════════
+  // TOGGLE PANELS
+  // ═══════════════════════════════════════════════════════════
+  function togglePlatform(num) {
+    const panel = document.getElementById('plat-' + num);
+    if (!panel) return;
+    // Close all other panels
+    document.querySelectorAll('.platform-panel.show').forEach(p => { if (p.id !== 'plat-' + num) p.classList.remove('show'); });
+    document.querySelectorAll('.lyrics-panel.show').forEach(p => p.classList.remove('show'));
+    document.querySelectorAll('.lyric-btn.open').forEach(b => b.classList.remove('open'));
+    panel.classList.toggle('show');
+  }
+
+  function toggleLyric(num, btn) {
+    const panel = document.getElementById('lyric-' + num);
+    if (!panel) return;
+    // Close all platform panels
+    document.querySelectorAll('.platform-panel.show').forEach(p => p.classList.remove('show'));
+    btn.classList.toggle('open');
+    panel.classList.toggle('show');
+  }
+
+  // ═══════════════════════════════════════════════════════════
+  // TABS SCROLL
+  // ═══════════════════════════════════════════════════════════
+  function scrollToAlbum(id, btn) {
+    document.getElementById(id).scrollIntoView({behavior:'smooth'});
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  }
+
+  // ═══════════════════════════════════════════════════════════
+  // NAVBAR
+  // ═══════════════════════════════════════════════════════════
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('overlay');
+  function toggleMenu() {
+    burger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    overlay.classList.toggle('active');
+    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+  }
+  burger.addEventListener('click', toggleMenu);
+  overlay.addEventListener('click', toggleMenu);
+  mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => { if (mobileMenu.classList.contains('active')) toggleMenu(); }));
+
+  // ═══════════════════════════════════════════════════════════
+  // REVEAL
+  // ═══════════════════════════════════════════════════════════
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
+  revealEls.forEach(el => revealObs.observe(el));
+
+  // ═══════════════════════════════════════════════════════════
+  // TAB HIGHLIGHT ON SCROLL
+  // ═══════════════════════════════════════════════════════════
+  const albumBlocks = document.querySelectorAll('.album-block');
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        tabBtns.forEach((btn, i) => {
+          const ids = ['album1','album2','album3'];
+          btn.classList.toggle('active', ids[i] === id);
+        });
+      }
+    });
+  }, {threshold:0.3, rootMargin:'-140px 0px -50% 0px'});
+  albumBlocks.forEach(b => tabObs.observe(b));
+
+  // ═══════════════════════════════════════════════════════════
+  // INIT
+  // ═══════════════════════════════════════════════════════════
+  renderSongs();
+  </script>
+</body>
+</html>
