@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rilis Lagu "SATU PAKET" — XYtoZA</title>
+  <meta name="description" content="Rilis single terbaru XYtoZA berjudul SATU PAKET, eksplorasi neurobiologis emosi dan homeostasis dalam sistem saraf manusia." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&family=Barlow:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0a0a0b;
+      --bg-2: #111114;
+      --bg-3: #16161a;
+      --surface: #1c1c20;
+      --line: rgba(255, 255, 255, 0.08);
+      --line-strong: rgba(255, 255, 255, 0.18);
+      --text: #f4f4f5;
+      --text-muted: #a1a1aa;
+      --text-dim: #71717a;
+      --accent: #ff6a00;
+      --accent-soft: rgba(255, 106, 0, 0.12);
+      --accent-strong: #ff7f2a;
+      --shadow-amber: 0 20px 60px -20px rgba(255,106,0,0.35);
+      --radius: 14px;
+      --radius-lg: 22px;
+      --maxw: 1200px;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body {
+      font-family: 'Inter', 'Barlow', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, .display {
+      font-family: 'Bebas Neue', 'Barlow', sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      line-height: 0.95;
+      text-transform: uppercase;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    .container {
+      width: 100%;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .accent { color: var(--accent); }
+    .eyebrow {
+      font-family: 'Barlow', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 18px 0;
+      transition: all 0.4s var(--ease);
+      background: rgba(10, 10, 11, 0);
+      backdrop-filter: blur(0px);
+    }
+    .nav.scrolled {
+      background: rgba(10, 10, 11, 0.85);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 0;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 0;
+      color: var(--text);
+      display: flex;
+      align-items: baseline;
+      gap: 0;
+    }
+    .logo .xy,
+    .logo .za { color: var(--text); }
+    .logo .to {
+      color: var(--accent);
+      font-size: 0.9em;
+      line-height: 1;
+      letter-spacing: 0;
+      margin: 0;
+      text-transform: uppercase;
+      display: inline-block;
+      transform: translateY(1px);
+    }
+    .logo .dot { color: var(--accent); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Barlow', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      position: relative;
+      transition: color 0.3s var(--ease);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width 0.3s var(--ease);
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: var(--accent); }
+    .nav-links a.active::after { width: 100%; }
+
+    .nav-cta {
+      padding: 10px 22px;
+      background: var(--accent);
+      color: #0a0a0b;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      transition: all 0.3s var(--ease);
+    }
+    .nav-cta:hover {
+      background: var(--accent-strong);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-amber);
+    }
+
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+      cursor: pointer;
+    }
+    .burger span {
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      transition: all 0.3s var(--ease);
+    }
+    .burger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger.active span:nth-child(2) { opacity: 0; }
+    .burger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0; right: -100%;
+      width: 80%;
+      max-width: 360px;
+      height: 100vh;
+      background: var(--bg-2);
+      border-left: 1px solid var(--line);
+      z-index: 99;
+      padding: 100px 32px 32px;
+      transition: right 0.4s var(--ease);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .mobile-menu.active { right: 0; }
+    .mobile-menu a {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.06em;
+      color: var(--text);
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      transition: color 0.3s var(--ease);
+    }
+    .mobile-menu a:hover { color: var(--accent); padding-left: 8px; }
+    .mobile-menu .nav-cta { margin-top: 24px; align-self: flex-start; }
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+      z-index: 98;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s var(--ease);
+    }
+    .overlay.active { opacity: 1; visibility: visible; }
+
+    .page-hero {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 160px 0 80px;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 30% 20%, rgba(255,106,0,0.2), transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(255,106,0,0.08), transparent 60%);
+      z-index: 0;
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black, transparent 80%);
+      z-index: 0;
+    }
+    .page-hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+    .page-hero .eyebrow { margin-bottom: 20px; }
+    .page-hero h1 {
+      font-size: clamp(56px, 10vw, 140px);
+      line-height: 0.85;
+      margin-bottom: 24px;
+      background: linear-gradient(180deg, var(--text) 40%, var(--text-dim) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .page-hero h1 span {
+      -webkit-text-fill-color: var(--accent);
+    }
+    .page-hero-desc {
+      font-size: clamp(16px, 1.6vw, 20px);
+      color: var(--text-muted);
+      max-width: 660px;
+      line-height: 1.7;
+    }
+    .page-hero-desc strong { color: var(--text); font-weight: 600; }
+
+    .year-range {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 32px;
+      padding: 14px 28px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(255,106,0,0.2);
+    }
+    .year-range .yr {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .year-range .sep {
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      border-radius: 2px;
+    }
+
+    .article-content {
+      padding: 0 0 120px;
+      margin-top: 0;
+    }
+    .embed-wrap {
+      max-width: 840px;
+      margin: 0 auto 0;
+      padding: 0;
+      position: relative;
+      z-index: 1;
+      line-height: 0;
+    }
+    .spotify-embed {
+      display: block;
+      width: 100%;
+      min-height: 352px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-bottom: none;
+      border-radius: 18px 18px 0 0;
+      overflow: hidden;
+      background: rgba(255,255,255,0.02);
+      box-shadow: 0 30px 70px -50px rgba(255,106,0,0.45);
+      margin-bottom: 0;
+      position: relative;
+      z-index: 2;
+    }
+    .article-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--line);
+      border-top: none;
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      padding: 48px;
+      box-shadow: 0 30px 90px -60px rgba(0,0,0,0.5);
+      max-width: 840px;
+      margin: 0 auto;
+      margin-top: -1px;
+      position: relative;
+      z-index: 1;
+    }
+    .article-card h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      margin-top: 48px;
+      margin-bottom: 18px;
+      letter-spacing: 0.04em;
+    }
+    .article-card p {
+      color: var(--text-muted);
+      font-size: 17px;
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+    .article-card p strong { color: var(--text); }
+    .article-card blockquote {
+      margin: 36px 0;
+      padding: 28px 32px;
+      border-left: 4px solid var(--accent);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1.8;
+    }
+    .article-card .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 24px;
+      font-size: 14px;
+      color: var(--text-dim);
+    }
+    .article-card .article-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .article-song-section {
+      padding: 40px 0 60px;
+    }
+    .article-song-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      box-shadow: 0 24px 48px -30px rgba(255,106,0,0.35);
+      overflow: hidden;
+    }
+    .article-song-card .song-row {
+      display: grid;
+      grid-template-columns: 56px 72px 1fr auto;
+      gap: 16px;
+      align-items: center;
+      min-height: 88px;
+      padding: 18px;
+    }
+    .article-song-card .song-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.5rem;
+      color: rgba(255,106,0,0.3);
+      text-align: center;
+    }
+    .article-song-card .song-photo {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: linear-gradient(135deg, rgba(255,106,0,0.12), rgba(255,255,255,0.04));
+    }
+    .article-song-card .song-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .article-song-card .song-info {
+      min-width: 0;
+    }
+    .article-song-card .song-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.25rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+    .article-song-card .song-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .article-song-card .song-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: rgba(255,255,255,0.03);
+    }
+    .article-song-card .song-tag.released {
+      color: var(--accent);
+      border-color: rgba(255,106,0,0.28);
+      background: rgba(255,106,0,0.06);
+    }
+    .article-song-card .song-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .article-song-card .song-action,
+    .article-song-card .play-main {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      padding: 10px 16px;
+      transition: transform 0.2s var(--ease), background 0.2s var(--ease);
+    }
+    .article-song-card .song-action {
+      color: var(--text-muted);
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      cursor: pointer;
+    }
+    .article-song-card .song-action:hover {
+      color: var(--accent);
+      border-color: rgba(255,106,0,0.18);
+      transform: translateY(-1px);
+    }
+    .article-song-card .play-main {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,106,0,0.14);
+      color: var(--accent);
+      font-weight: 700;
+      border: none;
+    }
+    .article-song-card .play-main:hover {
+      background: rgba(255,106,0,0.2);
+      transform: translateY(-1px);
+    }
+    .article-song-card .lyrics-panel,
+    .article-song-card .platform-panel {
+      display: none;
+      padding: 24px 24px 24px 130px;
+      background: rgba(10,12,18,0.95);
+      border-top: 1px solid rgba(6,214,160,0.1);
+    }
+    .article-song-card .platform-panel {
+      padding: 16px 20px 16px 130px;
+    }
+    .article-song-card .lyrics-panel.show,
+    .article-song-card .platform-panel.show {
+      display: block;
+      animation: slideDown 0.25s ease;
+    }
+    .article-song-card .lyrics-inner {
+      max-width: 600px;
+    }
+    .article-song-card .lyrics-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .article-song-card .lyrics-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.15);
+    }
+    .article-song-card .lyrics-body {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.92rem;
+      color: rgba(244,244,245,0.7);
+      line-height: 2.1;
+      white-space: pre-line;
+    }
+    .article-song-card .platform-panel-inner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .article-song-card .platform-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-right: 4px;
+      flex-shrink: 0;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 600;
+    }
+    .dsp-section {
+      padding: 0 0 40px;
+    }
+    .dsp-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 32px;
+    }
+    .dsp-card {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 14px;
+      padding: 20px 20px 20px 16px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: transform 0.2s var(--ease), border-color 0.2s var(--ease);
+    }
+    .dsp-card:hover { transform: translateY(-3px); border-color: rgba(255,106,0,0.18); }
+    .dsp-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+    .dsp-info .name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+    }
+    .dsp-info .action {
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .dsp-arrow {
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--line);
+    }
+    .footer-brand .logo { font-size: 36px; margin-bottom: 14px; }
+    .footer-brand p { color: var(--text-muted); font-size: 14px; max-width: 320px; margin-bottom: 20px; }
+    .footer-social { display: flex; gap: 12px; }
+    .footer-social a { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: all 0.3s var(--ease); }
+    .footer-social a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .footer-social svg { width: 16px; height: 16px; }
+    .footer-col h4 { font-family: 'Barlow', sans-serif; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; font-weight: 600; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a { color: var(--text-muted); font-size: 14px; transition: color 0.3s var(--ease); }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom { display: flex; justify-content: center; align-items: center; padding: 24px 28px; flex-wrap: wrap; gap: 12px; background: #040404; border-radius: 18px; margin-top: 26px; text-align: center; }
+    .footer-bottom p { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text); line-height: 1.5; letter-spacing: 0.02em; margin: 0; }
+    .footer-bottom .accent { color: var(--accent); }
+
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .burger { display: flex; }
+      .page-hero { padding: 140px 0 60px; }
+      .page-hero h1 { font-size: clamp(44px, 12vw, 80px); }
+      .article-card { padding: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="../index.html#home" class="logo"><span class="xy">XY</span><span class="to">TO</span><span class="za">ZA</span><span class="dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../song.html">Music</a></li>
+        <li><a href="../index.html#dsp">Listen</a></li>
+        <li><a href="../index.html#tour">Tour</a></li>
+        <li><a href="rilis_lagu_satu_paket.html" class="active">Artikel</a></li>
+        <li><a href="../ourstory.html">Our Story</a></li>
+      </ul>
+      <a href="../index.html#contact" class="nav-cta">Contact</a>
+      <div class="burger" id="burger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="mobile-menu" id="mobileMenu">
+    <a href="../index.html#about">About</a>
+    <a href="../song.html">Music</a>
+    <a href="../index.html#dsp">Listen</a>
+    <a href="../index.html#tour">Tour</a>
+    <a href="rilis_lagu_satu_paket.html">Artikel</a>
+    <a href="../ourstory.html">Our Story</a>
+    <a href="../index.html#contact" class="nav-cta">Contact</a>
+  </aside>
+
+  <header class="page-hero">
+    <div class="page-hero-content container">
+      <p class="eyebrow">Rilis lagu ke 1 dari 30 Lagu</p>
+      <h1>“SATU PAKET”<br /><span>Rilis Digital</span></h1>
+      <p class="page-hero-desc">XYtoZA merilis lagu terbaru berjudul "SATU PAKET" yang menyorot cara otak dan sistem saraf manusia memproses dinamika batin. Lagu ini hadir sebagai dokumentasi jujur tentang realitas neurobiologis emosi, tanpa afirmasi positif yang semu.</p>
+      <div class="year-range"><span class="yr">11 September 2026</span><span class="sep"></span><span>Platform Musik Digital</span></div>
+    </div>
+  </header>
+
+  <section class="article-content container">
+    <div class="embed-wrap">
+      <iframe class="spotify-embed" data-testid="embed-iframe" src="https://open.spotify.com/embed/track/5WOSNVChcadlsCRiqXE45K?utm_source=generator&si=c624fae529a34d63" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+
+    <article class="article-card">
+      <p class="article-intro">Bandung, 11 September 2026 — XYtoZA resmi merilis lagu terbaru berjudul <strong>“SATU PAKET”</strong> di seluruh platform musik digital pada hari ini. lagu ini hadir sebagai eksplorasi mendalam mengenai cara otak dan sistem saraf manusia memproses dinamika kehidupan batin.</p>
+
+      <h2>Emosi sebagai Satu Sistem Integral</h2>
+      <p>Lirik lagu ini sengaja mengusung kontras yang kuat: “Ada senang ada sedih, menangis dan tertawa.” XYtoZA menegaskan bahwa fluktuasi emosi bukanlah gangguan atau pilihan, melainkan paket biologis yang integral dan saling mengunci dalam satu sistem kesadaran.</p>
+      <p>Kami tidak ingin memberikan afirmasi positif yang semu. Lagu ini adalah dokumentasi jujur tentang bagaimana sistem saraf bekerja. Secara biologis, kita tidak bisa menuntut hanya dopamin dan kebahagiaan tanpa gesekan batin. Kedua kutub emosi itu berada dalam sirkuit yang sama. Inilah realitas neurobiologis manusia.”</p>
+
+      <blockquote>“Bergumulah” di bagian akhir lagu menjadi penegasan bahwa struggle batin—bukan penghalang—adalah proses alami di dalam jalur saraf manusia.</blockquote>
+
+      <h2>“Bergumulah” dan Neuroplasticity</h2>
+      <p>Titik tekan utama lagu ini terletak pada kata <strong>“Bergumulah”</strong> di bagian akhir. Kata tersebut menggambarkan <em>cognitive struggle</em> — proses aktif otak dalam bergelut, beradaptasi, dan membentuk jalur saraf baru di tengah tekanan emosional. Ini adalah manifestasi neuroplasticity atau kelenturan saraf.</p>
+      <p>Dengan menampilkan proses ini secara eksplisit, XYtoZA mempertahankan gaya jujur namun edukatif, menggugah pendengar untuk memahami bahwa pergulatan emosional bersifat biologis dan adaptif.</p>
+
+      <h2>Homeostasis Emosional sebagai Pesan Utama</h2>
+      <p>Lagu ini juga menekankan pentingnya homeostasis emosional: kemampuan untuk tetap stabil dengan rendah hati saat menghadapi lonjakan emosi positif, dan tabah saat menghadapi penurunan emosi negatif. XYtoZA mengajak pendengar untuk menerima kedua kutub tersebut sebagai bagian dari sebuah keseimbangan saraf yang sehat.</p>
+
+      <h2>Aransemen Minimalis untuk Pesan yang Jelas</h2>
+      <p>Secara musikal, “SATU PAKET” dikemas dengan aransemen yang lugas dan minimalis. Pendekatan ini dimaksudkan agar pesan realisme neuropsikologis tersampaikan secara jernih dan langsung kepada pendengar, tanpa lapisan produksi yang berlebihan.</p>
+      <p>Aransemen musik yang sederhana sengaja dipilih agar pendengar bisa lebih fokus pada narasi dan emosi yang disampaikan lewat vokal, lirik, serta ritme lagu.</p>
+
+      <h2>Sudah Tersedia di Semua Platform Musik</h2>
+      <p>“SATU PAKET” sudah dapat didengarkan di Spotify, Apple Music, YouTube Music, dan seluruh platform digital musik lainnya mulai 11 September 2026. XYtoZA mengajak semua pendengar untuk merasakan pesan lagu ini sebagai bagian dari pengalaman emosional yang utuh.</p>
+
+      <div class="article-meta">
+        <span>Genre: Pop Rock</span>
+        <span>Rilis: Digital Streaming</span>
+        <span>Label: XYtoZA</span>
+      </div>
+    </article>
+  </section>
+
+      <div class="footer-bottom">
+        <p>© 2026 <span class="accent">XYtoZA</span>. Dari Generasi X & Y untuk Generasi Z & Alpha. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 30) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    });
+
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('overlay');
+
+    function toggleMenu() {
+      burger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      overlay.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    }
+    burger.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', toggleMenu));
+
+    function toggleArticleLyrics() {
+      const panel = document.getElementById('article-lyric');
+      if (!panel) return;
+      const isVisible = panel.classList.toggle('show');
+      const plat = document.getElementById('article-plat');
+      if (plat && isVisible) plat.classList.remove('show');
+    }
+
+    function scrollToDSP() {
+      const dspSection = document.getElementById('dsp');
+      if (!dspSection) return;
+      dspSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
