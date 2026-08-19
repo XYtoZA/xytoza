@@ -1,1665 +1,243 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Story — XYtoZA Timeline</title>
-  <meta name="description" content="Perjalanan sejarah band XYtoZA dari tahun 2005 hingga 2026. Dari garasi hingga panggung dunia." />
-
+  <meta name="description" content="XYtoZA is tuning the site. Explore the music, story, and latest articles while we work." />
+  <title>XYtoZA | Back Soon</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&family=Barlow:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0a0a0b;
-      --bg-2: #111114;
-      --bg-3: #16161a;
-      --surface: #1c1c20;
-      --line: rgba(255, 255, 255, 0.08);
-      --line-strong: rgba(255, 255, 255, 0.18);
+      --bg: #09090a;
+      --bg-soft: #111114;
+      --surface: #19191d;
+      --line: rgba(255, 255, 255, 0.1);
       --text: #f4f4f5;
-      --text-muted: #a1a1aa;
-      --text-dim: #71717a;
+      --muted: #a1a1aa;
+      --dim: #71717a;
       --accent: #ff6a00;
-      --accent-soft: rgba(255, 106, 0, 0.12);
-      --accent-strong: #ff7f2a;
-      --shadow-amber: 0 20px 60px -20px rgba(255,106,0,0.35);
-      --radius: 14px;
-      --radius-lg: 22px;
-      --maxw: 1200px;
+      --accent-light: #ff9b5b;
+      --max-width: 1200px;
       --ease: cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: 'Inter', 'Barlow', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      min-height: 100vh;
       overflow-x: hidden;
+      color: var(--text);
+      background: var(--bg);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-
-    h1, h2, h3, .display {
-      font-family: 'Bebas Neue', 'Barlow', sans-serif;
-      font-weight: 400;
-      letter-spacing: 0.02em;
-      line-height: 0.95;
-      text-transform: uppercase;
-    }
-
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    button { border: 0; color: inherit; background: none; font: inherit; cursor: pointer; }
+    .container { width: min(100% - 48px, var(--max-width)); margin: 0 auto; }
 
-    .container {
-      width: 100%;
-      max-width: var(--maxw);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    .accent { color: var(--accent); }
-    .eyebrow {
-      font-family: 'Barlow', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.28em;
-      text-transform: uppercase;
-      color: var(--accent);
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .eyebrow::before {
-      content: '';
-      width: 28px;
-      height: 1px;
-      background: var(--accent);
-      display: inline-block;
-    }
-
-    /* ============ NAVBAR ============ */
     .nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
+      inset: 0 0 auto;
+      z-index: 10;
       padding: 18px 0;
-      transition: all 0.4s var(--ease);
-      background: rgba(10, 10, 11, 0);
-      backdrop-filter: blur(0px);
+      border-bottom: 1px solid transparent;
+      transition: background 0.35s var(--ease), padding 0.35s var(--ease), border-color 0.35s var(--ease);
     }
-    .nav.scrolled {
-      background: rgba(10, 10, 11, 0.85);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--line);
-      padding: 12px 0;
-    }
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 28px;
-      letter-spacing: 0;
-      color: var(--text);
-      display: flex;
-      align-items: baseline;
-      gap: 0;
-    }
-    .logo .xy,
-    .logo .za { color: var(--text); }
-    .logo .to {
-      color: var(--accent);
-      font-size: 0.9em;
-      line-height: 1;
-      letter-spacing: 0;
-      margin: 0;
-      text-transform: uppercase;
-      display: inline-block;
-      transform: translateY(1px);
-    }
-    .logo .dot { color: var(--accent); }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 36px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-family: 'Barlow', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--text-muted);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      position: relative;
-      transition: color 0.3s var(--ease);
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -6px; left: 0;
-      width: 0; height: 1px;
-      background: var(--accent);
-      transition: width 0.3s var(--ease);
-    }
-    .nav-links a:hover { color: var(--text); }
-    .nav-links a:hover::after { width: 100%; }
-    .nav-links a.active { color: var(--accent); }
-    .nav-links a.active::after { width: 100%; }
-
-    .nav-cta {
-      padding: 10px 22px;
-      background: var(--accent);
-      color: #0a0a0b;
-      font-family: 'Barlow', sans-serif;
-      font-weight: 600;
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      border-radius: 999px;
-      transition: all 0.3s var(--ease);
-    }
-    .nav-cta:hover {
-      background: var(--accent-strong);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-amber);
-    }
-
-    .burger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      padding: 8px;
-      cursor: pointer;
-    }
-    .burger span {
-      width: 24px;
-      height: 2px;
-      background: var(--text);
-      transition: all 0.3s var(--ease);
-    }
-    .burger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav.scrolled { padding: 12px 0; background: rgba(9, 9, 10, 0.86); border-color: var(--line); backdrop-filter: blur(14px); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+    .logo { display: inline-flex; align-items: baseline; font: 400 30px/1 'Bebas Neue', sans-serif; letter-spacing: 0.02em; }
+    .logo .to, .logo .dot { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
+    .nav-links a { position: relative; color: var(--muted); font: 600 13px 'Barlow', sans-serif; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.25s ease; }
+    .nav-links a::after { position: absolute; right: 0; bottom: -8px; left: 0; height: 1px; background: var(--accent); content: ''; transform: scaleX(0); transition: transform 0.25s ease; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+    .nav-cta { padding: 10px 20px; border-radius: 999px; color: #09090a; background: var(--accent); font: 700 12px 'Barlow', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; transition: background 0.25s ease, transform 0.25s ease; }
+    .nav-cta:hover { background: var(--accent-light); transform: translateY(-2px); }
+    .burger { display: none; flex-direction: column; gap: 5px; padding: 8px; }
+    .burger span { width: 24px; height: 2px; background: var(--text); transition: transform 0.25s ease, opacity 0.25s ease; }
+    .burger.active span:first-child { transform: translateY(7px) rotate(45deg); }
     .burger.active span:nth-child(2) { opacity: 0; }
-    .burger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .burger.active span:last-child { transform: translateY(-7px) rotate(-45deg); }
 
-    .mobile-menu {
-      position: fixed;
-      top: 0; right: -100%;
-      width: 80%;
-      max-width: 360px;
-      height: 100vh;
-      background: var(--bg-2);
-      border-left: 1px solid var(--line);
-      z-index: 99;
-      padding: 100px 32px 32px;
-      transition: right 0.4s var(--ease);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+    .hero {
+      position: relative;
+      min-height: 760px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      padding: 140px 0 100px;
+      background: radial-gradient(circle at 76% 38%, rgba(255, 106, 0, 0.18), transparent 29%), linear-gradient(135deg, #09090a 0%, #111114 100%);
     }
+    .hero::before { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px); background-size: 56px 56px; mask-image: radial-gradient(ellipse at center, #000, transparent 75%); content: ''; }
+    .hero::after { position: absolute; top: 12%; right: 7%; width: min(38vw, 480px); aspect-ratio: 1; border: 1px solid rgba(255, 106, 0, 0.3); border-radius: 50%; box-shadow: 0 0 0 38px rgba(255,106,0,0.035), 0 0 0 78px rgba(255,106,0,0.025); content: ''; }
+    .hero-content { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr); align-items: center; gap: 90px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 24px; color: var(--accent); font: 600 12px 'Barlow', sans-serif; letter-spacing: 0.28em; text-transform: uppercase; }
+    .eyebrow::before { width: 28px; height: 1px; background: var(--accent); content: ''; }
+    h1, h2, h3 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; line-height: 0.92; text-transform: uppercase; }
+    h1 { max-width: 720px; font-size: clamp(70px, 11vw, 148px); letter-spacing: 0.015em; }
+    h1 span { color: var(--accent); }
+    .intro { max-width: 570px; margin: 28px 0 36px; color: var(--muted); font-size: 17px; }
+    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+    .button { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border: 1px solid var(--line); border-radius: 999px; font: 700 12px 'Barlow', sans-serif; letter-spacing: 0.1em; text-transform: uppercase; transition: border-color 0.25s ease, color 0.25s ease, transform 0.25s ease; }
+    .button.primary { border-color: var(--accent); color: #09090a; background: var(--accent); }
+    .button:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .button.primary:hover { color: #09090a; background: var(--accent-light); }
+
+    .status-panel { position: relative; padding: 30px; border: 1px solid var(--line); background: rgba(25,25,29,0.82); box-shadow: 18px 24px 70px rgba(0,0,0,0.32); }
+    .status-panel::before { position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent); content: ''; }
+    .status-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+    .status-label { color: var(--muted); font: 600 12px 'Barlow', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; }
+    .status-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 7px rgba(255,106,0,0.12); animation: pulse 2s infinite; }
+    .status-panel h2 { margin: 26px 0 12px; font-size: 48px; }
+    .status-panel p { color: var(--muted); font-size: 14px; }
+    .signal { display: flex; align-items: end; gap: 6px; height: 70px; margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--line); }
+    .signal i { display: block; width: 8px; height: var(--height); background: var(--accent); opacity: 0.75; animation: equalize 1.3s ease-in-out infinite alternate; }
+    .signal i:nth-child(2n) { animation-delay: -0.5s; opacity: 0.45; }
+    .signal i:nth-child(3n) { animation-delay: -0.9s; }
+    .signal-caption { margin-top: 10px; color: var(--dim); font: 600 11px 'Barlow', sans-serif; letter-spacing: 0.16em; text-transform: uppercase; }
+    @keyframes pulse { 50% { box-shadow: 0 0 0 12px rgba(255,106,0,0); } }
+    @keyframes equalize { to { transform: scaleY(0.45); transform-origin: bottom; } }
+
+    .quick-links { padding: 68px 0 84px; border-top: 1px solid var(--line); background: var(--bg-soft); }
+    .quick-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
+    .quick-head h2 { font-size: clamp(42px, 6vw, 68px); }
+    .quick-head p { max-width: 300px; color: var(--muted); font-size: 14px; }
+    .link-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+    .link-card { min-height: 150px; display: flex; flex-direction: column; justify-content: space-between; padding: 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background 0.3s ease, color 0.3s ease; }
+    .link-card:hover { color: var(--accent); background: rgba(255,106,0,0.06); }
+    .link-card span { color: var(--dim); font: 600 11px 'Barlow', sans-serif; letter-spacing: 0.14em; }
+    .link-card h3 { font-size: 31px; }
+    .link-arrow { align-self: end; color: var(--accent); font-size: 22px; }
+    footer { padding: 25px 0; border-top: 1px solid var(--line); color: var(--dim); font-size: 12px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
+    .footer-inner strong { color: var(--text); font-family: 'Barlow', sans-serif; letter-spacing: 0.08em; }
+
+    .mobile-menu { position: fixed; top: 0; right: -100%; z-index: 9; width: min(82%, 360px); height: 100vh; display: flex; flex-direction: column; gap: 5px; padding: 100px 30px 30px; background: var(--bg-soft); border-left: 1px solid var(--line); transition: right 0.35s var(--ease); }
     .mobile-menu.active { right: 0; }
-    .mobile-menu a {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 28px;
-      letter-spacing: 0.06em;
-      color: var(--text);
-      padding: 14px 0;
-      border-bottom: 1px solid var(--line);
-      transition: color 0.3s var(--ease);
-    }
-    .mobile-menu a:hover { color: var(--accent); padding-left: 8px; }
-    .mobile-menu .nav-cta { margin-top: 24px; align-self: flex-start; }
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(4px);
-      z-index: 98;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.4s var(--ease);
-    }
+    .mobile-menu a { padding: 13px 0; border-bottom: 1px solid var(--line); color: var(--text); font: 400 28px 'Bebas Neue', sans-serif; letter-spacing: 0.05em; }
+    .mobile-menu .nav-cta { align-self: flex-start; margin-top: 22px; border: 0; }
+    .overlay { position: fixed; inset: 0; z-index: 8; background: rgba(0,0,0,0.68); opacity: 0; visibility: hidden; transition: opacity 0.35s ease, visibility 0.35s ease; }
     .overlay.active { opacity: 1; visibility: visible; }
 
-    /* ============ PAGE HERO ============ */
-    .page-hero {
-      position: relative;
-      min-height: 70vh;
-      display: flex;
-      align-items: flex-end;
-      padding: 160px 0 80px;
-      overflow: hidden;
-    }
-    .page-hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 80% 50% at 30% 20%, rgba(255,106,0,0.2), transparent 60%),
-        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(255,106,0,0.08), transparent 60%);
-      z-index: 0;
-    }
-    .page-hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black, transparent 80%);
-      z-index: 0;
-    }
-    .page-hero-content {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-    }
-    .page-hero .eyebrow { margin-bottom: 20px; }
-    .page-hero h1 {
-      font-size: clamp(56px, 10vw, 140px);
-      line-height: 0.85;
-      margin-bottom: 24px;
-      background: linear-gradient(180deg, var(--text) 40%, var(--text-dim) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .page-hero h1 span {
-      -webkit-text-fill-color: var(--accent);
-    }
-    .page-hero-desc {
-      font-size: clamp(16px, 1.6vw, 20px);
-      color: var(--text-muted);
-      max-width: 600px;
-      line-height: 1.6;
-    }
-    .page-hero-desc strong { color: var(--text); font-weight: 600; }
-
-    /* Year range badge */
-    .year-range {
-      display: inline-flex;
-      align-items: center;
-      gap: 16px;
-      margin-top: 32px;
-      padding: 14px 28px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      border: 1px solid rgba(255,106,0,0.2);
-    }
-    .year-range .yr {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 28px;
-      color: var(--accent);
-      line-height: 1;
-    }
-    .year-range .sep {
-      width: 40px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-      border-radius: 2px;
-    }
-
-    /* ============ ERA SECTION ============ */
-    .era-section {
-      padding: 80px 0;
-      position: relative;
-    }
-    .era-section:nth-child(odd) {
-      background: var(--bg-2);
-    }
-    .era-header {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      margin-bottom: 48px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--line);
-    }
-    .era-year {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(64px, 8vw, 110px);
-      line-height: 1;
-      color: var(--accent);
-      opacity: 0.25;
-      flex-shrink: 0;
-      min-width: 120px;
-      transition: opacity 0.5s var(--ease);
-    }
-    .era-header:hover .era-year { opacity: 0.5; }
-    .era-title {
-      font-size: clamp(28px, 3.5vw, 44px);
-      line-height: 1;
-      color: var(--text);
-    }
-    .era-title .accent { color: var(--accent); }
-
-    /* ============ TIMELINE ============ */
-    .timeline {
-      position: relative;
-      padding: 40px 0 120px;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 50%;
-      width: 2px;
-      background: linear-gradient(180deg, transparent, var(--line-strong) 5%, var(--line-strong) 95%, transparent);
-      transform: translateX(-50%);
-    }
-
-    .tl-item {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: start;
-      margin-bottom: 0;
-      padding: 40px 0;
-    }
-
-    /* The dot on the center line */
-    .tl-dot {
-      position: absolute;
-      left: 50%;
-      top: 48px;
-      transform: translateX(-50%);
-      z-index: 3;
-    }
-    .tl-dot-inner {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: var(--bg);
-      border: 3px solid var(--accent);
-      transition: all 0.4s var(--ease);
-      position: relative;
-    }
-    .tl-dot-inner::after {
-      content: '';
-      position: absolute;
-      inset: -8px;
-      border-radius: 50%;
-      background: var(--accent-soft);
-      opacity: 0;
-      transition: opacity 0.4s var(--ease);
-    }
-    .tl-item:hover .tl-dot-inner {
-      background: var(--accent);
-      box-shadow: 0 0 20px rgba(255,106,0,0.5);
-    }
-    .tl-item:hover .tl-dot-inner::after { opacity: 1; }
-
-    /* Major milestone dot */
-    .tl-item.major .tl-dot-inner {
-      width: 24px;
-      height: 24px;
-      border-width: 4px;
-    }
-    .tl-item.major .tl-dot-inner::after {
-      inset: -12px;
-    }
-
-    /* Alternating layout */
-    .tl-item:nth-child(odd) .tl-content {
-      grid-column: 1;
-      text-align: right;
-      padding-right: 40px;
-    }
-    .tl-item:nth-child(odd) .tl-visual {
-      grid-column: 2;
-      padding-left: 40px;
-    }
-    .tl-item:nth-child(even) .tl-content {
-      grid-column: 2;
-      text-align: left;
-      padding-left: 40px;
-    }
-    .tl-item:nth-child(even) .tl-visual {
-      grid-column: 1;
-      grid-row: 1;
-      text-align: right;
-      padding-right: 40px;
-    }
-
-    .tl-content {
-      position: relative;
-      z-index: 2;
-    }
-    .tl-year-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 16px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      border: 1px solid rgba(255,106,0,0.15);
-      margin-bottom: 16px;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 18px;
-      color: var(--accent);
-      letter-spacing: 0.08em;
-    }
-    .tl-item.major .tl-year-badge {
-      background: var(--accent);
-      color: #0a0a0b;
-      border-color: var(--accent);
-      font-weight: 700;
-    }
-    .tl-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(26px, 3vw, 38px);
-      line-height: 1.05;
-      color: var(--text);
-      margin-bottom: 12px;
-      text-transform: uppercase;
-    }
-    .tl-desc {
-      font-size: 15px;
-      color: var(--text-muted);
-      line-height: 1.7;
-      max-width: 440px;
-    }
-    .tl-desc strong { color: var(--text); font-weight: 600; }
-
-    .tl-item:nth-child(odd) .tl-desc { margin-left: auto; }
-
-    .tl-visual {
-      position: relative;
-      z-index: 2;
-    }
-    .tl-img {
-      width: 100%;
-      aspect-ratio: 16/10;
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--line);
-      position: relative;
-      background: var(--bg-3);
-    }
-    .tl-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(30%) contrast(1.05);
-      transition: all 0.6s var(--ease);
-    }
-    .tl-item:hover .tl-img img {
-      filter: grayscale(0%) contrast(1.1);
-      transform: scale(1.05);
-    }
-    .tl-img::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255,106,0,0.1), transparent 60%);
-      pointer-events: none;
-    }
-    .tl-img-label {
-      position: absolute;
-      bottom: 12px;
-      right: 12px;
-      padding: 4px 12px;
-      border-radius: 999px;
-      background: rgba(10,10,11,0.7);
-      backdrop-filter: blur(8px);
-      font-family: 'Barlow', sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      z-index: 2;
-    }
-
-    /* Quote style for some items */
-    .tl-quote {
-      padding: 20px 24px;
-      border-left: 3px solid var(--accent);
-      background: rgba(255,255,255,0.02);
-      border-radius: 0 10px 10px 0;
-      margin-top: 16px;
-      font-style: italic;
-      color: var(--text);
-      font-size: 14px;
-      line-height: 1.7;
-    }
-    .tl-item:nth-child(odd) .tl-quote {
-      border-left: none;
-      border-right: 3px solid var(--accent);
-      border-radius: 10px 0 0 10px;
-    }
-    .tl-quote cite {
-      display: block;
-      margin-top: 8px;
-      font-style: normal;
-      color: var(--accent);
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    /* Tags */
-    .tl-tags {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 14px;
-    }
-    .tl-item:nth-child(odd) .tl-tags { justify-content: flex-end; }
-    .tl-tag {
-      padding: 4px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--line);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      transition: all 0.3s var(--ease);
-    }
-    .tl-item:hover .tl-tag {
-      border-color: rgba(255,106,0,0.3);
-      color: var(--accent);
-    }
-
-    /* ============ STATS BAR ============ */
-    .stats-bar {
-      background: var(--bg-2);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 60px 0;
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-    .stat-item {
-      text-align: center;
-      padding: 32px 20px;
-      border-radius: var(--radius);
-      background: var(--surface);
-      border: 1px solid var(--line);
-      transition: all 0.4s var(--ease);
-      position: relative;
-      overflow: hidden;
-    }
-    .stat-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transition: transform 0.4s var(--ease);
-    }
-    .stat-item:hover::before { transform: scaleX(1); }
-    .stat-item:hover {
-      border-color: var(--line-strong);
-      transform: translateY(-4px);
-    }
-    .stat-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(42px, 5vw, 64px);
-      color: var(--accent);
-      line-height: 1;
-    }
-    .stat-label {
-      font-family: 'Barlow', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      margin-top: 10px;
-    }
-
-    /* ============ CTA SECTION ============ */
-    .story-cta {
-      padding: 120px 0;
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-    }
-    .story-cta::before {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      width: 60%;
-      height: 80%;
-      background: radial-gradient(ellipse, var(--accent-soft), transparent 70%);
-      transform: translate(-50%, -50%);
-      pointer-events: none;
-    }
-    .story-cta h2 {
-      font-size: clamp(48px, 7vw, 96px);
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 2;
-    }
-    .story-cta p {
-      color: var(--text-muted);
-      font-size: 18px;
-      max-width: 560px;
-      margin: 0 auto 36px;
-      position: relative;
-      z-index: 2;
-    }
-    .story-cta .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 36px;
-      border-radius: 999px;
-      font-family: 'Barlow', sans-serif;
-      font-weight: 600;
-      font-size: 14px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: all 0.35s var(--ease);
-      cursor: pointer;
-      position: relative;
-      z-index: 2;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: #0a0a0b;
-    }
-    .btn-primary:hover {
-      background: var(--accent-strong);
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-amber);
-    }
-    .btn-ghost {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--line-strong);
-      margin-left: 12px;
-    }
-    .btn-ghost:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-3px);
-    }
-
-    /* ============ FOOTER ============ */
-    footer {
-      background: var(--bg-2);
-      border-top: 1px solid var(--line);
-      padding: 60px 0 30px;
-    }
-    .footer-top {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 40px;
-      padding-bottom: 40px;
-      border-bottom: 1px solid var(--line);
-    }
-    .footer-brand .logo { font-size: 36px; margin-bottom: 14px; }
-    .footer-brand p {
-      color: var(--text-muted);
-      font-size: 14px;
-      max-width: 320px;
-      margin-bottom: 20px;
-    }
-    .footer-social { display: flex; gap: 12px; }
-    .footer-social a {
-      width: 38px; height: 38px;
-      border-radius: 50%;
-      border: 1px solid var(--line);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--text-muted);
-      transition: all 0.3s var(--ease);
-    }
-    .footer-social a:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-2px);
-    }
-    .footer-social svg { width: 16px; height: 16px; }
-    .footer-col h4 {
-      font-family: 'Barlow', sans-serif;
-      font-size: 12px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 16px;
-      font-weight: 600;
-    }
-    .footer-col ul { list-style: none; }
-    .footer-col li { margin-bottom: 10px; }
-    .footer-col a {
-      color: var(--text-muted);
-      font-size: 14px;
-      transition: color 0.3s var(--ease);
-    }
-    .footer-col a:hover { color: var(--text); }
-    .footer-bottom {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 24px 28px;
-      flex-wrap: wrap;
-      gap: 12px;
-      background: #040404;
-      border-radius: 18px;
-      margin-top: 26px;
-      text-align: center;
-    }
-    .footer-bottom p {
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      color: var(--text);
-      line-height: 1.5;
-      letter-spacing: 0.02em;
-      margin: 0;
-    }
-    .footer-bottom .accent { color: var(--accent); }
-
-    /* ============ ANIMATIONS ============ */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .reveal-left {
-      opacity: 0;
-      transform: translateX(-50px);
-      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
-    }
-    .reveal-left.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    .reveal-right {
-      opacity: 0;
-      transform: translateX(50px);
-      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
-    }
-    .reveal-right.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    /* Glow line animation */
-    @keyframes glow-pulse {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 0.8; }
-    }
-    .timeline::before {
-      animation: glow-pulse 4s ease-in-out infinite;
-    }
-
-    /* Dot entrance */
-    @keyframes dot-pop {
-      0% { transform: scale(0); opacity: 0; }
-      60% { transform: scale(1.3); }
-      100% { transform: scale(1); opacity: 1; }
-    }
-    .tl-item.visible .tl-dot-inner {
-      animation: dot-pop 0.5s var(--ease) forwards;
-    }
-
-    /* ============ RESPONSIVE ============ */
-    @media (max-width: 960px) {
-      .timeline::before {
-        left: 28px;
-      }
-      .tl-item {
-        grid-template-columns: 1fr;
-        gap: 0;
-        padding: 24px 0 24px 68px;
-      }
-      .tl-item:nth-child(odd) .tl-content,
-      .tl-item:nth-child(even) .tl-content {
-        grid-column: 1;
-        text-align: left;
-        padding-left: 0;
-        padding-right: 0;
-      }
-      .tl-item:nth-child(odd) .tl-visual,
-      .tl-item:nth-child(even) .tl-visual {
-        grid-column: 1;
-        grid-row: auto;
-        padding-left: 0;
-        padding-right: 0;
-        text-align: left;
-      }
-      .tl-item:nth-child(odd) .tl-desc { margin-left: 0; }
-      .tl-item:nth-child(odd) .tl-tags { justify-content: flex-start; }
-      .tl-item:nth-child(odd) .tl-quote {
-        border-right: none;
-        border-left: 3px solid var(--accent);
-        border-radius: 0 10px 10px 0;
-      }
-      .tl-dot {
-        left: 28px;
-        top: 32px;
-      }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-top { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 720px) {
-      .nav-links { display: none; }
-      .nav-cta { display: none; }
+    @media (max-width: 860px) {
+      .nav-links, .nav > .container > .nav-cta { display: none; }
       .burger { display: flex; }
-      section { padding: 80px 0; }
-      .page-hero { min-height: 60vh; padding: 120px 0 60px; }
-      .stats-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
-      .stat-item { padding: 24px 16px; }
-      .footer-top { grid-template-columns: 1fr; gap: 32px; }
-      .footer-bottom { flex-direction: column; text-align: center; }
-      .era-year { min-width: 80px; font-size: 48px; }
+      .hero { min-height: auto; padding: 150px 0 90px; }
+      .hero-content { grid-template-columns: 1fr; gap: 58px; }
+      .hero::after { top: 38%; right: -25%; width: 70vw; }
+      .link-grid { grid-template-columns: repeat(2, 1fr); }
     }
-    @media (max-width: 480px) {
-      .stats-grid { grid-template-columns: 1fr; }
-      .year-range { flex-direction: column; gap: 8px; }
-      .year-range .sep { width: 2px; height: 20px; background: linear-gradient(180deg, var(--accent), transparent); }
+    @media (max-width: 540px) {
+      .container { width: min(100% - 36px, var(--max-width)); }
+      h1 { font-size: clamp(64px, 20vw, 100px); }
+      .intro { font-size: 15px; }
+      .actions { align-items: stretch; flex-direction: column; }
+      .button { justify-content: center; }
+      .status-panel { padding: 24px; }
+      .quick-head, .footer-inner { align-items: flex-start; flex-direction: column; }
+      .link-grid { grid-template-columns: 1fr 1fr; }
+      .link-card { min-height: 130px; padding: 16px; }
+      .link-card h3 { font-size: 26px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
     }
   </style>
 </head>
 <body>
-
-   <!-- ============ NAVBAR ============ -->
-  <nav class="nav" id="nav">
+  <nav class="nav" id="nav" aria-label="Primary navigation">
     <div class="container nav-inner">
-      <a href="index.html#home" class="logo"><span class="xy">XY</span><span class="to">TO</span><span class="za">ZA</span><span class="dot">.</span></a>
+      <a href="index.html" class="logo" aria-label="XYtoZA home"><span>XY</span><span class="to">TO</span><span>ZA</span><span class="dot">.</span></a>
       <ul class="nav-links">
         <li><a href="index.html#about">About</a></li>
         <li><a href="song.html">Music</a></li>
         <li><a href="index.html#dsp">Listen</a></li>
         <li><a href="index.html#tour">Tour</a></li>
-        <li><a href="artikel/rilis_lagu_satu_paket.html">Artikel</a></li>
-        <li><a href="ourstory.html" class="active">Our Story</a></li>
+        <li><a href="artikel/rilis_lagu_satu_paket.html">Articles</a></li>
+        <li><a href="ourstory.html">Our Story</a></li>
       </ul>
       <a href="index.html#contact" class="nav-cta">Contact</a>
-      <div class="burger" id="burger"><span></span><span></span><span></span></div>
+      <button class="burger" id="burger" type="button" aria-label="Open navigation" aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
   <div class="overlay" id="overlay"></div>
-  <aside class="mobile-menu" id="mobileMenu">
+  <aside class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
     <a href="index.html#about">About</a>
     <a href="song.html">Music</a>
     <a href="index.html#dsp">Listen</a>
     <a href="index.html#tour">Tour</a>
-    <a href="artikel/rilis_lagu_satu_paket.html">Artikel</a>
+    <a href="artikel/rilis_lagu_satu_paket.html">Articles</a>
     <a href="ourstory.html">Our Story</a>
     <a href="index.html#contact" class="nav-cta">Contact</a>
   </aside>
 
+  <main>
+    <section class="hero" aria-labelledby="maintenance-title">
+      <div class="container hero-content">
+        <div>
+          <p class="eyebrow">Temporary frequency shift</p>
+          <h1 id="maintenance-title">Back soon.<br /><span>Still loud.</span></h1>
+          <p class="intro">We are tuning the XYtoZA experience behind the scenes. The stage is getting sharper, the signal is getting stronger, and we will be back shortly.</p>
+          <div class="actions">
+            <a class="button primary" href="song.html">Explore the music <span aria-hidden="true">&#8594;</span></a>
+            <a class="button" href="ourstory.html">Read our story</a>
+          </div>
+        </div>
 
-  <!-- ============ PAGE HERO ============ -->
-  <header class="page-hero">
-    <div class="container page-hero-content">
-      <span class="eyebrow reveal">Perjalanan Kami</span>
-      <h1 class="reveal">OUR <span>STORY</span></h1>
-      <p class="page-hero-desc reveal">
-        Dari ruang latihan yang pengap hingga panggung yang menerangi — inilah <strong>21 tahun</strong> perjalanan XYtoZA.
-        Setiap titik balik, setiap luka, setiap kemenangan yang membentuk suara kami.
-      </p>
-      <div class="year-range reveal">
-        <span class="yr">2005</span>
-        <span class="sep"></span>
-        <span class="yr">2026</span>
-      </div>
-    </div>
-  </header>
-
-  <!-- ============ STATS BAR ============ -->
-  <section class="stats-bar">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item reveal">
-          <div class="stat-num" data-count="21">0</div>
-          <div class="stat-label">Tahun Bersama</div>
-        </div>
-        <div class="stat-item reveal">
-          <div class="stat-num" data-count="30">0</div>
-          <div class="stat-label">Lagu Dirilis</div>
-        </div>
-        <div class="stat-item reveal">
-          <div class="stat-num" data-count="150">0</div>
-          <div class="stat-label">Show Dimainkan</div>
-        </div>
-        <div class="stat-item reveal">
-          <div class="stat-num" data-count="5">0</div>
-          <div class="stat-label">Album Studio</div>
+        <div class="status-panel" aria-label="Maintenance status">
+          <div class="status-top"><span class="status-label">Current status</span><span class="status-dot" aria-hidden="true"></span></div>
+          <h2>In the studio</h2>
+          <p>Our website is temporarily offline while we prepare the next chapter. Music, stories, and articles remain one click away below.</p>
+          <div class="signal" aria-hidden="true">
+            <i style="--height: 32%"></i><i style="--height: 68%"></i><i style="--height: 46%"></i><i style="--height: 88%"></i><i style="--height: 58%"></i><i style="--height: 76%"></i><i style="--height: 38%"></i><i style="--height: 64%"></i><i style="--height: 94%"></i><i style="--height: 52%"></i><i style="--height: 72%"></i><i style="--height: 42%"></i>
+          </div>
+          <p class="signal-caption">Signal is alive</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============ TIMELINE ============ -->
-  <section class="timeline" id="timeline">
-    <div class="container">
-
-      <!-- ===== 2005 ===== -->
-      <div class="tl-item major reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2005</span>
-          <h3 class="tl-title">The Spark Ignites</h3>
-          <p class="tl-desc">
-            Empat anak muda dari kota yang sama bertemu di sebuah <strong>ruang latihan yang pengap</strong> di belakang toko musik tua. Tidak ada rencana besar — hanya rasa ingin berteriak melalui melodi. Nama "XYtoZA" pertama kali diucapkan malam itu, di antara asap rokok dan distorsi gitar pertama.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">Formasi</span>
-            <span class="tl-tag">Garage Days</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2005/800/500.jpg" alt="XYtoZA 2005" loading="lazy" />
-            <span class="tl-img-label">Band Formation</span>
-          </div>
+    <section class="quick-links" aria-labelledby="keep-exploring">
+      <div class="container">
+        <div class="quick-head"><h2 id="keep-exploring">Keep exploring</h2><p>There is still plenty of XYtoZA to discover while we reset the stage.</p></div>
+        <div class="link-grid">
+          <a class="link-card" href="song.html"><span>01 / SOUND</span><h3>Music</h3><span class="link-arrow" aria-hidden="true">&#8594;</span></a>
+          <a class="link-card" href="ourstory.html"><span>02 / ORIGIN</span><h3>Our Story</h3><span class="link-arrow" aria-hidden="true">&#8594;</span></a>
+          <a class="link-card" href="artikel/rilis_lagu_satu_paket.html"><span>03 / NOTES</span><h3>Articles</h3><span class="link-arrow" aria-hidden="true">&#8594;</span></a>
+          <a class="link-card" href="index.html#contact"><span>04 / CONNECT</span><h3>Contact</h3><span class="link-arrow" aria-hidden="true">&#8594;</span></a>
         </div>
       </div>
+    </section>
+  </main>
 
-      <!-- ===== 2006 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2006</span>
-          <h3 class="tl-title">First Demo, First Dream</h3>
-          <p class="tl-desc">
-            Demo pertama direkam dengan peralatan seadanya di kamar kos. <strong>5 lagu</strong> yang kasar tapi jujur, dibagikan lewat CD-R dan MP3 di forum online. Respon kecil tapi nyata — cukup untuk membuktikan bahwa suara mereka didengar.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">Demo</span>
-            <span class="tl-tag">DIY Recording</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2006/800/500.jpg" alt="XYtoZA 2006" loading="lazy" />
-            <span class="tl-img-label">First Recording</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2007 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2007</span>
-          <h3 class="tl-title">Panggung Pertama</h3>
-          <p class="tl-desc">
-            Penampilan live pertama di sebuah <strong>cafe kecil</strong> yang hanya muat 40 orang. Tangan dingin, string putus di lagu kedua, tapi penonton menyanyi refrein yang mereka sendiri baru dengar. Momen itu mengubah segalanya.
-          </p>
-          <div class="tl-quote">
-            "Kami tidak punya setlist yang rapi. Tapi kami punya alasan untuk berdiri di atas panggung itu."
-            <cite>— Vokalis XYtoZA</cite>
-          </div>
-          <div class="tl-tags">
-            <span class="tl-tag">Live Debut</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2007/800/500.jpg" alt="XYtoZA 2007" loading="lazy" />
-            <span class="tl-img-label">First Gig</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2008 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2008</span>
-          <h3 class="tl-title">Street Credibility</h3>
-          <p class="tl-desc">
-            Nama mulai merambat di <strong>underground scene</strong>. Bermain di 12 gig dalam satu tahun, dari parkiran mall hingga festival seni jalanan. Komunitas mulai membentuk — orang-orang yang datang bukan karena ikut trend, tapi karena merasa diperlihatkan.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">Underground</span>
-            <span class="tl-tag">12 Gigs</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2008/800/500.jpg" alt="XYtoZA 2008" loading="lazy" />
-            <span class="tl-img-label">Growing Scene</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2009 ===== -->
-      <div class="tl-item major reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2009</span>
-          <h3 class="tl-title">The First EP</h3>
-          <p class="tl-desc">
-            EP pertama berjudul <strong>"Suara Dari Bawah"</strong> dirilis secara independen. 6 lagu yang merekam kemarahan, harapan, dan kebebasan. Terjual 500 kopi fisik dalam 3 bulan — sebuah pencapaian luar biasa untuk band indie.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">EP Release</span>
-            <span class="tl-tag">Indie</span>
-            <span class="tl-tag">500 Copies</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2009/800/500.jpg" alt="XYtoZA 2009" loading="lazy" />
-            <span class="tl-img-label">First EP</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2010 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2010</span>
-          <h3 class="tl-title">Lineup Shift</h3>
-          <p class="tl-desc">
-            Perubahan pertama dalam formasi band. <strong>Drummer pertama</strong> memutuskan hengkang karena perbedaan visi. Masa-masa sulit yang menguji apakah band ini akan bertahan. Audisi terbuka dilakukan, dan formasi baru mulai menemukan ritmenya.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">Lineup Change</span>
-            <span class="tl-tag">Transition</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2010/800/500.jpg" alt="XYtoZA 2010" loading="lazy" />
-            <span class="tl-img-label">New Chapter</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2011 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2011</span>
-          <h3 class="tl-title">The Sound Evolves</h3>
-          <p class="tl-desc">
-            Dengan formasi baru, suara XYtoZA bertransformasi. Elemen <strong>elektronik dan ambient</strong> mulai masuk ke dalam aransemen. Lirik semakin dalam — tidak lagi sekadar kemarahan, tapi juga kerentanan dan refleksi.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">Evolution</span>
-            <span class="tl-tag">New Sound</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2011/800/500.jpg" alt="XYtoZA 2011" loading="lazy" />
-            <span class="tl-img-label">Sound Evolution</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2012 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2012</span>
-          <h3 class="tl-title">Regional Tour</h3>
-          <p class="tl-desc">
-            Tour pertama keluar kota — <strong>8 kota, 10 show</strong> dalam 3 minggu. Bukan tour bus mewah, tapi mobil pick-up dan penginapan murah. Setiap kota membuktikan bahwa suara mereka melampaui batas geografis.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">Tour</span>
-            <span class="tl-tag">8 Cities</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2012/800/500.jpg" alt="XYtoZA 2012" loading="lazy" />
-            <span class="tl-img-label">On The Road</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2013 ===== -->
-      <div class="tl-item major reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2013</span>
-          <h3 class="tl-title">Debut Album</h3>
-          <p class="tl-desc">
-            Album debut <strong>"Jembatan Generasi"</strong> akhirnya dirilis. 12 lagu yang menjadi manifestasi dari segala pengalaman, penderitaan, dan harapan. Album ini menandai transisi XYtoZA dari band lokal menjadi fenomena budaya.
-          </p>
-          <div class="tl-quote">
-            "Setiap lagu di album ini adalah surat yang kami tulis untuk generasi setelah kami."
-            <cite>— XYtoZA, liner notes</cite>
-          </div>
-          <div class="tl-tags">
-            <span class="tl-tag">Debut Album</span>
-            <span class="tl-tag">12 Tracks</span>
-            <span class="tl-tag">Milestone</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2013/800/500.jpg" alt="XYtoZA 2013" loading="lazy" />
-            <span class="tl-img-label">Debut Album</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2014 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2014</span>
-          <h3 class="tl-title">Recognition</h3>
-          <p class="tl-desc">
-            Nominasi <strong>Best New Artist</strong> di ajang penghargaan nasional. Album debut masuk daftar "Album Terbaik Tahun Ini" oleh beberapa media musik. Tapi yang lebih penting — pesan mereka mulai sampai ke audiens yang lebih luas.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">Award Nomination</span>
-            <span class="tl-tag">Media Coverage</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2014/800/500.jpg" alt="XYtoZA 2014" loading="lazy" />
-            <span class="tl-img-label">Rising Recognition</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2015 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2015</span>
-          <h3 class="tl-title">National Tour</h3>
-          <p class="tl-desc">
-            Tour nasional pertama — <strong>15 kota, 20 show</strong>. Venue semakin besar, penonton semakin banyak. Tapi filosofi tidak berubah: setiap panggung adalah kesempatan untuk menyampaikan pesan, bukan sekadar tampil.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">National Tour</span>
-            <span class="tl-tag">15 Cities</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2015/800/500.jpg" alt="XYtoZA 2015" loading="lazy" />
-            <span class="tl-img-label">National Tour</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2016 ===== -->
-      <div class="tl-item major reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2016</span>
-          <h3 class="tl-title">Second Album</h3>
-          <p class="tl-desc">
-            Album kedua <strong>"Nada yang Abadi"</strong> dirilis dan langsung menempati #1 di chart indie. Suara lebih matang, lirik lebih berani. Kolaborasi pertama dengan musisi dari genre berbeda membuka dimensi baru.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">2nd Album</span>
-            <span class="tl-tag">#1 Chart</span>
-            <span class="tl-tag">Collaboration</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2016/800/500.jpg" alt="XYtoZA 2016" loading="lazy" />
-            <span class="tl-img-label">Album #2</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2017 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2017</span>
-          <h3 class="tl-title">International Stage</h3>
-          <p class="tl-desc">
-            Undangan pertama ke <strong>festival musik internasional</strong>. Membawa pesan dari Generasi X & Y ke panggung dunia. Bahasa berbeda, tapi frekuensi emosi tetap sama. Respon global yang melampaui ekspektasi.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">International</span>
-            <span class="tl-tag">Festival</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2017/800/500.jpg" alt="XYtoZA 2017" loading="lazy" />
-            <span class="tl-img-label">Going Global</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2018 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2018</span>
-          <h3 class="tl-title">The Breaking Point</h3>
-          <p class="tl-desc">
-            Tekanan dari industri, kelelahan tour, dan <strong>konflik internal</strong> mencapai titik puncak. Satu personil memutuskan keluar. Band sempat vakum selama beberapa bulan. Pertanyaan terbesar: apakah ini akhir?
-          </p>
-          <div class="tl-quote">
-            "Kami hampir bubar. Tapi kemudian kami ingat kenapa kami mulai — bukan untuk kami sendiri."
-            <cite>— Bassist XYtoZA</cite>
-          </div>
-          <div class="tl-tags">
-            <span class="tl-tag">Crisis</span>
-            <span class="tl-tag">Lineup Change</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2018/800/500.jpg" alt="XYtoZA 2018" loading="lazy" />
-            <span class="tl-img-label">Breaking Point</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2019 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2019</span>
-          <h3 class="tl-title">Rebirth</h3>
-          <p class="tl-desc">
-            Formasi baru yang lebih solid. Menemukan kembali <strong>api semangat</strong> yang pernah redup. Memulai menulis materi baru dengan perspektif yang lebih luas — tidak lagi hanya untuk satu generasi, tapi untuk semua generasi.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">Rebirth</span>
-            <span class="tl-tag">New Formation</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2019/800/500.jpg" alt="XYtoZA 2019" loading="lazy" />
-            <span class="tl-img-label">Reborn</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2020 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2020</span>
-          <h3 class="tl-title">Pandemic & Resilience</h3>
-          <p class="tl-desc">
-            Dunia berhenti, tapi musik tidak. <strong>Live streaming</strong> menjadi panggung baru. Album akustik dirilis secara digital — bukan sebagai kompromi, tapi sebagai bukti bahwa semangat tidak mengenal kondisi.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">Pandemic</span>
-            <span class="tl-tag">Livestream</span>
-            <span class="tl-tag">Acoustic Album</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2020/800/500.jpg" alt="XYtoZA 2020" loading="lazy" />
-            <span class="tl-img-label">Resilience</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2021 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2021</span>
-          <h3 class="tl-title">New Sound Exploration</h3>
-          <p class="tl-desc">
-            Masa isolasi menjadi laboratorium kreatif. <strong>Eksplorasi genre</strong> yang lebih luas — post-rock, shoegaze, hingga elemen tradisional. Setiap eksperimen membuka pintu baru yang tidak pernah terpikirkan sebelumnya.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">Experiment</span>
-            <span class="tl-tag">Post-Rock</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2021/800/500.jpg" alt="XYtoZA 2021" loading="lazy" />
-            <span class="tl-img-label">Exploration</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2022 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2022</span>
-          <h3 class="tl-title">The Comeback</h3>
-          <p class="tl-desc">
-            Comeback single <strong>"Satu Paket"</strong> dirilis dan langsung menjadi viral. Lagu yang merekam semua pengalaman 17 tahun dalam satu paket emosi. Return to stage dengan <strong>5 show sold-out</strong> dalam 2 minggu.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">Comeback</span>
-            <span class="tl-tag">Sold Out</span>
-            <span class="tl-tag">Viral</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2022/800/500.jpg" alt="XYtoZA 2022" loading="lazy" />
-            <span class="tl-img-label">The Comeback</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2023 ===== -->
-      <div class="tl-item major reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2023</span>
-          <h3 class="tl-title">Third Album</h3>
-          <p class="tl-desc">
-            Album ketiga <strong>"Sound of Drive"</strong> dirilis dan menjadi album terpopuler mereka. 10 lagu yang menjadi soundtrack perjuangan generasi baru. Album ini menegaskan misi XYtoZA: dari <strong>Generasi X & Y untuk Generasi Z & Alpha</strong>.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">3rd Album</span>
-            <span class="tl-tag">Sound of Drive</span>
-            <span class="tl-tag">Breakthrough</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2023/800/500.jpg" alt="XYtoZA 2023" loading="lazy" />
-            <span class="tl-img-label">Sound of Drive</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2024 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2024</span>
-          <h3 class="tl-title">Festival Headliner</h3>
-          <p class="tl-desc">
-            Untuk pertama kalinya, XYtoZA menjadi <strong>headliner festival musik besar</strong>. 50.000 orang menyanyikan lagu-lagu yang dulunya hanya didengar di kamar kos. Buktinya: pesan yang tulus tidak pernah kedaluwarsa.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">Headliner</span>
-            <span class="tl-tag">50K Audience</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2024/800/500.jpg" alt="XYtoZA 2024" loading="lazy" />
-            <span class="tl-img-label">Headliner</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2025 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2025</span>
-          <h3 class="tl-title">The Legacy Tour</h3>
-          <p class="tl-desc">
-            Tour perayaan <strong>20 tahun</strong> XYtoZA. Mengunjungi kembali kota-kota pertama, venue-venue kecil, dan orang-orang yang ada di awal. Bukan nostalgia — tapi pengingat bahwa setiap perjalanan panjang dimulai dari satu langkah kecil.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">20 Years</span>
-            <span class="tl-tag">Legacy Tour</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2025/800/500.jpg" alt="XYtoZA 2025" loading="lazy" />
-            <span class="tl-img-label">20th Anniversary</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2026 ===== -->
-      <div class="tl-item major reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2026</span>
-          <h3 class="tl-title">The Bridge Is Complete</h3>
-          <p class="tl-desc">
-            Album keempat <strong>"Dari X&Y untuk Z&A"</strong> dirilis. 30 lagu yang menjadi manifestasi penuh dari misi 21 tahun. Misi ini bukan tentang kami — ini tentang <strong>estafet semangat</strong> yang tidak akan pernah berhenti. Panggung kami sekarang adalah dunia. Dan frekuensi kami tidak akan pernah padam.
-          </p>
-          <div class="tl-quote">
-            "Api Semangat harus terus diestafetkan. Musik adalah satu-satunya bahasa yang tidak mengenal batas usia."
-            <cite>— XYtoZA</cite>
-          </div>
-          <div class="tl-tags">
-            <span class="tl-tag">4th Album</span>
-            <span class="tl-tag">30 Tracks</span>
-            <span class="tl-tag">The Mission</span>
-            <span class="tl-tag">NOW</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2026/800/500.jpg" alt="XYtoZA 2026" loading="lazy" />
-            <span class="tl-img-label">Present Day</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============ CTA SECTION ============ -->
-  <section class="story-cta">
-    <div class="container">
-      <h2 class="reveal">THE STORY <span class="accent">CONTINUES</span></h2>
-      <p class="reveal">
-        Ini bukan akhir dari cerita — ini babak baru. Dengarkan suara yang telah 21 tahun melintasi generasi.
-      </p>
-      <div class="reveal">
-        <a href="index.html#dsp" class="btn btn-primary">Listen Now</a>
-        <a href="index.html#contact" class="btn btn-ghost">Book Us</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ FOOTER ============ -->
   <footer>
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <div class="logo">XYtoZA<span class="dot">.</span></div>
-          <p>Dari Generasi X & Y untuk Generasi Z & Alpha. Karena api semangat harus terus diestafetkan.</p>
-          <div class="footer-social">
-            <a href="#" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-            </a>
-            <a href="#" aria-label="YouTube">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            </a>
-            <a href="#" aria-label="TikTok">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-            </a>
-            <a href="#" aria-label="Spotify">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-            </a>
-          </div>
-        </div>
-        <div class="footer-col">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="our-story.html">Our Story</a></li>
-            <li><a href="index.html#music">Music</a></li>
-            <li><a href="index.html#tour">Tour</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Listen On</h4>
-          <ul>
-            <li><a href="#">Spotify</a></li>
-            <li><a href="#">Apple Music</a></li>
-            <li><a href="#">YouTube Music</a></li>
-            <li><a href="#">Deezer</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <ul>
-            <li><a href="index.html#contact">Booking</a></li>
-            <li><a href="#">Management</a></li>
-            <li><a href="#">Press Kit</a></li>
-            <li><a href="#">Merchandise</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 <span class="accent">XYtoZA</span>. Dari Generasi X & Y untuk Generasi Z & Alpha. All rights reserved.</p>
-      </div>
-    </div>
+    <div class="container footer-inner"><p><strong>XYtoZA.</strong> From Generation X &amp; Y to Generation Z &amp; Alpha.</p><p>Back on the frequency soon.</p></div>
   </footer>
 
-  <!-- ============ JAVASCRIPT ============ -->
   <script>
-    // === Navbar scroll effect ===
     const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 50);
-    });
-
-    // === Mobile menu ===
     const burger = document.getElementById('burger');
     const mobileMenu = document.getElementById('mobileMenu');
     const overlay = document.getElementById('overlay');
 
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 24));
+
     function toggleMenu() {
-      burger.classList.toggle('active');
-      mobileMenu.classList.toggle('active');
-      overlay.classList.toggle('active');
-      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+      const isOpen = mobileMenu.classList.toggle('active');
+      burger.classList.toggle('active', isOpen);
+      overlay.classList.toggle('active', isOpen);
+      burger.setAttribute('aria-expanded', String(isOpen));
+      burger.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     }
 
     burger.addEventListener('click', toggleMenu);
     overlay.addEventListener('click', toggleMenu);
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (mobileMenu.classList.contains('active')) toggleMenu();
-      });
-    });
-
-    // === Scroll reveal ===
-    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, {
-      threshold: 0.15,
-      rootMargin: '0px 0px -40px 0px'
-    });
-
-    revealElements.forEach(el => revealObserver.observe(el));
-
-    // === Timeline items special reveal ===
-    const tlItems = document.querySelectorAll('.tl-item');
-    const tlObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          // Animate the dot
-          const dot = entry.target.querySelector('.tl-dot-inner');
-          if (dot) {
-            dot.style.animation = 'none';
-            dot.offsetHeight; // trigger reflow
-            dot.style.animation = '';
-          }
-        }
-      });
-    }, {
-      threshold: 0.2,
-      rootMargin: '0px 0px -60px 0px'
-    });
-
-    tlItems.forEach(item => {
-      item.style.opacity = '0';
-      item.style.transform = 'translateY(30px)';
-      item.style.transition = 'opacity 0.8s var(--ease), transform 0.8s var(--ease)';
-      tlObserver.observe(item);
-    });
-
-    // Override the visible state for timeline items
-    const style = document.createElement('style');
-    style.textContent = `
-      .tl-item.visible {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-      }
-    `;
-    document.head.appendChild(style);
-
-    // === Counter animation ===
-    function animateCounters() {
-      const counters = document.querySelectorAll('.stat-num[data-count]');
-      counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-count'));
-        const duration = 2000;
-        const start = performance.now();
-
-        function update(currentTime) {
-          const elapsed = currentTime - start;
-          const progress = Math.min(elapsed / duration, 1);
-          // Ease out cubic
-          const eased = 1 - Math.pow(1 - progress, 3);
-          const current = Math.floor(eased * target);
-          counter.textContent = current + (target >= 100 ? '+' : target >= 20 ? '+' : '');
-
-          if (progress < 1) {
-            requestAnimationFrame(update);
-          } else {
-            counter.textContent = target + (target >= 100 ? '+' : '+');
-          }
-        }
-
-        requestAnimationFrame(update);
-      });
-    }
-
-    // Trigger counter when stats section is visible
-    const statsBar = document.querySelector('.stats-bar');
-    let countersAnimated = false;
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !countersAnimated) {
-          countersAnimated = true;
-          animateCounters();
-        }
-      });
-    }, { threshold: 0.3 });
-
-    statsObserver.observe(statsBar);
-
-    // === Parallax on hero ===
-    const pageHero = document.querySelector('.page-hero');
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      if (scrollY < window.innerHeight) {
-        pageHero.style.transform = `translateY(${scrollY * 0.15}px)`;
-      }
-    });
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', toggleMenu));
   </script>
 </body>
 </html>
