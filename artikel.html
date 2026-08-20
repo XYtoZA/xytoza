@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Artikel — XYtoZA</title>
+  <meta name="description" content="Arsip artikel, cerita, dan catatan perjalanan XYtoZA." />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg: #0a0a0b; --surface: #17171a; --line: rgba(255,255,255,.1); --text: #f4f4f5; --muted: #a1a1aa; --dim: #71717a; --accent: #ff6a00; --maxw: 1200px; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { min-height: 100vh; color: var(--text); background: radial-gradient(circle at 80% 12%, rgba(255,106,0,.12), transparent 28%), var(--bg); font-family: 'Inter', sans-serif; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(100% - 48px, var(--maxw)); margin: 0 auto; }
+    .nav { position: fixed; inset: 0 0 auto; z-index: 10; padding: 18px 0; background: rgba(10,10,11,.82); border-bottom: 1px solid var(--line); backdrop-filter: blur(14px); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+    .logo { display: inline-flex; align-items: baseline; font: 400 30px/1 'Bebas Neue', sans-serif; }
+    .logo .to, .logo .dot, .eyebrow, .card-meta { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
+    .nav-links a { color: var(--muted); font: 600 13px 'Barlow', sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+    .nav-cta { padding: 10px 20px; color: #09090a; background: var(--accent); border-radius: 999px; font: 700 12px 'Barlow', sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+    .hero { padding: 170px 0 90px; border-bottom: 1px solid var(--line); }
+    .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; font: 600 12px 'Barlow', sans-serif; letter-spacing: .28em; text-transform: uppercase; }
+    .eyebrow::before { width: 28px; height: 1px; background: var(--accent); content: ''; }
+    h1, h2, h3 { font-family: 'Bebas Neue', sans-serif; font-weight: 400; line-height: .95; text-transform: uppercase; }
+    h1 { max-width: 720px; font-size: clamp(70px, 12vw, 150px); letter-spacing: .015em; }
+    h1 span { color: var(--accent); }
+    .hero p { max-width: 580px; margin-top: 26px; color: var(--muted); font-size: 17px; }
+    .archive { padding: 70px 0 100px; }
+    .archive-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 30px; }
+    .archive-head h2 { font-size: clamp(44px, 6vw, 72px); }
+    .archive-head p { max-width: 290px; color: var(--dim); font-size: 14px; }
+    .article-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+    .article-card { min-height: 310px; display: flex; flex-direction: column; padding: 26px; background: var(--surface); transition: background .25s ease, color .25s ease; }
+    .article-card:hover { background: #202024; }
+    .card-meta { margin-bottom: 52px; font: 700 11px 'Barlow', sans-serif; letter-spacing: .16em; text-transform: uppercase; }
+    .article-card h3 { max-width: 280px; font-size: 37px; }
+    .article-card p { margin-top: 16px; color: var(--muted); font-size: 14px; }
+    .card-link { display: inline-flex; align-items: center; gap: 10px; margin-top: auto; padding-top: 28px; color: var(--accent); font: 700 12px 'Barlow', sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+    footer { padding: 24px 0; border-top: 1px solid var(--line); color: var(--dim); font-size: 12px; }
+    @media (max-width: 800px) { .nav { padding: 12px 0; } .nav-links { gap: 10px 14px; justify-content: flex-end; flex-wrap: wrap; } .nav-links a { font-size: 11px; } .nav-cta { display: none; } .article-grid { grid-template-columns: 1fr; } .archive-head { display: block; } .archive-head p { margin-top: 14px; } }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Navigasi utama">
+    <div class="container nav-inner">
+      <a href="index.html#home" class="logo" aria-label="XYtoZA home"><span>XY</span><span class="to">TO</span><span>ZA</span><span class="dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="song.html">Music</a></li>
+        <li><a href="index.html#dsp">Listen</a></li>
+        <li><a href="index.html#tour">Tour</a></li>
+        <li><a href="artikel.html" class="active">Artikel</a></li>
+        <li><a href="ourstory.html">Our Story</a></li>
+      </ul>
+      <a href="index.html#contact" class="nav-cta">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <p class="eyebrow">Catatan XYtoZA</p>
+      <h1>ARSIP <span>ARTIKEL</span></h1>
+      <p>Daftar isi tulisan tentang musik, proses kreatif, perjalanan, dan gagasan yang membentuk suara XYtoZA.</p>
+    </div>
+  </header>
+
+  <main class="archive">
+    <div class="container">
+      <div class="archive-head">
+        <h2>Semua Tulisan</h2>
+        <p>Jelajahi catatan terbaru dan arsip yang akan terus bertambah.</p>
+      </div>
+      <div class="article-grid">
+        <article class="article-card" id="menulis-dari-ruang-latihan">
+          <span class="card-meta">Rilis Musik · 2026</span>
+          <h3>Satu Paket: Rilis Digital</h3>
+          <p>Catatan tentang lagu pertama, emosi, dan perjalanan menuju seluruh platform musik digital.</p>
+          <a class="card-link" href="artikel/rilis_lagu_satu_paket.html">Baca artikel <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="article-card" id="suara-yang-terus-berjalan">
+          <span class="card-meta">Visi · 2026</span>
+          <h3>Visi &amp; Misi XYtoZA</h3>
+          <p>Tentang belajar, berlatih, beradaptasi, dan membangun kebiasaan yang bertumbuh.</p>
+          <a class="card-link" href="artikel/visi.html">Baca artikel <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="article-card" id="latihan-dan-konsistensi">
+          <span class="card-meta">Di Balik Layar · Segera</span>
+          <h3>Menulis dari Ruang Latihan</h3>
+          <p>Dummy artikel tentang proses menemukan ide, menyusun lirik, dan menjaga api kreatif.</p>
+          <a class="card-link" href="artikel.html#menulis-dari-ruang-latihan">Baca ringkasan <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="article-card" id="mendengar-dengan-utuh">
+          <span class="card-meta">Cerita · Segera</span>
+          <h3>Suara yang Terus Berjalan</h3>
+          <p>Dummy artikel tentang perubahan zaman dan alasan musik tetap menjadi bahasa lintas generasi.</p>
+          <a class="card-link" href="artikel.html#suara-yang-terus-berjalan">Baca ringkasan <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="article-card">
+          <span class="card-meta">Catatan · Segera</span>
+          <h3>Latihan dan Konsistensi</h3>
+          <p>Dummy artikel tentang rutinitas kecil yang menjaga proses kreatif tetap bergerak.</p>
+          <a class="card-link" href="artikel.html#latihan-dan-konsistensi">Baca ringkasan <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="article-card">
+          <span class="card-meta">Wawasan · Segera</span>
+          <h3>Mendengar dengan Utuh</h3>
+          <p>Dummy artikel tentang cara mendengarkan musik sebagai pengalaman, bukan sekadar suara.</p>
+          <a class="card-link" href="artikel.html#mendengar-dengan-utuh">Baca ringkasan <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer><div class="container">© 2026 <span class="eyebrow">XYtoZA</span>. Dari Generasi X &amp; Y untuk Generasi Z &amp; Alpha.</div></footer>
+</body>
+</html>
