@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">XYtoZA leaf mark</title>
+  <desc id="desc">White circular outline with two white leaves on a black background.</desc>
+  <circle cx="64" cy="64" r="57" fill="#000" stroke="#fff" stroke-width="5"/>
+  <path fill="#fff" d="M42.2 96.8c2-13.3 7.3-26.8 16.4-38.5 10.4-13.4 24.7-21.4 42.7-25.2-.5 15.9-5.7 29.8-16.2 40.2-9.8 9.7-22.1 14.1-36.4 16.7 3.5-8.8 9-17.5 16.7-24.9 7.2-6.9 15.4-12.5 24.4-17.1-11.7 4.2-22.4 10.8-31.5 19.2-7.1 6.6-12.4 14.7-16.1 24.7z"/>
+  <path fill="#fff" d="M42.2 96.8c-1.1-8.6-4-16.3-8.7-23-4.5-6.3-11.1-10.5-19.8-12.7.6 10.3 3.8 18.5 9.8 24.1 4.6 4.3 10.1 6.8 16.6 8.4-2.2-5.5-5.4-10.4-9.9-14.6-3.2-3-6.7-5.5-10.5-7.5 5.9 2.3 11.1 5.4 15.6 9.5 3.8 3.4 6.1 8.6 6.9 15.8z"/>
+</svg>
