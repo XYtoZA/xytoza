@@ -577,60 +577,6 @@
       color: var(--accent);
     }
 
-    /* ============ STATS BAR ============ */
-    .stats-bar {
-      background: var(--bg-2);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding: 60px 0;
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-    .stat-item {
-      text-align: center;
-      padding: 32px 20px;
-      border-radius: var(--radius);
-      background: var(--surface);
-      border: 1px solid var(--line);
-      transition: all 0.4s var(--ease);
-      position: relative;
-      overflow: hidden;
-    }
-    .stat-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--accent);
-      transform: scaleX(0);
-      transition: transform 0.4s var(--ease);
-    }
-    .stat-item:hover::before { transform: scaleX(1); }
-    .stat-item:hover {
-      border-color: var(--line-strong);
-      transform: translateY(-4px);
-    }
-    .stat-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(42px, 5vw, 64px);
-      color: var(--accent);
-      line-height: 1;
-    }
-    .stat-label {
-      font-family: 'Barlow', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      margin-top: 10px;
-    }
-
     /* ============ CTA SECTION ============ */
     .story-cta {
       padding: 120px 0;
@@ -857,7 +803,6 @@
         left: 28px;
         top: 32px;
       }
-      .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .footer-top { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 720px) {
@@ -866,14 +811,11 @@
       .burger { display: flex; }
       section { padding: 80px 0; }
       .page-hero { min-height: 60vh; padding: 120px 0 60px; }
-      .stats-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
-      .stat-item { padding: 24px 16px; }
       .footer-top { grid-template-columns: 1fr; gap: 32px; }
       .footer-bottom { flex-direction: column; text-align: center; }
       .era-year { min-width: 80px; font-size: 48px; }
     }
     @media (max-width: 480px) {
-      .stats-grid { grid-template-columns: 1fr; }
       .year-range { flex-direction: column; gap: 8px; }
       .year-range .sep { width: 2px; height: 20px; background: linear-gradient(180deg, var(--accent), transparent); }
     }
@@ -927,30 +869,6 @@
     </div>
   </header>
 
-  <!-- ============ STATS BAR ============ -->
-  <section class="stats-bar">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-item reveal">
-          <div class="stat-num" data-count="21">0</div>
-          <div class="stat-label">Tahun Bersama</div>
-        </div>
-        <div class="stat-item reveal">
-          <div class="stat-num" data-count="30">0</div>
-          <div class="stat-label">Lagu Dirilis</div>
-        </div>
-        <div class="stat-item reveal">
-          <div class="stat-num" data-count="150">0</div>
-          <div class="stat-label">Show Dimainkan</div>
-        </div>
-        <div class="stat-item reveal">
-          <div class="stat-num" data-count="5">0</div>
-          <div class="stat-label">Album Studio</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ TIMELINE ============ -->
   <section class="timeline" id="timeline">
     <div class="container">
@@ -959,10 +877,10 @@
       <div class="tl-item major reveal">
         <div class="tl-dot"><div class="tl-dot-inner"></div></div>
         <div class="tl-content">
-          <span class="tl-year-badge">2005</span>
-          <h3 class="tl-title">The Spark Ignites</h3>
+          <span class="tl-year-badge">2005 - 2007</span>
+          <h3 class="tl-title">The Conscious Awakening</h3>
           <p class="tl-desc">
-            Empat anak muda dari kota yang sama bertemu di sebuah <strong>ruang latihan yang pengap</strong> di belakang toko musik tua. Tidak ada rencana besar — hanya rasa ingin berteriak melalui melodi. Nama "XYtoZA" pertama kali diucapkan malam itu, di antara asap rokok dan distorsi gitar pertama.
+            Awal mula perjalanan kreatif Sound Of Drive dimulai pada tahun 2005, ketika Sigit Sae selaku penulis lagu mulai merangkai karya-karya awal untuk proyek musik ini. Proses kreatif ini lahir dari sebuah titik balik kesadaran yang mendalam, tepat setelah ia memahami dan mendalami cara kerja pikiran manusia melalui literatur tentang hipnoterapi dan hipnosis.
           </p>
           <div class="tl-tags">
             <span class="tl-tag">Formasi</span>
@@ -977,14 +895,14 @@
         </div>
       </div>
 
-      <!-- ===== 2006 ===== -->
+      <!-- ===== 2008 ===== -->
       <div class="tl-item reveal">
         <div class="tl-dot"><div class="tl-dot-inner"></div></div>
         <div class="tl-content">
-          <span class="tl-year-badge">2006</span>
-          <h3 class="tl-title">First Demo, First Dream</h3>
+          <span class="tl-year-badge">2008</span>
+          <h3 class="tl-title">THE FIRST DEMO</h3>
           <p class="tl-desc">
-            Demo pertama direkam dengan peralatan seadanya di kamar kos. <strong>5 lagu</strong> yang kasar tapi jujur, dibagikan lewat CD-R dan MP3 di forum online. Respon kecil tapi nyata — cukup untuk membuktikan bahwa suara mereka didengar.
+            Pada tahun 2008, proses produksi musik mulai memasuki babak baru dengan bantuan dari tiga orang teman dalam merampungkan aransemen lagu. Rekaman demo pertama ini dikerjakan secara mandiri dengan peralatan seadanya di dalam sebuah kamar kos. Melalui kolaborasi sederhana tersebut, dua lagu awal berjudul "Bertindak" dan "Berani Gagal" berhasil direkam sebagai cetak biru musik pertama saya.
           </p>
           <div class="tl-tags">
             <span class="tl-tag">Demo</span>
@@ -993,55 +911,8 @@
         </div>
         <div class="tl-visual">
           <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2006/800/500.jpg" alt="XYtoZA 2006" loading="lazy" />
-            <span class="tl-img-label">First Recording</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2007 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2007</span>
-          <h3 class="tl-title">Panggung Pertama</h3>
-          <p class="tl-desc">
-            Penampilan live pertama di sebuah <strong>cafe kecil</strong> yang hanya muat 40 orang. Tangan dingin, string putus di lagu kedua, tapi penonton menyanyi refrein yang mereka sendiri baru dengar. Momen itu mengubah segalanya.
-          </p>
-          <div class="tl-quote">
-            "Kami tidak punya setlist yang rapi. Tapi kami punya alasan untuk berdiri di atas panggung itu."
-            <cite>— Vokalis XYtoZA</cite>
-          </div>
-          <div class="tl-tags">
-            <span class="tl-tag">Live Debut</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2007/800/500.jpg" alt="XYtoZA 2007" loading="lazy" />
-            <span class="tl-img-label">First Gig</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2008 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2008</span>
-          <h3 class="tl-title">Street Credibility</h3>
-          <p class="tl-desc">
-            Nama mulai merambat di <strong>underground scene</strong>. Bermain di 12 gig dalam satu tahun, dari parkiran mall hingga festival seni jalanan. Komunitas mulai membentuk — orang-orang yang datang bukan karena ikut trend, tapi karena merasa diperlihatkan.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">Underground</span>
-            <span class="tl-tag">12 Gigs</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
             <img src="https://picsum.photos/seed/xytoza2008/800/500.jpg" alt="XYtoZA 2008" loading="lazy" />
-            <span class="tl-img-label">Growing Scene</span>
+            <span class="tl-img-label">First Recording</span>
           </div>
         </div>
       </div>
@@ -1051,9 +922,9 @@
         <div class="tl-dot"><div class="tl-dot-inner"></div></div>
         <div class="tl-content">
           <span class="tl-year-badge">2009</span>
-          <h3 class="tl-title">The First EP</h3>
+          <h3 class="tl-title">SPREADING THE VISIONS</h3>
           <p class="tl-desc">
-            EP pertama berjudul <strong>"Suara Dari Bawah"</strong> dirilis secara independen. 6 lagu yang merekam kemarahan, harapan, dan kebebasan. Terjual 500 kopi fisik dalam 3 bulan — sebuah pencapaian luar biasa untuk band indie.
+            Langkah besar diambil pada tahun 2009 dengan bantuan seorang teman yang merancang dan mencetak proposal fisik untuk proyek musik ini. Sebanyak 90 proposal beserta demo lagu mulai didistribusikan secara masif ke berbagai label rekaman besar di Indonesia. Tidak hanya menyasar industri musik, gerilya ini juga menjangkau para penerbit buku, pembicara bisnis, hingga berbagai motivator ternama tanah air untuk mengenalkan konsep musik motivasi yang diusung.
           </p>
           <div class="tl-tags">
             <span class="tl-tag">EP Release</span>
@@ -1074,9 +945,9 @@
         <div class="tl-dot"><div class="tl-dot-inner"></div></div>
         <div class="tl-content">
           <span class="tl-year-badge">2010</span>
-          <h3 class="tl-title">Lineup Shift</h3>
+          <h3 class="tl-title">THE NEW CHALLENGE</h3>
           <p class="tl-desc">
-            Perubahan pertama dalam formasi band. <strong>Drummer pertama</strong> memutuskan hengkang karena perbedaan visi. Masa-masa sulit yang menguji apakah band ini akan bertahan. Audisi terbuka dilakukan, dan formasi baru mulai menemukan ritmenya.
+            Meski belum menjadi titik terang yang diharapkan, tahun 2010 membawa respons balik dari sebuah penerbit besar dan Bapak Andrie Wongso. Melalui sebuah surat panggilan, pihak penerbit menjelaskan bahwa mereka bukanlah penyedia musik, melainkan menyarankan agar konsep ini diubah menjadi sebuah buku untuk diajukan kembali ke mereka. Di saat yang bersamaan, pertemuan dengan Bapak Andrie Wongso menghasilkan kesepakatan untuk membuat sebuah lagu berjudul "Success is My Right", walaupun harapan awal sebenarnya adalah agar beliau bersedia menjadi produser utama proyek musik ini.
           </p>
           <div class="tl-tags">
             <span class="tl-tag">Lineup Change</span>
@@ -1096,9 +967,9 @@
         <div class="tl-dot"><div class="tl-dot-inner"></div></div>
         <div class="tl-content">
           <span class="tl-year-badge">2011</span>
-          <h3 class="tl-title">The Sound Evolves</h3>
+          <h3 class="tl-title">NEW CHANNELS, NEW PATHS</h3>
           <p class="tl-desc">
-            Dengan formasi baru, suara XYtoZA bertransformasi. Elemen <strong>elektronik dan ambient</strong> mulai masuk ke dalam aransemen. Lirik semakin dalam — tidak lagi sekadar kemarahan, tapi juga kerentanan dan refleksi.
+            Melihat platform YouTube yang mulai ramai pada tahun 2011, dua lagu awal berjudul "Bertindak" dan "Berani Gagal" akhirnya diunggah secara mandiri agar bisa didengarkan oleh publik luas. Di saat yang bersamaan, arahan dari surat tanggapan pihak penerbit sebelumnya mulai diwujudkan dengan mulai menulis sebuah buku yang mengupas tuntas tentang maksud, pesan mendalam, serta filosofi di balik pembuatan lagu-lagu motivasi ini.
           </p>
           <div class="tl-tags">
             <span class="tl-tag">Evolution</span>
@@ -1113,188 +984,25 @@
         </div>
       </div>
 
-      <!-- ===== 2012 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2012</span>
-          <h3 class="tl-title">Regional Tour</h3>
-          <p class="tl-desc">
-            Tour pertama keluar kota — <strong>8 kota, 10 show</strong> dalam 3 minggu. Bukan tour bus mewah, tapi mobil pick-up dan penginapan murah. Setiap kota membuktikan bahwa suara mereka melampaui batas geografis.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">Tour</span>
-            <span class="tl-tag">8 Cities</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2012/800/500.jpg" alt="XYtoZA 2012" loading="lazy" />
-            <span class="tl-img-label">On The Road</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2013 ===== -->
-      <div class="tl-item major reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2013</span>
-          <h3 class="tl-title">Debut Album</h3>
-          <p class="tl-desc">
-            Album debut <strong>"Jembatan Generasi"</strong> akhirnya dirilis. 12 lagu yang menjadi manifestasi dari segala pengalaman, penderitaan, dan harapan. Album ini menandai transisi XYtoZA dari band lokal menjadi fenomena budaya.
-          </p>
-          <div class="tl-quote">
-            "Setiap lagu di album ini adalah surat yang kami tulis untuk generasi setelah kami."
-            <cite>— XYtoZA, liner notes</cite>
-          </div>
-          <div class="tl-tags">
-            <span class="tl-tag">Debut Album</span>
-            <span class="tl-tag">12 Tracks</span>
-            <span class="tl-tag">Milestone</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2013/800/500.jpg" alt="XYtoZA 2013" loading="lazy" />
-            <span class="tl-img-label">Debut Album</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2014 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2014</span>
-          <h3 class="tl-title">Recognition</h3>
-          <p class="tl-desc">
-            Nominasi <strong>Best New Artist</strong> di ajang penghargaan nasional. Album debut masuk daftar "Album Terbaik Tahun Ini" oleh beberapa media musik. Tapi yang lebih penting — pesan mereka mulai sampai ke audiens yang lebih luas.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">Award Nomination</span>
-            <span class="tl-tag">Media Coverage</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2014/800/500.jpg" alt="XYtoZA 2014" loading="lazy" />
-            <span class="tl-img-label">Rising Recognition</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2015 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2015</span>
-          <h3 class="tl-title">National Tour</h3>
-          <p class="tl-desc">
-            Tour nasional pertama — <strong>15 kota, 20 show</strong>. Venue semakin besar, penonton semakin banyak. Tapi filosofi tidak berubah: setiap panggung adalah kesempatan untuk menyampaikan pesan, bukan sekadar tampil.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">National Tour</span>
-            <span class="tl-tag">15 Cities</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2015/800/500.jpg" alt="XYtoZA 2015" loading="lazy" />
-            <span class="tl-img-label">National Tour</span>
-          </div>
-        </div>
-      </div>
-
       <!-- ===== 2016 ===== -->
       <div class="tl-item major reveal">
         <div class="tl-dot"><div class="tl-dot-inner"></div></div>
         <div class="tl-content">
           <span class="tl-year-badge">2016</span>
-          <h3 class="tl-title">Second Album</h3>
+          <h3 class="tl-title">CROSSING PATHS</h3>
           <p class="tl-desc">
-            Album kedua <strong>"Nada yang Abadi"</strong> dirilis dan langsung menempati #1 di chart indie. Suara lebih matang, lirik lebih berani. Kolaborasi pertama dengan musisi dari genre berbeda membuka dimensi baru.
+            Setelah bertahun-tahun mencari anggota band dan belum menemukan yang satu visi, proses penulisan buku tetap dicicil secara perlahan dari bab ke bab. Pada tahun 2016, sebuah karya baru bertajuk "Demi Mamah" diciptakan sebagai persembahan khusus untuk orang-orang tercinta. Proses produksi lagu ini membawa langkah kaki menuju The Green Rocker Studio, tempat di mana Sigit Sae pertama kali dipertemukan dengan Kang James Argo selaku pemilik studio. Sosok multitalenta yang menguasai seluruh proses mulai dari rekaman, aransemen, hingga mixing dan mastering ini, pada saat itu sama sekali tidak disangka akan menjadi rekan satu tim yang solid di masa depan.
           </p>
           <div class="tl-tags">
-            <span class="tl-tag">2nd Album</span>
-            <span class="tl-tag">#1 Chart</span>
-            <span class="tl-tag">Collaboration</span>
+            <span class="tl-tag">Demi Mamah</span>
+            <span class="tl-tag">The Green Rocker Studio</span>
+            <span class="tl-tag">New Collaboration</span>
           </div>
         </div>
         <div class="tl-visual">
           <div class="tl-img">
             <img src="https://picsum.photos/seed/xytoza2016/800/500.jpg" alt="XYtoZA 2016" loading="lazy" />
-            <span class="tl-img-label">Album #2</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2017 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2017</span>
-          <h3 class="tl-title">International Stage</h3>
-          <p class="tl-desc">
-            Undangan pertama ke <strong>festival musik internasional</strong>. Membawa pesan dari Generasi X & Y ke panggung dunia. Bahasa berbeda, tapi frekuensi emosi tetap sama. Respon global yang melampaui ekspektasi.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">International</span>
-            <span class="tl-tag">Festival</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2017/800/500.jpg" alt="XYtoZA 2017" loading="lazy" />
-            <span class="tl-img-label">Going Global</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2018 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2018</span>
-          <h3 class="tl-title">The Breaking Point</h3>
-          <p class="tl-desc">
-            Tekanan dari industri, kelelahan tour, dan <strong>konflik internal</strong> mencapai titik puncak. Satu personil memutuskan keluar. Band sempat vakum selama beberapa bulan. Pertanyaan terbesar: apakah ini akhir?
-          </p>
-          <div class="tl-quote">
-            "Kami hampir bubar. Tapi kemudian kami ingat kenapa kami mulai — bukan untuk kami sendiri."
-            <cite>— Bassist XYtoZA</cite>
-          </div>
-          <div class="tl-tags">
-            <span class="tl-tag">Crisis</span>
-            <span class="tl-tag">Lineup Change</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2018/800/500.jpg" alt="XYtoZA 2018" loading="lazy" />
-            <span class="tl-img-label">Breaking Point</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2019 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2019</span>
-          <h3 class="tl-title">Rebirth</h3>
-          <p class="tl-desc">
-            Formasi baru yang lebih solid. Menemukan kembali <strong>api semangat</strong> yang pernah redup. Memulai menulis materi baru dengan perspektif yang lebih luas — tidak lagi hanya untuk satu generasi, tapi untuk semua generasi.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">Rebirth</span>
-            <span class="tl-tag">New Formation</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2019/800/500.jpg" alt="XYtoZA 2019" loading="lazy" />
-            <span class="tl-img-label">Reborn</span>
+            <span class="tl-img-label">Crossing Paths</span>
           </div>
         </div>
       </div>
@@ -1303,43 +1011,21 @@
       <div class="tl-item reveal">
         <div class="tl-dot"><div class="tl-dot-inner"></div></div>
         <div class="tl-content">
-          <span class="tl-year-badge">2020</span>
-          <h3 class="tl-title">Pandemic & Resilience</h3>
+          <span class="tl-year-badge">2020 - 2021</span>
+          <h3 class="tl-title">PANDEMIC HARVEST</h3>
           <p class="tl-desc">
-            Dunia berhenti, tapi musik tidak. <strong>Live streaming</strong> menjadi panggung baru. Album akustik dirilis secara digital — bukan sebagai kompromi, tapi sebagai bukti bahwa semangat tidak mengenal kondisi.
+            Datangnya pandemi Covid-19 pada tahun 2020 - 2021 justru membawa berkah tersendiri berupa waktu luang yang melimpah untuk fokus menyelesaikan penulisan buku yang sempat tertunda. Setelah melalui proses panjang, buku tersebut akhirnya rampung ditulis dengan judul "Sound Of Drive". Bersamaan dengan selesainya naskah tersebut, sebanyak 30 lagu final juga telah berhasil ditentukan judul-judulnya, meskipun pada saat itu seluruh materi lagu tersebut masih mengantre dan belum masuk ke tahap produksi musik.
           </p>
           <div class="tl-tags">
             <span class="tl-tag">Pandemic</span>
-            <span class="tl-tag">Livestream</span>
-            <span class="tl-tag">Acoustic Album</span>
+            <span class="tl-tag">Book Completed</span>
+            <span class="tl-tag">30 Songs</span>
           </div>
         </div>
         <div class="tl-visual">
           <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2020/800/500.jpg" alt="XYtoZA 2020" loading="lazy" />
-            <span class="tl-img-label">Resilience</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2021 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2021</span>
-          <h3 class="tl-title">New Sound Exploration</h3>
-          <p class="tl-desc">
-            Masa isolasi menjadi laboratorium kreatif. <strong>Eksplorasi genre</strong> yang lebih luas — post-rock, shoegaze, hingga elemen tradisional. Setiap eksperimen membuka pintu baru yang tidak pernah terpikirkan sebelumnya.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">Experiment</span>
-            <span class="tl-tag">Post-Rock</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2021/800/500.jpg" alt="XYtoZA 2021" loading="lazy" />
-            <span class="tl-img-label">Exploration</span>
+            <img src="https://picsum.photos/seed/xytoza2020/800/500.jpg" alt="XYtoZA 2020 - 2021" loading="lazy" />
+            <span class="tl-img-label">Pandemic Harvest</span>
           </div>
         </div>
       </div>
@@ -1349,20 +1035,20 @@
         <div class="tl-dot"><div class="tl-dot-inner"></div></div>
         <div class="tl-content">
           <span class="tl-year-badge">2022</span>
-          <h3 class="tl-title">The Comeback</h3>
+          <h3 class="tl-title">PRINTING THE VISIONS</h3>
           <p class="tl-desc">
-            Comeback single <strong>"Satu Paket"</strong> dirilis dan langsung menjadi viral. Lagu yang merekam semua pengalaman 17 tahun dalam satu paket emosi. Return to stage dengan <strong>5 show sold-out</strong> dalam 2 minggu.
+            Memasuki tahun 2022, buku "Sound Of Drive" akhirnya mulai dicetak secara terbatas sebanyak 20 eksemplar saja. Pencetakan ini ditujukan khusus sebagai sampel demo fisik untuk kembali bergerak mencari investor atau produser yang bersedia mendanai dan mendukung kelanjutan proyek musik ini.
           </p>
           <div class="tl-tags">
-            <span class="tl-tag">Comeback</span>
-            <span class="tl-tag">Sold Out</span>
-            <span class="tl-tag">Viral</span>
+            <span class="tl-tag">Sound Of Drive</span>
+            <span class="tl-tag">20 Copies</span>
+            <span class="tl-tag">Demo Sample</span>
           </div>
         </div>
         <div class="tl-visual">
           <div class="tl-img">
             <img src="https://picsum.photos/seed/xytoza2022/800/500.jpg" alt="XYtoZA 2022" loading="lazy" />
-            <span class="tl-img-label">The Comeback</span>
+            <span class="tl-img-label">Limited Printing</span>
           </div>
         </div>
       </div>
@@ -1372,42 +1058,20 @@
         <div class="tl-dot"><div class="tl-dot-inner"></div></div>
         <div class="tl-content">
           <span class="tl-year-badge">2023</span>
-          <h3 class="tl-title">Third Album</h3>
+          <h3 class="tl-title">A NEW WAVE OF CONFIDENCE</h3>
           <p class="tl-desc">
-            Album ketiga <strong>"Sound of Drive"</strong> dirilis dan menjadi album terpopuler mereka. 10 lagu yang menjadi soundtrack perjuangan generasi baru. Album ini menegaskan misi XYtoZA: dari <strong>Generasi X & Y untuk Generasi Z & Alpha</strong>.
+            Titik balik penting kembali hadir pada tahun 2023 ketika Yuke Sampurna, bassis dari Dewa 19, turun tangan memberikan bantuan untuk mencari dukungan dari rekan-rekan sesama musisi dan artis demi menyukseskan proyek ini. Meskipun hasil yang dicapai pada saat itu belum sepenuhnya maksimal, keterlibatan dan dukungan dari figur besar di industri musik tersebut berhasil mendongkrak rasa percaya diri serta mempertebal keyakinan bahwa proyek musik ini berada di jalur yang benar.
           </p>
           <div class="tl-tags">
-            <span class="tl-tag">3rd Album</span>
-            <span class="tl-tag">Sound of Drive</span>
-            <span class="tl-tag">Breakthrough</span>
+            <span class="tl-tag">Yuke Sampurna</span>
+            <span class="tl-tag">Music Support</span>
+            <span class="tl-tag">Confidence</span>
           </div>
         </div>
         <div class="tl-visual">
           <div class="tl-img">
             <img src="https://picsum.photos/seed/xytoza2023/800/500.jpg" alt="XYtoZA 2023" loading="lazy" />
-            <span class="tl-img-label">Sound of Drive</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ===== 2024 ===== -->
-      <div class="tl-item reveal">
-        <div class="tl-dot"><div class="tl-dot-inner"></div></div>
-        <div class="tl-content">
-          <span class="tl-year-badge">2024</span>
-          <h3 class="tl-title">Festival Headliner</h3>
-          <p class="tl-desc">
-            Untuk pertama kalinya, XYtoZA menjadi <strong>headliner festival musik besar</strong>. 50.000 orang menyanyikan lagu-lagu yang dulunya hanya didengar di kamar kos. Buktinya: pesan yang tulus tidak pernah kedaluwarsa.
-          </p>
-          <div class="tl-tags">
-            <span class="tl-tag">Headliner</span>
-            <span class="tl-tag">50K Audience</span>
-          </div>
-        </div>
-        <div class="tl-visual">
-          <div class="tl-img">
-            <img src="https://picsum.photos/seed/xytoza2024/800/500.jpg" alt="XYtoZA 2024" loading="lazy" />
-            <span class="tl-img-label">Headliner</span>
+            <span class="tl-img-label">New Confidence</span>
           </div>
         </div>
       </div>
@@ -1417,19 +1081,20 @@
         <div class="tl-dot"><div class="tl-dot-inner"></div></div>
         <div class="tl-content">
           <span class="tl-year-badge">2025</span>
-          <h3 class="tl-title">The Legacy Tour</h3>
+          <h3 class="tl-title">AN UNEXPECTED ALLY</h3>
           <p class="tl-desc">
-            Tour perayaan <strong>20 tahun</strong> XYtoZA. Mengunjungi kembali kota-kota pertama, venue-venue kecil, dan orang-orang yang ada di awal. Bukan nostalgia — tapi pengingat bahwa setiap perjalanan panjang dimulai dari satu langkah kecil.
+            Menjelang akhir tahun 2025, sebuah kunjungan biasa berubah menjadi langkah krusial bagi proyek ini. Niat awal untuk bersilaturahmi ke rumah seorang teman band lama bernama Rahmat Bros guna belajar bisnis online—mengingat kesuksesannya di bidang tersebut—justru membuka jalan baru. Pertemuan itu mengungkap bahwa ia ternyata masih sangat aktif bermain drum. Setelah mendengar pemaparan tentang proyek musik Sound Of Drive, ia menyatakan kesiapannya untuk membantu penuh, menjadikannya sebagai pemain drum sekaligus anggota tim pertama yang resmi bergabung.
           </p>
           <div class="tl-tags">
-            <span class="tl-tag">20 Years</span>
-            <span class="tl-tag">Legacy Tour</span>
+            <span class="tl-tag">Rahmat Bros</span>
+            <span class="tl-tag">First Member</span>
+            <span class="tl-tag">Drums</span>
           </div>
         </div>
         <div class="tl-visual">
           <div class="tl-img">
             <img src="https://picsum.photos/seed/xytoza2025/800/500.jpg" alt="XYtoZA 2025" loading="lazy" />
-            <span class="tl-img-label">20th Anniversary</span>
+            <span class="tl-img-label">An Unexpected Ally</span>
           </div>
         </div>
       </div>
@@ -1439,25 +1104,25 @@
         <div class="tl-dot"><div class="tl-dot-inner"></div></div>
         <div class="tl-content">
           <span class="tl-year-badge">2026</span>
-          <h3 class="tl-title">The Bridge Is Complete</h3>
+          <h3 class="tl-title">A BAND IS BORN</h3>
           <p class="tl-desc">
-            Album keempat <strong>"Dari X&Y untuk Z&A"</strong> dirilis. 30 lagu yang menjadi manifestasi penuh dari misi 21 tahun. Misi ini bukan tentang kami — ini tentang <strong>estafet semangat</strong> yang tidak akan pernah berhenti. Panggung kami sekarang adalah dunia. Dan frekuensi kami tidak akan pernah padam.
+            Memasuki tahun 2026, langkah kaki kembali diarahkan menuju The Green Rocker Studio untuk mematangkan pengerjaan demo musik ini. Setelah seluruh konsep proyek dipresentasikan secara matang, sang pemilik studio menyatakan kesediaannya untuk ikut bergabung ke dalam tim. Dengan formasi yang semakin solid, sebuah keputusan besar diambil untuk menyatukan visi ini ke dalam sebuah band resmi bernama XYtoZA. Nama ini lahir dari sebuah ide unik yang terinspirasi dari latar belakang generasi para anggotanya, yang merepresentasikan kolaborasi kuat antara Generasi X dan Generasi Y.
           </p>
           <div class="tl-quote">
-            "Api Semangat harus terus diestafetkan. Musik adalah satu-satunya bahasa yang tidak mengenal batas usia."
+            "Satu visi, satu band, satu suara."
             <cite>— XYtoZA</cite>
           </div>
           <div class="tl-tags">
-            <span class="tl-tag">4th Album</span>
-            <span class="tl-tag">30 Tracks</span>
-            <span class="tl-tag">The Mission</span>
+            <span class="tl-tag">XYtoZA</span>
+            <span class="tl-tag">Band Formation</span>
+            <span class="tl-tag">Gen X &amp; Y</span>
             <span class="tl-tag">NOW</span>
           </div>
         </div>
         <div class="tl-visual">
           <div class="tl-img">
             <img src="https://picsum.photos/seed/xytoza2026/800/500.jpg" alt="XYtoZA 2026" loading="lazy" />
-            <span class="tl-img-label">Present Day</span>
+            <span class="tl-img-label">A Band Is Born</span>
           </div>
         </div>
       </div>
@@ -1614,47 +1279,6 @@
       }
     `;
     document.head.appendChild(style);
-
-    // === Counter animation ===
-    function animateCounters() {
-      const counters = document.querySelectorAll('.stat-num[data-count]');
-      counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-count'));
-        const duration = 2000;
-        const start = performance.now();
-
-        function update(currentTime) {
-          const elapsed = currentTime - start;
-          const progress = Math.min(elapsed / duration, 1);
-          // Ease out cubic
-          const eased = 1 - Math.pow(1 - progress, 3);
-          const current = Math.floor(eased * target);
-          counter.textContent = current + (target >= 100 ? '+' : target >= 20 ? '+' : '');
-
-          if (progress < 1) {
-            requestAnimationFrame(update);
-          } else {
-            counter.textContent = target + (target >= 100 ? '+' : '+');
-          }
-        }
-
-        requestAnimationFrame(update);
-      });
-    }
-
-    // Trigger counter when stats section is visible
-    const statsBar = document.querySelector('.stats-bar');
-    let countersAnimated = false;
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !countersAnimated) {
-          countersAnimated = true;
-          animateCounters();
-        }
-      });
-    }, { threshold: 0.3 });
-
-    statsObserver.observe(statsBar);
 
     // === Parallax on hero ===
     const pageHero = document.querySelector('.page-hero');
