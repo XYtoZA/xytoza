@@ -24,6 +24,18 @@
     .nav-links a { color: var(--muted); font: 600 13px 'Barlow', sans-serif; letter-spacing: .08em; text-transform: uppercase; }
     .nav-links a:hover, .nav-links a.active { color: var(--text); }
     .nav-cta { padding: 10px 20px; color: #09090a; background: var(--accent); border-radius: 999px; font: 700 12px 'Barlow', sans-serif; letter-spacing: .1em; text-transform: uppercase; }
+    .burger { display: none; flex-direction: column; gap: 5px; width: 40px; height: 40px; padding: 8px; border: 0; border-radius: 0; background: transparent; appearance: none; cursor: pointer; }
+    .burger span { width: 24px; height: 2px; background: var(--text); transition: all .4s cubic-bezier(0.22, 1, 0.36, 1); }
+    .burger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger.active span:nth-child(2) { opacity: 0; }
+    .burger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { position: fixed; top: 0; right: -100%; width: 80%; max-width: 360px; height: 100vh; padding: 100px 32px 32px; display: flex; flex-direction: column; gap: 8px; background: #111114; border-left: 1px solid var(--line); z-index: 99; transition: right .4s ease; }
+    .mobile-menu.active { right: 0; }
+    .mobile-menu a { padding: 14px 0; color: var(--text); border-bottom: 1px solid var(--line); font: 400 28px/1 'Bebas Neue', sans-serif; letter-spacing: .06em; transition: color .3s ease, padding-left .3s ease; }
+    .mobile-menu a:hover { padding-left: 8px; color: var(--accent); }
+    .mobile-menu .nav-cta { align-self: flex-start; margin-top: 24px; border-bottom: 0; }
+    .overlay { position: fixed; inset: 0; z-index: 98; background: rgba(0,0,0,.6); backdrop-filter: blur(4px); opacity: 0; visibility: hidden; transition: opacity .4s ease, visibility .4s ease; }
+    .overlay.active { opacity: 1; visibility: visible; }
     .hero { padding: 170px 0 90px; border-bottom: 1px solid var(--line); }
     .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; font: 600 12px 'Barlow', sans-serif; letter-spacing: .28em; text-transform: uppercase; }
     .eyebrow::before { width: 28px; height: 1px; background: var(--accent); content: ''; }
@@ -43,7 +55,7 @@
     .article-card p { margin-top: 16px; color: var(--muted); font-size: 14px; }
     .card-link { display: inline-flex; align-items: center; gap: 10px; margin-top: auto; padding-top: 28px; color: var(--accent); font: 700 12px 'Barlow', sans-serif; letter-spacing: .12em; text-transform: uppercase; }
     footer { padding: 24px 0; border-top: 1px solid var(--line); color: var(--dim); font-size: 12px; }
-    @media (max-width: 800px) { .nav { padding: 12px 0; } .nav-links { gap: 10px 14px; justify-content: flex-end; flex-wrap: wrap; } .nav-links a { font-size: 11px; } .nav-cta { display: none; } .article-grid { grid-template-columns: 1fr; } .archive-head { display: block; } .archive-head p { margin-top: 14px; } }
+    @media (max-width: 800px) { .nav { padding: 12px 0; } .nav-links, .nav-cta { display: none; } .burger { display: flex; } .article-grid { grid-template-columns: 1fr; } .archive-head { display: block; } .archive-head p { margin-top: 14px; } }
   </style>
 </head>
 <body>
@@ -59,8 +71,22 @@
         <li><a href="ourstory.html">Our Story</a></li>
       </ul>
       <a href="index.html#contact" class="nav-cta">Contact</a>
+      <button class="burger" id="burger" type="button" aria-label="Buka menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="mobile-menu" id="mobileMenu" aria-label="Menu mobile">
+    <a href="index.html#about">About</a>
+    <a href="song.html">Music</a>
+    <a href="index.html#dsp">Listen</a>
+    <a href="index.html#tour">Tour</a>
+    <a href="artikel.html" class="active">Artikel</a>
+    <a href="ourstory.html">Our Story</a>
+    <a href="index.html#contact" class="nav-cta">Contact</a>
+  </aside>
 
   <header class="hero">
     <div class="container">
@@ -100,5 +126,22 @@
   </main>
 
   <footer><div class="container">© 2026 <span class="eyebrow">XYtoZA</span>. Dari Generasi X &amp; Y untuk Generasi Z &amp; Alpha.</div></footer>
+  <script>
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('overlay');
+
+    function toggleMenu() {
+      const isOpen = !mobileMenu.classList.contains('active');
+      burger.classList.toggle('active', isOpen);
+      mobileMenu.classList.toggle('active', isOpen);
+      overlay.classList.toggle('active', isOpen);
+      burger.setAttribute('aria-expanded', String(isOpen));
+    }
+
+    burger.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', toggleMenu));
+  </script>
 </body>
 </html>

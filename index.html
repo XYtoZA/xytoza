@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>XYtoZA — Dari Gen X & Y untuk Gen Z & Alpha</title>
-  <meta name="description" content="XYtoZA (Eks-Wai-Tu-Zia) — Dari Gen X & Y untuk Gen Z & Alpha." />
+  <title>XYtoZA Band</title>
+  <meta name="description" content="Baca : Eks-Wai-Tu-Zia — Dari Gen X & Y untuk Gen Z & Alpha." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.xytoza.com/" />
   <meta property="og:title" content="XYtoZA — Dari Gen X & Y untuk Gen Z & Alpha" />
@@ -1636,6 +1636,17 @@
       .scroll-indicator { display: none; }
       .hero-stats { gap: 20px; flex-wrap: wrap; }
       .booking-form { padding: 24px; }
+      .listen-now {
+        padding: 10px 22px;
+        font-size: 14px;
+        line-height: 1.2;
+        white-space: nowrap;
+      }
+      .dsp-icons { gap: 8px; }
+      .gen-row { gap: 12px; padding: 14px 16px; }
+      .gen-row .gen-label { min-width: 0; font-size: 25px; line-height: 1.05; }
+      .gen-row .gen-desc { font-size: 12px; line-height: 1.4; }
+      .gen-row.small-action .btn-small { padding: 7px 12px; font-size: 10px; }
     }
   </style>
 </head>
@@ -1776,16 +1787,16 @@
             <div class="gen-row xy small-action">
               <span class="gen-label">VISI</span>
               <span class="gen-desc">Sound Of Drive</span>
-              <a href="artikel/visi.html" class="btn btn-primary btn-small">Read More</a>
+              <a href="artikel/visi.html" class="btn btn-primary btn-small">Read</a>
             </div>
             <div class="gen-row xy small-action">
               <span class="gen-label">MISI</span>
               <span class="gen-desc">30 Tracks: &amp; The Survivors' Playlist</span>
-              <a href="artikel/visi.html" class="btn btn-primary btn-small">Read More</a>
+              <a href="artikel/visi.html" class="btn btn-primary btn-small">Read</a>
             </div>
             <div class="bridge-arrow">▼ SOUND OF DRIVE ▼</div>
-            <div class="gen-row za"><span class="gen-label">Gen X & Y</span><span class="gen-desc">Sahabat lama yang siap berbagi cerita.</span></div>
-            <div class="gen-row za"><span class="gen-label">Gen Z & Alpha</span><span class="gen-desc">Sahabat baru yang membawa energi segar.</span></div>
+            <div class="gen-row za"><span class="gen-label">X & Y</span><span class="gen-desc">Sahabat lama yang siap berbagi cerita.</span></div>
+            <div class="gen-row za"><span class="gen-label">Z & A</span><span class="gen-desc">Sahabat baru yang membawa energi segar.</span></div>
           </div>
         </div>
 
@@ -1948,18 +1959,15 @@
       <div class="team-cards">
         <div class="person-card reveal">
           <div class="team-label">Vocal / Bass</div>
-          <h3>Sigit Sae</h3>
-          <div class="person-meta">Gen Y · Bandung</div>
+          <h3>Sigit Sae</h3>          
           </div>
         <div class="person-card reveal">
           <div class="person-badge">Drums</div>
-          <h3>Rahmat Bros</h3>
-          <div class="person-meta">Gen Y · Bandung</div>
+          <h3>Rahmat Bros</h3>          
           </div>
         <div class="person-card reveal">
           <div class="person-badge">Guitar</div>
-          <h3>James Argo</h3>
-          <div class="person-meta">Gen X · Bandung</div>
+          <h3>James Argo</h3>          
           </div>
       </div>
     </div>
@@ -1973,8 +1981,7 @@
         <span class="eyebrow">Contact</span>
         <h2 class="section-title">LET'S TALK!</h2>
         <p>
-          Buka panggung, festival, acara sekolah, atau event korporat? Kami siap bawain
-          semangat ke mana saja. Isi form di samping, atau hubungi langsung
+          Isi form di samping, atau hubungi langsung
           kontak kami di bawah ini.
         </p>
 
@@ -1993,7 +2000,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             </div>
             <div class="lbl">
-              <small>WhatsApp / Phone</small>
+              <small>WhatsApp (Chat Only)</small>
               <strong>+62 895-2000-1567</strong>
             </div>
           </li>
@@ -2011,7 +2018,7 @@
 
       <form class="booking-form reveal" onsubmit="handleSubmit(event)">
         <h3>Contact Form</h3>
-        <p class="sub">Kami balas dalam 1×24 jam kerja.</p>
+        <p class="sub">Kami balas dalam waktu 2×24 jam kerja.</p>
 
         <div class="form-row">
           <div class="form-group">
@@ -2057,12 +2064,22 @@
             <label>Jenis Acara</label>
             <select name="type">
               <option value="">Pilih jenis</option>
-              <option>Festival</option>
-              <option>Corporate Event</option>
-              <option>Sekolah / Kampus</option>
-              <option>Private Gig</option>
-              <option>Private Event</option>
-              <option>Lainnya</option>
+              <optgroup label="PERFORMA BAND (XYtoZA)">
+                <option>Festival / Konser Musik</option>
+                <option>Corporate Event / Gathering</option>
+                <option>Acara Sekolah / Kampus</option>
+                <option>Private Gig / Wedding / Party</option>
+              </optgroup>
+              <optgroup label="PEMBICARA / SHARING">
+                <option>Seminar / Workshop / Webinar</option>
+                <option>Podcast / Interview / Talkshow</option>
+                <option>Bedah Buku / Event Komunitas</option>
+              </optgroup>
+              <optgroup label="BISNIS &amp; KOLABORASI">
+                <option>Endorsement / Review Produk</option>
+                <option>Sponsorship / Iklan Website</option>
+                <option>Kolaborasi Musik / Aransemen</option>
+              </optgroup>
             </select>
           </div>
         </div>
@@ -2130,7 +2147,7 @@
           </div>
         </a>
 
-        <a href="https://music.apple.com" target="_blank" rel="noopener" class="dsp-card reveal">
+        <a href="https://music.apple.com/us/artist/xytoza/6801004025" target="_blank" rel="noopener" class="dsp-card reveal">
           <div class="dsp-icon" style="background: #fc3c44; color:#ffffff;">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.54 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
           </div>
@@ -2143,7 +2160,7 @@
           </div>
         </a>
 
-        <a href="https://youtube.com" target="_blank" rel="noopener" class="dsp-card reveal">
+        <a href="https://youtube.com/@xy_to_za" target="_blank" rel="noopener" class="dsp-card reveal">
           <div class="dsp-icon" style="background: rgba(255,0,0,0.12); color:#ff0000;">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
           </div>
@@ -2155,8 +2172,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </div>
         </a>
-
-        <a href="https://music.youtube.com" target="_blank" rel="noopener" class="dsp-card reveal">
+        <a href="https://music.youtube.com/@xy_to_za" target="_blank" rel="noopener" class="dsp-card reveal">
           <div class="dsp-icon" style="background: rgba(255,0,0,0.12); color:#ff0000;">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm5.28 16.26c-.21.414-.486.708-.9.87-.36.144-1.062.246-1.926.27-.954.024-1.866.036-2.454.036-.66 0-1.5 0-2.454-.036-.864-.024-1.566-.126-1.926-.27-.414-.162-.69-.456-.9-.87-.21-.414-.318-.96-.318-1.614V9.354c0-.654.108-1.2.318-1.614.21-.414.486-.708.9-.87.36-.144 1.062-.246 1.926-.27.954-.024 1.866-.036 2.454-.036.66 0 1.5 0 2.454.036.864.024 1.566.126 1.926.27.414.162.69.456.9.87.21.414.318.96.318 1.614v5.292c0 .654-.108 1.2-.318 1.614zM9.6 14.592l4.8-2.736-4.8-2.736v5.472z"/></svg>
           </div>
@@ -2195,7 +2211,7 @@
           </div>
         </a>
 
-        <a href="https://tidal.com" target="_blank" rel="noopener" class="dsp-card reveal">
+        <a href="https://tidal.com/artist/84325698" target="_blank" rel="noopener" class="dsp-card reveal">
           <div class="dsp-icon" style="background: linear-gradient(135deg,#0ca8ff,#7b61ff); color:#fff;">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h7v7H3V3zm11 0h7v7h-7V3zM3 14h7v7H3v-7zm11 0h7v7h-7v-7z"/></svg>
           </div>
@@ -2228,23 +2244,19 @@
           <div class="faq-list">
             <details class="faq-item">
               <summary>Bagaimana prosedur booking konser XYtoZA?</summary>
-              <p>Kirim proposal acara lengkap ke <a href="mailto:booking@xytoza.live">booking@xytoza.live</a>. Tim kami akan merespons dalam 2–3 hari kerja.</p>
+              <p>Kirim proposal acara lengkap ke <a href="mailto:booking@xytoza.live">xytozaindonesia@gmail.com</a>. Tim kami akan merespons dalam 2–3 hari kerja.</p>
             </details>
             <details class="faq-item">
               <summary>Apakah XYtoZA menerima kolaborasi konten media?</summary>
-              <p>Ya, untuk konten media dan kerja sama kreatif silakan hubungi tim media kami di <a href="mailto:media@xytoza.live">media@xytoza.live</a>.</p>
+              <p>Ya, untuk konten media dan kerja sama kreatif silakan hubungi tim media kami di <a href="mailto:media@xytoza.live">xytozaindonesia@gmail.com</a>.</p>
             </details>
             <details class="faq-item">
               <summary>Dimana saya bisa membeli merchandise resmi?</summary>
-              <p>Merch resmi XYtoZA tersedia eksklusif di store resmi kami dan selama tur konser berlangsung.</p>
+              <p>Belum tersedia.</p>
             </details>
             <details class="faq-item">
               <summary>Bolehkah saya gunakan lagu XYtoZA untuk video YouTube/TikTok?</summary>
-              <p>Penggunaan non-komersial diperbolehkan sesuai kebijakan platform. Untuk penggunaan komersial, ajukan izin resmi ke <a href="mailto:media@xytoza.live">media@xytoza.live</a>.</p>
-            </details>
-            <details class="faq-item">
-              <summary>Bagaimana cara kirim demo musik atau karya?</summary>
-              <p>Kami terbuka untuk talenta baru. Kirimkan tautan demo (bukan lampiran besar) ke <a href="mailto:demo@xytoza.live">demo@xytoza.live</a>.</p>
+              <p>Penggunaan non-komersial diperbolehkan sesuai kebijakan platform. Untuk penggunaan komersial, ajukan izin resmi ke <a href="mailto:media@xytoza.live">xytozaindonesia@gmail.com</a>.</p>
             </details>
             <details class="faq-item">
               <summary>Bolehkah saya mengirim kado atau surat untuk XYtoZA?</summary>
@@ -2252,7 +2264,7 @@
             </details>
             <details class="faq-item">
               <summary>Kapan jadwal tur berikutnya akan dirilis?</summary>
-              <p>Jadwal tur terbaru akan diumumkan di Instagram resmi <a href="https://www.instagram.com/xytoza.official" target="_blank">@xytoza.official</a> dan label <a href="https://www.instagram.com/xytoza.label" target="_blank">@xytoza.label</a>.</p>
+              <p>Jadwal tur terbaru akan diumumkan di Website dan media sosial resmi</p>
             </details>
           </div>
         </div>
