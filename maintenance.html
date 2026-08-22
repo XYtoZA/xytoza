@@ -54,6 +54,7 @@
     .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
     .logo { display: inline-flex; align-items: baseline; font: 400 30px/1 'Bebas Neue', sans-serif; letter-spacing: 0.02em; }
     .logo .to, .logo .dot { color: var(--accent); }
+    .logo-band { display: inline-block; margin-left: 6px; color: var(--muted); font-family: 'Barlow', sans-serif; font-size: 0.62em; font-weight: 700; letter-spacing: 0.03em; text-transform: none; transform: translateY(-2px) scaleY(1.12); transform-origin: left bottom; }
     .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
     .nav-links a { position: relative; color: var(--muted); font: 600 13px 'Barlow', sans-serif; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.25s ease; }
     .nav-links a::after { position: absolute; right: 0; bottom: -8px; left: 0; height: 1px; background: var(--accent); content: ''; transform: scaleX(0); transition: transform 0.25s ease; }
@@ -155,7 +156,7 @@
 <body>
   <nav class="nav" id="nav" aria-label="Primary navigation">
     <div class="container nav-inner">
-      <a href="index.html" class="logo" aria-label="XYtoZA home"><span>XY</span><span class="to">TO</span><span>ZA</span><span class="dot">.</span></a>
+      <a href="index.html" class="logo" aria-label="XYtoZA Band home"><span>XY</span><span class="to">TO</span><span>ZA</span><span class="logo-band">Band</span></a>
       <ul class="nav-links">
         <li><a href="index.html#about">About</a></li>
         <li><a href="song.html">Music</a></li>
