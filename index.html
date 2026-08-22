@@ -1655,6 +1655,7 @@
         -webkit-text-fill-color: var(--text);
         color: var(--text);
         min-height: 2.1em;
+        margin-bottom: 4px;
       }
       .track-sub {
         display: flex;
@@ -1670,7 +1671,7 @@
         font-weight: 500;
         letter-spacing: 0.02em;
         line-height: 1.2;
-        margin: -1em 0 0;
+        margin: -1.35em 0 0;
       }
       .track-countdown {
         width: 100%;
@@ -1678,15 +1679,20 @@
         gap: 10px;
         margin: 0;
       }
+      .track-countdown .countdown-unit {
+        flex: 1;
+        min-width: 0;
+      }
       .track-countdown .countdown-label {
-        font-size: 10px;
+        font-size: 11px;
         letter-spacing: 0.08em;
       }
       .track-countdown .countdown-value {
-        min-width: 52px;
-        height: 42px;
+        width: 100%;
+        min-width: 0;
+        height: 46px;
         padding: 0 8px;
-        font-size: 15px;
+        font-size: 16px;
       }
       .listen-now {
         padding: 10px 22px;
