@@ -603,6 +603,7 @@
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
       background: #09090a;
+      padding: 0;
     }
     .team-overlay,
     .team::before {
@@ -625,8 +626,8 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      min-height: 100%;
-      padding: 0 0 64px;
+      min-height: 700px;
+      padding: 0 0 48px;
     }
     .team-panel {
       display: none;
@@ -671,12 +672,12 @@
       align-items: end;
     }
     .person-card {
-      padding: 28px;
+      padding: 24px;
       border-radius: var(--radius-lg);
       background: rgba(10,10,11,0.35);
       border: 1px solid rgba(255,255,255,0.06);
       backdrop-filter: blur(10px);
-      min-height: 280px;
+      min-height: 140px;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -686,6 +687,114 @@
       margin: 0 0 10px;
       font-size: 28px;
       color: #ffffff;
+    }
+    .person-card .read-more {
+      align-self: flex-start;
+      color: var(--accent);
+      font-family: 'Barlow', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+    .person-card .read-more:hover,
+    .person-card .read-more:focus-visible {
+      color: #fff;
+      transform: translateX(4px);
+    }
+    .profile-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 210;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(0,0,0,0.78);
+      backdrop-filter: blur(8px);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .profile-modal.open { opacity: 1; visibility: visible; }
+    .profile-modal-card {
+      width: min(100%, 620px);
+      max-height: min(680px, 90vh);
+      overflow-y: auto;
+      padding: 30px;
+      background: var(--surface);
+      border: 1px solid var(--line-strong);
+      border-top: 3px solid var(--accent);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.6);
+      transform: translateY(16px);
+      transition: transform 0.3s var(--ease);
+    }
+    .profile-modal.open .profile-modal-card { transform: translateY(0); }
+    .profile-modal-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 22px;
+    }
+    .profile-modal-head h2 { font-size: 38px; color: var(--text); }
+    .profile-modal-role {
+      margin-top: 6px;
+      color: var(--accent);
+      font-family: 'Barlow', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .profile-modal-close {
+      width: 36px;
+      height: 36px;
+      flex: 0 0 auto;
+      border: 1px solid var(--line-strong);
+      border-radius: 50%;
+      color: var(--text-muted);
+      font-size: 24px;
+      line-height: 1;
+    }
+    .profile-modal-close:hover { color: var(--accent); border-color: var(--accent); }
+    .profile-data { margin-bottom: 24px; }
+    .profile-data-row {
+      display: grid;
+      grid-template-columns: minmax(130px, 0.7fr) 1fr;
+      gap: 16px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      font-family: 'Barlow', sans-serif;
+    }
+    .profile-data-row dt { color: var(--text-muted); font-weight: 700; }
+    .profile-data-row dd { color: var(--text); }
+    .profile-socials { display: flex; flex-wrap: wrap; gap: 10px; }
+    .profile-socials a {
+      padding: 10px 14px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      color: var(--text);
+      font-family: 'Barlow', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .profile-socials a:hover { border-color: var(--accent); color: var(--accent); }
+    .profile-socials-title {
+      margin-bottom: 10px;
+      color: var(--text-dim);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 560px) {
+      .profile-modal-card { padding: 24px 20px; }
+      .profile-data-row { grid-template-columns: 1fr; gap: 2px; }
     }
     @media (max-width: 1200px) {
       .team-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1305,7 +1414,7 @@
       border-radius: var(--radius-lg);
       padding: 32px;
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 0.8fr 1.2fr;
       gap: 24px;
       align-items: center;
     }
@@ -1321,7 +1430,7 @@
     }
     .social-links {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       gap: 12px;
       justify-content: flex-start;
     }
@@ -1634,6 +1743,8 @@
       .booking-grid { grid-template-columns: 1fr; gap: 48px; }
       .footer-top { grid-template-columns: 1fr 1fr; }
       .dsp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .social-card { grid-template-columns: 1fr; }
+      .social-links { justify-content: flex-start; overflow-x: auto; }
     }
     @media (max-width: 720px) {
       .nav-links { display: none; }
@@ -1650,6 +1761,9 @@
       .hero-stats { gap: 20px; flex-wrap: wrap; }
       .booking-form { padding: 24px; }
       .dsp-grid { grid-template-columns: 1fr; }
+      .social-links { flex-direction: column; overflow-x: visible; }
+      .social-link { justify-content: center; }
+      .team-content { padding-left: 24px; padding-right: 24px; }
       .track-title {
         background: none;
         -webkit-text-fill-color: var(--text);
@@ -1984,17 +2098,20 @@
     <div class="team-overlay"></div>
     <div class="container team-content">
       <div class="team-cards">
-        <div class="person-card reveal">
+        <div class="person-card reveal" data-profile="sigit">
           <div class="team-label">Vocal / Bass</div>
-          <h3>Sigit Sae</h3>          
+          <h3>Sigit Sae</h3>
+          <button type="button" class="read-more" data-profile-open="sigit">Read more -&gt;</button>
           </div>
-        <div class="person-card reveal">
+        <div class="person-card reveal" data-profile="rahmat">
           <div class="person-badge">Drums</div>
-          <h3>Rahmat Bros</h3>          
+          <h3>Rahmat Bros</h3>
+          <button type="button" class="read-more" data-profile-open="rahmat">Read more -&gt;</button>
           </div>
-        <div class="person-card reveal">
+        <div class="person-card reveal" data-profile="james">
           <div class="person-badge">Guitar</div>
-          <h3>James Argo</h3>          
+          <h3>James Argo</h3>
+          <button type="button" class="read-more" data-profile-open="james">Read more -&gt;</button>
           </div>
       </div>
     </div>
@@ -2146,6 +2263,10 @@
           <a href="https://www.tiktok.com/@xy_to_za?_r=1&_t=ZS-93e2FTCpdLE" target="_blank" rel="noopener" class="social-link" aria-label="TikTok">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.83a8.16 8.16 0 0 0 4.77 1.52V6.89a4.85 4.85 0 0 1-1.84-.2z"/></svg>
             TikTok
+          </a>
+          <a href="https://web.facebook.com/xytoza" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.413c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.973h-1.514c-1.491 0-1.955.93-1.955 1.886v2.262h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+            Facebook
           </a>
         </div>
       </div>
@@ -2318,6 +2439,30 @@
     </div>
   </footer>
 
+  <div class="profile-modal" id="profileModal" role="dialog" aria-modal="true" aria-labelledby="profileModalTitle" aria-hidden="true">
+    <div class="profile-modal-card">
+      <div class="profile-modal-head">
+        <div>
+          <h2 id="profileModalTitle"></h2>
+          <div class="profile-modal-role" id="profileModalRole"></div>
+        </div>
+        <button type="button" class="profile-modal-close" id="profileModalClose" aria-label="Tutup profil">&times;</button>
+      </div>
+      <dl class="profile-data">
+        <div class="profile-data-row"><dt>Nama</dt><dd id="profileName"></dd></div>
+        <div class="profile-data-row"><dt>Nama Panggung</dt><dd id="profileNickname"></dd></div>
+        <div class="profile-data-row"><dt>Posisi</dt><dd id="profilePosition"></dd></div>
+        <div class="profile-data-row"><dt>Tempat/Tgl. Lahir</dt><dd id="profileBirth"></dd></div>
+      </dl>
+      <div class="profile-socials-title">Media Sosial</div>
+      <div class="profile-socials">
+        <a id="profileInstagram" href="#" target="_blank" rel="noopener">Instagram</a>
+        <a id="profileTiktok" href="#" target="_blank" rel="noopener">TikTok</a>
+        <a id="profileFacebook" href="#" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+  </div>
+
   <div class="success-modal" id="successModal" role="dialog" aria-modal="true" aria-labelledby="successModalTitle" aria-hidden="true">
     <div class="success-modal-card">
       <div class="success-modal-icon" aria-hidden="true">✓</div>
@@ -2342,6 +2487,70 @@
     const overlay = document.getElementById('overlay');
     const successModal = document.getElementById('successModal');
     const successModalClose = document.getElementById('successModalClose');
+    const profileModal = document.getElementById('profileModal');
+    const profileModalClose = document.getElementById('profileModalClose');
+    const profiles = {
+      sigit: {
+        name: 'Sigit Kukuh Prasetyo',
+        stageName: 'Sigit Sae',
+        position: 'Vocal, Bass & SongWritter',
+        birth: 'Surakarta, 27 Mei 1980',
+        instagram: 'https://www.instagram.com/sigit_sae',
+        tiktok: 'https://www.tiktok.com/@sigit_sae',
+        facebook: 'https://www.facebook.com/sigitsae80'
+      },
+      rahmat: {
+        name: 'Rahmat',
+        stageName: 'Rahmat Bros',
+        position: 'Drum',
+        birth: 'Belum tersedia',
+        instagram: '#',
+        tiktok: '#',
+        facebook: '#'
+      },
+      james: {
+        name: 'James',
+        stageName: 'James Argo',
+        position: 'Guitar',
+        birth: 'Belum tersedia',
+        instagram: 'https://www.instagram.com/thegreenrocker',
+        facebook: 'https://web.facebook.com/thegreenrocker'
+      }
+    };
+
+    function closeProfileModal() {
+      profileModal.classList.remove('open');
+      profileModal.setAttribute('aria-hidden', 'true');
+    }
+
+    function showProfileModal(profileId) {
+      const profile = profiles[profileId];
+      if (!profile) return;
+      document.getElementById('profileModalTitle').textContent = profile.stageName;
+      document.getElementById('profileModalRole').textContent = profile.position;
+      document.getElementById('profileName').textContent = profile.name;
+      document.getElementById('profileNickname').textContent = profile.stageName;
+      document.getElementById('profilePosition').textContent = profile.position;
+      document.getElementById('profileBirth').textContent = profile.birth;
+      document.getElementById('profileInstagram').href = profile.instagram || 'https://www.instagram.com/xy_to_za';
+      document.getElementById('profileTiktok').href = profile.tiktok || 'https://www.tiktok.com/@xy_to_za';
+      document.getElementById('profileFacebook').href = profile.facebook || 'https://www.facebook.com/xytoza';
+      document.getElementById('profileTiktok').hidden = !profile.tiktok;
+      profileModal.classList.add('open');
+      profileModal.setAttribute('aria-hidden', 'false');
+      profileModalClose.focus();
+    }
+
+    document.querySelectorAll('[data-profile-open]').forEach(button => {
+      button.addEventListener('click', () => showProfileModal(button.dataset.profileOpen));
+    });
+    profileModalClose.addEventListener('click', closeProfileModal);
+    profileModal.addEventListener('click', event => {
+      if (event.target === profileModal) closeProfileModal();
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && profileModal.classList.contains('open')) closeProfileModal();
+    });
 
     function closeSuccessModal() {
       successModal.classList.remove('open');
