@@ -771,12 +771,6 @@
       overflow: hidden;
       box-shadow: 0 24px 45px -20px rgba(0,0,0,0.75);
     }
-      position: relative;
-      aspect-ratio: 1;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 30px 60px -20px rgba(0,0,0,0.8);
-    }
     .album-art img {
       width: 100%; height: 100%;
       object-fit: cover;
@@ -1656,6 +1650,44 @@
       .hero-stats { gap: 20px; flex-wrap: wrap; }
       .booking-form { padding: 24px; }
       .dsp-grid { grid-template-columns: 1fr; }
+      .track-title {
+        background: none;
+        -webkit-text-fill-color: var(--text);
+        color: var(--text);
+        min-height: 2.1em;
+      }
+      .track-sub {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 0;
+      }
+      .track-sub .track-date {
+        color: var(--text-muted);
+        font-family: 'Inter', sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        line-height: 1.2;
+        margin: -1em 0 0;
+      }
+      .track-countdown {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+        margin: 0;
+      }
+      .track-countdown .countdown-label {
+        font-size: 10px;
+        letter-spacing: 0.08em;
+      }
+      .track-countdown .countdown-value {
+        min-width: 52px;
+        height: 42px;
+        padding: 0 8px;
+        font-size: 15px;
+      }
       .listen-now {
         padding: 10px 22px;
         font-size: 14px;
@@ -1917,7 +1949,7 @@
           <div class="track-meta">
             <div class="label">Coming Soon</div>
             <h3 class="track-title">SATU PAKET</h3>
-            <p class="track-sub">11 September 2026<span class="track-countdown" data-release-date="2026-09-11T00:00:00+07:00"><span class="countdown-unit"><span class="countdown-label">Hari</span><span class="countdown-value" data-countdown-unit="days">--</span></span><span class="countdown-unit"><span class="countdown-label">Jam</span><span class="countdown-value" data-countdown-unit="hours">--</span></span><span class="countdown-unit"><span class="countdown-label">Menit</span><span class="countdown-value" data-countdown-unit="minutes">--</span></span><span class="countdown-unit"><span class="countdown-label">Detik</span><span class="countdown-value" data-countdown-unit="seconds">--</span></span></span></p>
+            <p class="track-sub"><span class="track-date">11 September 2026</span><span class="track-countdown" data-release-date="2026-09-11T00:00:00+07:00"><span class="countdown-unit"><span class="countdown-label">Hari</span><span class="countdown-value" data-countdown-unit="days">--</span></span><span class="countdown-unit"><span class="countdown-label">Jam</span><span class="countdown-value" data-countdown-unit="hours">--</span></span><span class="countdown-unit"><span class="countdown-label">Menit</span><span class="countdown-value" data-countdown-unit="minutes">--</span></span><span class="countdown-unit"><span class="countdown-label">Detik</span><span class="countdown-value" data-countdown-unit="seconds">--</span></span></span></p>
           </div>
         </div>
 
@@ -1933,7 +1965,7 @@
           <div class="track-meta">
             <div class="label">Coming Soon</div>
             <h3 class="track-title">MINGGIR LOE MISKIN</h3>
-            <p class="track-sub">09 Oktober 2026<span class="track-countdown" data-release-date="2026-10-09T00:00:00+07:00"><span class="countdown-unit"><span class="countdown-label">Hari</span><span class="countdown-value" data-countdown-unit="days">--</span></span><span class="countdown-unit"><span class="countdown-label">Jam</span><span class="countdown-value" data-countdown-unit="hours">--</span></span><span class="countdown-unit"><span class="countdown-label">Menit</span><span class="countdown-value" data-countdown-unit="minutes">--</span></span><span class="countdown-unit"><span class="countdown-label">Detik</span><span class="countdown-value" data-countdown-unit="seconds">--</span></span></span></p>
+            <p class="track-sub"><span class="track-date">09 Oktober 2026</span><span class="track-countdown" data-release-date="2026-10-09T00:00:00+07:00"><span class="countdown-unit"><span class="countdown-label">Hari</span><span class="countdown-value" data-countdown-unit="days">--</span></span><span class="countdown-unit"><span class="countdown-label">Jam</span><span class="countdown-value" data-countdown-unit="hours">--</span></span><span class="countdown-unit"><span class="countdown-label">Menit</span><span class="countdown-value" data-countdown-unit="minutes">--</span></span><span class="countdown-unit"><span class="countdown-label">Detik</span><span class="countdown-value" data-countdown-unit="seconds">--</span></span></span></p>
           </div>
         </div>
 
