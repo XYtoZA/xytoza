@@ -867,35 +867,25 @@
     }
     .dsp-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
     }
     .dsp-card {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 18px;
-      padding: 24px 26px;
-      background: var(--surface);
-      border: 1px solid var(--line);
+      gap: 6px;
+      min-height: 86px;
+      padding: 18px 22px;
+      border: 1px solid rgba(255,255,255,0.22);
       border-radius: var(--radius);
-      transition: all 0.4s var(--ease);
-      position: relative;
-      overflow: hidden;
+      font-family: 'Barlow', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: opacity 0.2s, transform 0.15s;
     }
-    .dsp-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, var(--accent-soft), transparent 50%);
-      opacity: 0;
-      transition: opacity 0.4s var(--ease);
-    }
-    .dsp-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-4px);
-      box-shadow: 0 16px 40px -12px rgba(245,184,0,0.25);
-    }
-    .dsp-card:hover::after { opacity: 1; }
+    .dsp-card:hover { opacity: 0.85; transform: translateY(-1px); }
     .dsp-icon {
       width: 48px; height: 48px;
       flex-shrink: 0;
@@ -903,36 +893,22 @@
       align-items: center;
       justify-content: center;
       border-radius: 12px;
-      background: rgba(255,255,255,0.05);
-      position: relative;
-      z-index: 2;
+      background: transparent !important;
+      color: inherit !important;
     }
     .dsp-icon svg { width: 24px; height: 24px; }
-    .dsp-info { position: relative; z-index: 2; }
     .dsp-info .name {
-      font-family: 'Barlow', sans-serif;
-      font-weight: 700;
-      font-size: 16px;
-      color: var(--text);
-      margin-bottom: 2px;
+      font-size: inherit;
+      line-height: 1;
     }
-    .dsp-info .action {
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-    }
-    .dsp-card:hover .dsp-info .action { color: var(--accent); }
-    .dsp-arrow {
-      margin-left: auto;
-      color: var(--text-dim);
-      transition: all 0.3s var(--ease);
-      position: relative; z-index: 2;
-    }
-    .dsp-card:hover .dsp-arrow {
-      color: var(--accent);
-      transform: translateX(4px);
-    }
+    .dsp-info .action, .dsp-arrow { display: none; }
+    .dsp-card:nth-child(1) { background: #1DB954; color: #000; }
+    .dsp-card:nth-child(2) { background: #000; color: #fff; }
+    .dsp-card:nth-child(3), .dsp-card:nth-child(4) { background: #FF0000; color: #fff; }
+    .dsp-card:nth-child(5) { background: #ef5466; color: #fff; }
+    .dsp-card:nth-child(6) { background: #ff5500; color: #fff; }
+    .dsp-card:nth-child(7) { background: #111827; color: #fff; }
+    .dsp-card:nth-child(8) { background: #0078c8; color: #fff; }
 
     /* Footer DSP compact list */
     .footer-dsp {
@@ -1624,6 +1600,7 @@
       .music-card { grid-template-columns: 1fr; gap: 30px; padding: 28px; }
       .booking-grid { grid-template-columns: 1fr; gap: 48px; }
       .footer-top { grid-template-columns: 1fr 1fr; }
+      .dsp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 720px) {
       .nav-links { display: none; }
@@ -1639,6 +1616,7 @@
       .scroll-indicator { display: none; }
       .hero-stats { gap: 20px; flex-wrap: wrap; }
       .booking-form { padding: 24px; }
+      .dsp-grid { grid-template-columns: 1fr; }
       .listen-now {
         padding: 10px 22px;
         font-size: 14px;
@@ -1883,7 +1861,7 @@
         <span class="eyebrow">Album "OBROLAN CERMIN"</span>
         <h2 class="section-title">Sound Of Drive</h2>
         <p class="section-desc">
-          10 Lagu pertama kami yang sudah dirilis di berbagai platform digital. Musik yang lahir dari pengalaman hidup, dan dikemas dalam nada yang memotivasi.
+          Lagu - lagu akan kami rilis satu persatu setiap bulan di berbagai platform digital. Musik yang lahir dari perjalanan dan pengalaman hidup, dan dikemas dalam Sound Of Drive.
         </p>
       </div>
 
@@ -1916,7 +1894,7 @@
           <div class="track-meta">
             <div class="label">Sound Of Drive</div>
             <h3 class="track-title">MINGGIR LOE MISKIN</h3>
-            <p class="track-sub">Coming Soon <span>·</span> 04 Oktober 2026</p>
+            <p class="track-sub">Coming Soon <span>·</span> 09 Oktober 2026</p>
           </div>
         </div>
 
