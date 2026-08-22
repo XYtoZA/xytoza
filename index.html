@@ -836,6 +836,45 @@
       letter-spacing: 0.05em;
     }
     .track-sub span { color: var(--accent); margin: 0 8px; }
+    .track-countdown {
+      display: inline-flex;
+      align-items: flex-end;
+      gap: 6px;
+      margin-top: 6px;
+      margin-left: 4px;
+      font-style: normal;
+    }
+    .track-countdown .countdown-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .track-countdown .countdown-label {
+      color: var(--text-dim);
+      font-size: 9px;
+      line-height: 1;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .track-countdown .countdown-value {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 38px;
+      height: 32px;
+      padding: 0 6px;
+      border: 1px solid rgba(255,106,0,0.4);
+      border-radius: 3px;
+      background: rgba(255,106,0,0.08);
+      color: var(--accent);
+      font-size: 12px;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+    .track-sub .track-countdown span {
+      margin: 0;
+    }
 
     .lyrics-snippet {
       padding: 24px 28px;
@@ -1876,9 +1915,9 @@
             </div>
           </div>
           <div class="track-meta">
-            <div class="label">Sound Of Drive</div>
+            <div class="label">Coming Soon</div>
             <h3 class="track-title">SATU PAKET</h3>
-            <p class="track-sub">Coming Soon <span>·</span> 11 September 2026</p>
+            <p class="track-sub">11 September 2026<span class="track-countdown" data-release-date="2026-09-11T00:00:00+07:00"><span class="countdown-unit"><span class="countdown-label">Hari</span><span class="countdown-value" data-countdown-unit="days">--</span></span><span class="countdown-unit"><span class="countdown-label">Jam</span><span class="countdown-value" data-countdown-unit="hours">--</span></span><span class="countdown-unit"><span class="countdown-label">Menit</span><span class="countdown-value" data-countdown-unit="minutes">--</span></span><span class="countdown-unit"><span class="countdown-label">Detik</span><span class="countdown-value" data-countdown-unit="seconds">--</span></span></span></p>
           </div>
         </div>
 
@@ -1892,9 +1931,9 @@
             </div>
           </div>
           <div class="track-meta">
-            <div class="label">Sound Of Drive</div>
+            <div class="label">Coming Soon</div>
             <h3 class="track-title">MINGGIR LOE MISKIN</h3>
-            <p class="track-sub">Coming Soon <span>·</span> 09 Oktober 2026</p>
+            <p class="track-sub">09 Oktober 2026<span class="track-countdown" data-release-date="2026-10-09T00:00:00+07:00"><span class="countdown-unit"><span class="countdown-label">Hari</span><span class="countdown-value" data-countdown-unit="days">--</span></span><span class="countdown-unit"><span class="countdown-label">Jam</span><span class="countdown-value" data-countdown-unit="hours">--</span></span><span class="countdown-unit"><span class="countdown-label">Menit</span><span class="countdown-value" data-countdown-unit="minutes">--</span></span><span class="countdown-unit"><span class="countdown-label">Detik</span><span class="countdown-value" data-countdown-unit="seconds">--</span></span></span></p>
           </div>
         </div>
 
@@ -2426,6 +2465,34 @@
         }, 3000);
       }
     }
+
+    function getTrackCountdownParts(milliseconds) {
+      const totalSeconds = Math.max(0, Math.floor(milliseconds / 1000));
+      return {
+        days: Math.floor(totalSeconds / 86400),
+        hours: Math.floor((totalSeconds % 86400) / 3600),
+        minutes: Math.floor((totalSeconds % 3600) / 60),
+        seconds: totalSeconds % 60
+      };
+    }
+
+    function updateTrackCountdowns() {
+      document.querySelectorAll('[data-release-date]').forEach((element) => {
+        const remaining = new Date(element.dataset.releaseDate).getTime() - Date.now();
+        if (remaining <= 0) {
+          element.textContent = 'Sudah rilis';
+          return;
+        }
+        const parts = getTrackCountdownParts(remaining);
+        Object.entries(parts).forEach(([unit, value]) => {
+          const valueElement = element.querySelector(`[data-countdown-unit="${unit}"]`);
+          if (valueElement) valueElement.textContent = String(value).padStart(2, '0');
+        });
+      });
+    }
+
+    updateTrackCountdowns();
+    window.setInterval(updateTrackCountdowns, 1000);
   </script>
 
 </body>
