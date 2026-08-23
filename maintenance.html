@@ -120,6 +120,9 @@
     footer { padding: 25px 0; border-top: 1px solid var(--line); color: var(--dim); font-size: 12px; }
     .footer-inner { display: flex; justify-content: space-between; gap: 20px; }
     .footer-inner strong { color: var(--text); font-family: 'Barlow', sans-serif; letter-spacing: 0.08em; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 14px 20px; }
+    .footer-links a { color: var(--muted); }
+    .footer-links a:hover { color: var(--text); }
 
     .mobile-menu { position: fixed; top: 0; right: -100%; z-index: 9; width: min(82%, 360px); height: 100vh; display: flex; flex-direction: column; gap: 5px; padding: 100px 30px 30px; background: var(--bg-soft); border-left: 1px solid var(--line); transition: right 0.35s var(--ease); }
     .mobile-menu.active { right: 0; }
@@ -220,10 +223,28 @@
   </main>
 
   <footer>
-    <div class="container footer-inner"><p><strong>XYtoZA.</strong> From Generation X &amp; Y to Generation Z &amp; Alpha.</p><p>Back on the frequency soon.</p></div>
+    <div class="container footer-inner">
+      <p><strong>XYtoZA.</strong> From Generation X &amp; Y to Generation Z &amp; Alpha.</p>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="index.html#home">Home</a>
+        <a href="ourstory.html">Our Story</a>
+        <a href="song.html">Music</a>
+        <a href="index.html#tour">Tour</a>
+        <a href="index.html#dsp">Listen On</a>
+        <a href="index.html#contact">Booking</a>
+        <a href="index.html#contact">Management</a>
+        <a href="presskit.html">Press Kit</a>
+        <a href="#" onclick="showMerchandiseNotice(event)">Merchandise</a>
+      </nav>
+    </div>
   </footer>
 
   <script>
+    function showMerchandiseNotice(event) {
+      event.preventDefault();
+      window.alert('Belum Tersedia. Coming Soon.');
+    }
+
     const nav = document.getElementById('nav');
     const burger = document.getElementById('burger');
     const mobileMenu = document.getElementById('mobileMenu');
