@@ -234,10 +234,10 @@
 
     .page-hero {
       position: relative;
-      min-height: 70vh;
+      min-height: 48vh;
       display: flex;
       align-items: flex-end;
-      padding: 160px 0 80px;
+      padding: 140px 0 70px;
       overflow: hidden;
     }
     .page-hero::before {
@@ -308,28 +308,32 @@
     }
 
     .article-content {
-      padding: 80px 0 120px;
+      display: grid;
+      grid-template-columns: 230px minmax(0, 760px);
+      gap: 70px;
+      padding: 90px 0 120px;
     }
+    .toc { position: sticky; top: 105px; align-self: start; border-left: 1px solid var(--line); padding-left: 22px; }
+    .toc h2 { color: var(--accent); font-size: 20px; margin-bottom: 18px; }
+    .toc a { display: block; padding: 5px 0; color: var(--text-muted); font-size: 13px; }
+    .toc a:hover { color: var(--text); }
     .article-card {
-      background: rgba(255,255,255,0.02);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      padding: 40px 44px;
-      box-shadow: 0 30px 90px -60px rgba(0,0,0,0.5);
-      max-width: 900px;
-      margin: 0 auto 32px;
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid var(--line);
+      padding: 0 0 64px;
+      max-width: none;
+      margin: 0 0 64px;
       font-family: 'Inter', 'Barlow', system-ui, sans-serif;
     }
     .article-card--vision {
-      border-color: rgba(255,106,0,0.2);
-      background: rgba(255,106,0,0.06);
+      border-bottom-color: rgba(255,106,0,0.3);
     }
     .article-card--vision .section-label {
       color: var(--accent);
     }
     .article-card--mission {
-      border-color: rgba(76,199,255,0.18);
-      background: rgba(76,199,255,0.06);
+      border-bottom-color: rgba(76,199,255,0.3);
     }
     .article-card--mission .section-label {
       color: var(--accent-secondary);
@@ -345,27 +349,27 @@
     }
     .article-card .section-title {
       font-family: 'Bebas Neue', 'Barlow', sans-serif;
-      font-size: clamp(28px, 3vw, 36px);
-      margin: 0 0 14px;
-      line-height: 1.1;
+      font-size: clamp(36px, 5vw, 58px);
+      margin: 0 0 22px;
+      line-height: .95;
       letter-spacing: 0.04em;
       color: var(--text);
     }
     .article-card p {
       color: var(--text-muted);
-      font-size: clamp(16px, 1.35vw, 18px);
-      line-height: 1.9;
+      font-size: 16px;
+      line-height: 1.75;
       margin-bottom: 18px;
     }
     .article-card p strong { color: var(--text); }
     .article-card blockquote {
-      margin: 24px 0 28px;
+      margin: 26px 0;
       padding: 22px 24px;
-      border-left: 4px solid var(--accent);
-      background: rgba(255,255,255,0.04);
+      border-left: 3px solid var(--accent);
+      background: var(--surface);
       color: var(--text);
-      font-size: clamp(16px, 1.35vw, 18px);
-      line-height: 1.8;
+      font-size: 18px;
+      line-height: 1.7;
     }
     .article-card .article-meta {
       display: flex;
@@ -383,6 +387,15 @@
       border-radius: 999px;
       background: rgba(255,255,255,0.04);
     }
+    .article-card--vision .section-title { color: var(--accent); }
+    .article-card--mission .section-title { color: var(--accent-secondary); }
+    footer { padding: 60px 0 28px; background: var(--bg-2); border-top: 1px solid var(--line); }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--line); }
+    .footer-brand .logo { font-size: 36px; margin-bottom: 14px; }
+    .footer-brand p { color: var(--text-muted); font-size: 14px; max-width: 320px; margin-bottom: 20px; }
+    .footer-col h4 { font: 600 12px 'Barlow', sans-serif; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .footer-col ul { list-style: none; }.footer-col li { margin-bottom: 10px; }.footer-col a { color: var(--text-muted); font-size: 14px; }.footer-col a:hover { color: var(--text); }
+    .footer-bottom { display: flex; justify-content: center; padding: 24px 28px; margin-top: 26px; background: #040404; border-radius: 18px; text-align: center; color: var(--text); font: 14px/1.5 'Inter', sans-serif; }.footer-bottom .accent { color: var(--accent); }
 
     @media (max-width: 720px) {
       .nav-links { display: none; }
@@ -390,7 +403,14 @@
       .burger { display: flex; }
       .page-hero { padding: 140px 0 60px; }
       .page-hero h1 { font-size: clamp(44px, 12vw, 80px); }
-      .article-card { padding: 28px; }
+      .article-content { grid-template-columns: 1fr; gap: 40px; padding: 60px 24px 90px; }
+      .toc { position: static; }
+      .toc a { display: inline-block; margin-right: 16px; }
+      .article-card { padding: 0 0 48px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 480px) {
+      .footer-top { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -432,7 +452,15 @@
   </header>
 
   <section class="article-content container">
-    <article class="article-card article-card--vision">
+    <aside class="toc">
+      <h2>Contents</h2>
+      <a href="#vision">Visi</a>
+      <a href="#mission">Misi</a>
+      <a href="#implicit-memory">Memori Implisit</a>
+      <a href="#practice">Ritme dan Pengulangan</a>
+    </aside>
+    <div>
+    <article class="article-card article-card--vision" id="vision">
       <p class="section-label">Visi</p>
       <h2 class="section-title">Membentuk Pendengar yang Terus Bertumbuh</h2>
       <p>Menjadikan musik kami seperti sistem pengingat bagi pendengar untuk terus bertumbuh, berlatih, dan tangguh menghadapi perubahan. Kami mengajak Anda menjadikan latihan mental sebagai kebiasaan sehari-hari.</p>
@@ -455,19 +483,19 @@
       <p>Melalui karya-karya kami, kami berharap pendengar lambat laun terbawa untuk menjadikan belajar dan berlatih sebagai kebiasaan nyata, bukan sekadar keinginan sesaat. Visinya adalah proses yang terus dibangun, hingga berubah menjadi kebiasaan yang kuat.</p>
     </article>
 
-    <article class="article-card article-card--mission">
+    <article class="article-card article-card--mission" id="mission">
       <p class="section-label">Misi</p>
       <h2 class="section-title">Menginstal Musik ke Memori Implisit</h2>
       <p><strong>30 Lagu Sebagai Perangkat Lunak Mental</strong></p>
 
       <p>Jika Visi kami adalah membangun sistem pengingat, maka Misi kami diwujudkan lewat <strong>30 lagu dalam <em>The Survivors' Playlist</em></strong>. Kami tidak memandang 30 karya ini sekadar sebagai hiburan, melainkan sebagai <em>software</em> (perangkat lunak) mental yang dirancang khusus untuk masuk, menetap, dan mengubah sistem operasi berpikir Anda dari dalam.</p>
 
-      <h3 class="section-title">Target Kami: Memori Implisit</h3>
+      <h3 class="section-title" id="implicit-memory">Target Kami: Memori Implisit</h3>
       <p>Otak manusia memiliki memori eksplisit (fakta yang dihafal) dan memori implisit (kebiasaan yang tertanam otomatis tanpa perlu dipikirkan, seperti kemampuan bersepeda atau mengetik). Motivasi biasa hanya menyentuh memori eksplisit—ia mudah diingat namun cepat terlupakan saat emosi turun.</p>
 
       <p>Misi utama kami adalah menembus pertahanan luar tersebut dan menanamkan nilai-nilai belajar, berlatih, adaptif, serta pantang menyerah langsung ke dalam <strong>memori implisit</strong> Anda.</p>
 
-      <h3 class="section-title">Metode Instalasi Lewat Ritme dan Pengulangan</h3>
+      <h3 class="section-title" id="practice">Metode Instalasi Lewat Ritme dan Pengulangan</h3>
       <p>Bagaimana <em>software</em> musik ini bekerja? Otak mengadopsi memori implisit melalui pengulangan yang konstan (<em>repetitive conditioning</em>). Lewat 30 lagu yang ditulis dengan struktur ritme, lirik, dan pengulangan tema yang sengaja dirancang presisi, kami mempermudah otak Anda melakukan enkripsi data.</p>
 
       <p>Saat lagu-lagu ini diputar berulang kali di keseharian Anda—saat berjalan, bekerja, atau beristirahat—frekuensi tersebut perlahan mengikis pola pikir malas dan menggantinya dengan algoritma baru: <strong>refleks untuk terus berlatih</strong>.</p>
@@ -479,9 +507,30 @@
         <span>Topik: Neuroplasticity</span>
       </div>
     </article>
+    </div>
   </section>
 
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo"><span class="xy">XY</span><span class="to">TO</span><span class="za">ZA</span><span class="dot">.</span></div>
+          <p>Dari Generasi X &amp; Y untuk Generasi Z &amp; Alpha. Karena api semangat harus terus diestafetkan.</p>
+        </div>
+        <div class="footer-col"><h4>Navigation</h4><ul><li><a href="../index.html#home">Home</a></li><li><a href="../ourstory.html">Our Story</a></li><li><a href="../song.html">Music</a></li><li><a href="../index.html#tour">Tour</a></li></ul></div>
+        <div class="footer-col"><h4>Listen On</h4><ul><li><a href="../index.html#dsp">Spotify</a></li><li><a href="../index.html#dsp">Apple Music</a></li><li><a href="../index.html#dsp">YouTube Music</a></li><li><a href="../index.html#dsp">Deezer</a></li></ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul><li><a href="../index.html#contact">Booking</a></li><li><a href="../index.html#contact">Management</a></li><li><a href="../presskit.html">Press Kit</a></li><li><a href="#" onclick="showMerchandiseNotice(event)">Merchandise</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">&copy; 2026 <span class="accent">XYtoZA</span> Indonesia. All rights reserved.</div>
+    </div>
+  </footer>
+
   <script>
+    function showMerchandiseNotice(event) {
+      event.preventDefault();
+      window.alert('Belum Tersedia. Coming Soon.');
+    }
+
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 30) nav.classList.add('scrolled');
@@ -503,4 +552,7 @@
     mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', toggleMenu));
   </script>
 </body>
+  <script>
+    document.querySelectorAll('.footer-social a').forEach(link => { link.href = '../index.html#connect-with-us'; });
+  </script>
 </html>

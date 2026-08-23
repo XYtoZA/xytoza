@@ -72,6 +72,7 @@
     .footer-col a { color: var(--muted); font-size: 14px; }
     .footer-bottom { display: flex; justify-content: center; padding: 24px 28px; margin-top: 26px; background: #040404; border-radius: 18px; text-align: center; }
     .footer-bottom p { margin: 0; color: var(--text); font: 14px/1.5 'Inter', sans-serif; letter-spacing: .02em; }
+    .footer-bottom .accent { color: var(--accent); }
     @media (max-width: 800px) { .nav { padding: 12px 0; } .nav-links, .nav-cta { display: none; } .burger { display: flex; } .article-grid { grid-template-columns: 1fr; } .archive-head { display: block; } .archive-head p { margin-top: 14px; } .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; } }
     @media (max-width: 480px) { .footer-top { grid-template-columns: 1fr; } }
   </style>
@@ -186,4 +187,7 @@
     mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', toggleMenu));
   </script>
 </body>
+  <script>
+    document.querySelectorAll('.footer-social a').forEach(link => { link.href = 'index.html#connect-with-us'; });
+  </script>
 </html>

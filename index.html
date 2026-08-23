@@ -186,15 +186,7 @@
       display: flex;
       align-items: baseline;
       gap: 0;
-    }
-    .logo .xy,
-    .logo .za { color: var(--text); }
-    .logo .to {
-      color: var(--accent);
-      font-size: 0.9em;
-      line-height: 1;
-      letter-spacing: 0;
-      margin: 0;
+        gap: 40px;
       text-transform: uppercase;
       display: inline-block;
       transform: translateY(1px);
@@ -1198,6 +1190,7 @@
       font-size: 15px;
       letter-spacing: 0;
     }
+    .contact-list .lbl a:hover strong { color: var(--accent); }
 
     .booking-form {
       background: var(--surface);
@@ -2136,8 +2129,7 @@
         <span class="eyebrow">Contact</span>
         <h2 class="section-title">LET'S TALK!</h2>
         <p>
-          Isi form di samping, atau hubungi langsung
-          kontak kami di bawah ini.
+          Untuk keperluan booking, bisnis, kolaborasi & Media, silahkan hubungi kami melalui email atau isi form disebelah ini.
         </p>
 
         <ul class="contact-list">
@@ -2146,8 +2138,17 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </div>
             <div class="lbl">
-              <small>Email</small>
+              <small>Booking &amp; Inquiry</small>
               <strong>booking@xytoza.com</strong>
+            </div>
+          </li>
+          <li>
+            <div class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="lbl">
+              <small>Press &amp; Media</small>
+              <a href="mailto:press@xytoza.com"><strong>press@xytoza.com</strong></a>
             </div>
           </li>
           <li>
@@ -2255,7 +2256,7 @@
     <img src="https://i.ibb.co.com/mrLhYsvy/xy21.png" alt="XYtoZA" loading="lazy" />
   </div>
 
-  <section class="social-section">
+  <section class="social-section" id="connect-with-us">
     <div class="container">
       <div class="social-card reveal">
         <div class="social-intro">
@@ -2531,7 +2532,7 @@
       james: {
         name: 'James',
         stageName: 'James Argo',
-        position: 'Guitar',
+        position: 'Guitar & Music Producer',
         birth: 'Belum tersedia',
         instagram: 'https://www.instagram.com/thegreenrocker',
         facebook: 'https://web.facebook.com/thegreenrocker'
@@ -2763,4 +2764,7 @@
   </script>
 
 </body>
+  <script>
+    document.querySelectorAll('.footer-social a').forEach(link => { link.href = '#connect-with-us'; });
+  </script>
 </html>
