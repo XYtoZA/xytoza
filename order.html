@@ -43,7 +43,16 @@
     const formatRupiah = value => new Intl.NumberFormat('id-ID', {style:'currency', currency:'IDR', maximumFractionDigits:0}).format(value);
     function updateTotal(){const amount=unitPrice*Number(quantity.value);quantityLabel.textContent=quantity.value;subtotal.textContent=formatRupiah(amount);total.textContent=formatRupiah(amount)}
     quantity.addEventListener('change',updateTotal);
-    orderForm.addEventListener('submit', event => {event.preventDefault();if(!orderForm.reportValidity())return;status.classList.add('show');payButton.textContent='Menunggu Integrasi Midtrans';payButton.disabled=true;});
+    orderForm.addEventListener('submit', event => {
+      event.preventDefault();
+      if (!orderForm.reportValidity()) return;
+
+      status.textContent = 'Anda sedang diarahkan ke pembayaran Midtrans di tab baru.';
+      status.classList.add('show');
+      payButton.textContent = 'Dialihkan ke Midtrans';
+      payButton.disabled = true;
+      window.open('https://app.sandbox.midtrans.com/payment-links/c961ec88-6f51-49f4-bae8-78baf666e3b7-h9qYal28', '_blank', 'noopener');
+    });
     function showMerchandiseNotice(event){event.preventDefault();window.alert('Belum Tersedia. Coming Soon.');}
     const burger=document.getElementById('burger'),mobileMenu=document.getElementById('mobileMenu'),overlay=document.getElementById('overlay');function toggleMenu(){const open=!mobileMenu.classList.contains('active');mobileMenu.classList.toggle('active',open);overlay.classList.toggle('active',open);burger.setAttribute('aria-expanded',String(open));document.body.style.overflow=open?'hidden':''}burger.addEventListener('click',toggleMenu);overlay.addEventListener('click',toggleMenu);mobileMenu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{if(mobileMenu.classList.contains('active'))toggleMenu()}));
   </script>
