@@ -1767,8 +1767,17 @@
       .hero-stats { gap: 20px; flex-wrap: wrap; }
       .booking-form { padding: 24px; }
       .dsp-grid { grid-template-columns: 1fr; }
-      .social-links { overflow-x: auto; }
-      .social-link { justify-content: center; }
+      .social-links {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        overflow-x: visible;
+        width: 100%;
+      }
+      .social-link {
+        width: 100%;
+        justify-content: center;
+        flex: 0 0 auto;
+      }
       .team-content { padding-left: 24px; padding-right: 24px; }
       .track-title {
         background: none;
