@@ -2723,6 +2723,11 @@
         alert('Mohon isi Nama, Email, dan No. WhatsApp');
         return;
       }
+
+      if (formData.email.toLowerCase().endsWith('@titan.email')) {
+        alert('Alamat email dari titan.email tidak dapat digunakan.');
+        return;
+      }
       
       btn.textContent = 'Mengirim...';
       btn.disabled = true;
