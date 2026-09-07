@@ -186,6 +186,7 @@
       display: flex;
       align-items: baseline;
       gap: 0;
+      text-shadow: 3px 3px 0 rgba(0,0,0,.9), 0 0 10px rgba(0,0,0,.55);
     }
     .logo .xy,
     .logo .za { color: var(--text); }
@@ -195,12 +196,12 @@
       line-height: 1;
       letter-spacing: 0;
       margin: 0;
-      text-transform: uppercase;
+      text-transform: lowercase;
       display: inline-block;
       transform: translateY(1px);
     }
     .logo .dot { color: var(--accent); }
-    .logo-band { display: inline-block; margin-left: 6px; color: var(--text-muted); font-family: 'Barlow', sans-serif; font-size: 0.62em; font-weight: 700; letter-spacing: 0.03em; text-transform: none; transform: translateY(-2px) scaleY(1.12); transform-origin: left bottom; }
+    .logo-band { display: inline-block; margin-left: 6px; color: var(--text); font-family: 'Barlow', sans-serif; font-size: 0.62em; font-weight: 700; letter-spacing: 0.03em; text-transform: none; transform: translateY(-2px) scaleY(1.12); transform-origin: left bottom; text-shadow: 2px 2px 0 rgba(0,0,0,.9), 0 0 8px rgba(0,0,0,.55); }
     .nav-links {
       display: flex;
       align-items: center;
@@ -211,7 +212,7 @@
       font-family: 'Barlow', sans-serif;
       font-size: 14px;
       font-weight: 500;
-      color: var(--text-muted);
+      color: #ffffff;
       letter-spacing: 0.04em;
       text-transform: uppercase;
       position: relative;
@@ -308,7 +309,7 @@
     .hero-text .gen-line {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(18px, 2vw, 22px);
-      color: var(--text-muted);
+      color: #ffffff;
       letter-spacing: 0.3em;
       margin-bottom: 24px;
       display: flex;
@@ -323,7 +324,7 @@
       text-transform: none;
       letter-spacing: 0.28em;
       font-weight: 600;
-      color: var(--text-muted);
+      color: #ffffff;
       display: inline-block;
       margin-right: 8px;
       font-size: 14px;
@@ -1831,9 +1832,144 @@
       }
       .dsp-icons { gap: 8px; }
       .gen-row { gap: 12px; padding: 14px 16px; }
-      .gen-row .gen-label { min-width: 0; font-size: 25px; line-height: 1.05; }
+      .gen-row .gen-label { min-width: 0; font-size: 22px; line-height: 1.05; white-space: nowrap; }
       .gen-row .gen-desc { font-size: 12px; line-height: 1.4; }
       .gen-row.small-action .btn-small { padding: 7px 12px; font-size: 10px; }
+    }
+    /* Reference hero treatment */
+    .hero:not(.reference-hero) { display: none; }
+    .hero.reference-hero {
+      width: 100vw;
+      max-width: 100vw;
+      min-height: 100vh;
+      padding: 0;
+      align-items: flex-end;
+      background: var(--slab-dark) url('https://ik.imagekit.io/5bnhlcghq/Our%20Story/coverweb.png') center/cover no-repeat;
+    }
+    .reference-mosaic {
+      position: absolute;
+      inset: 0;
+      width: 100vw;
+      max-width: 100vw;
+      min-width: 100%;
+      display: block;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .reference-tile {
+      position: relative;
+      min-height: 0;
+      overflow: hidden;
+      background: var(--slab-mid);
+      display: none;
+    }
+    .reference-tile:first-child {
+      position: absolute;
+      inset: 0;
+      display: block;
+    }
+    .reference-tile:first-child img {
+      filter: grayscale(100%) contrast(1.15) brightness(.78);
+    }
+    .reference-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: none;
+      transition: transform 1.2s var(--ease), filter .5s ease;
+    }
+    .reference-tile:hover img { transform: scale(1.05); filter: none; }
+    .reference-tile:first-child:hover img { filter: grayscale(100%) contrast(1.15) brightness(.82); }
+    .reference-mosaic::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      background: linear-gradient(to bottom, rgba(13,13,13,.2), transparent 38%, rgba(13,13,13,.92) 100%);
+    }
+    .reference-hero-content {
+      position: relative;
+      z-index: 3;
+      width: 100%;
+      padding-bottom: 82px;
+    }
+    .reference-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: #ffffff;
+      font: 400 clamp(18px, 2vw, 22px) 'Bebas Neue', sans-serif;
+      letter-spacing: .3em;
+      text-transform: lowercase;
+      margin-bottom: 18px;
+    }
+    .reference-label .reference-read {
+      color: #ffffff;
+      font: 600 14px 'Barlow', sans-serif;
+      letter-spacing: .28em;
+      text-transform: lowercase;
+      margin-right: 8px;
+    }
+    .reference-title {
+      color: var(--molten-white);
+      font: 900 clamp(5rem, 18vw, 16rem)/.85 Manrope, sans-serif;
+      letter-spacing: -.03em;
+      text-transform: uppercase;
+      user-select: none;
+    }
+    .reference-title-logo {
+      width: min(49.2vw, 552px);
+      height: auto;
+      object-fit: contain;
+    }
+    .reference-title span { text-transform: lowercase; }
+    .reference-bottom { display: flex; align-items: flex-end; gap: 48px; margin-top: 28px; }
+    .reference-copy-wrap { max-width: 560px; }
+    .reference-copy { max-width: 560px; color: var(--aluminum); font: 500 clamp(16px, 1.6vw, 20px)/1.5 'Barlow', sans-serif; }
+    .reference-copy strong { color: var(--molten-white); font-weight: 600; }
+    .reference-listen-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 22px;
+      flex-wrap: wrap;
+    }
+    .reference-listen { margin-top: 0; }
+    .reference-listen-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 0;
+    }
+    .reference-listen-link {
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 50%;
+      color: var(--molten-white);
+      background: rgba(13,13,13,.5);
+      transition: transform .2s ease, border-color .2s ease, color .2s ease;
+    }
+    .reference-listen-link:hover {
+      border-color: var(--molten-white);
+      color: var(--aluminum);
+      transform: translateY(-3px);
+    }
+    .reference-listen-link svg { width: 17px; height: 17px; }
+    .reference-stamps { display: flex; gap: 10px; }
+    .reference-stamp { padding: 7px 11px; border: 1px solid var(--steel); color: var(--steel); font: 700 10px Barlow, sans-serif; letter-spacing: .16em; text-transform: uppercase; white-space: nowrap; }
+    @media (max-width: 720px) {
+      .reference-hero-content { padding-bottom: 58px; }
+      .reference-title-logo { width: min(78vw, 520px); }
+      .reference-bottom { display: block; margin-top: 20px; }
+      .reference-copy { font-size: 15px; }
+      .reference-listen-row { margin-top: 18px; }
+      .reference-stamps { margin-top: 22px; flex-wrap: wrap; }
+      .reference-stamp { font-size: 9px; }
     }
   </style>
 </head>
@@ -1842,7 +1978,7 @@
   <!-- ============ NAVBAR ============ -->
   <nav class="nav" id="nav">
     <div class="container nav-inner">
-      <a href="#home" class="logo"><span class="xy">XY</span><span class="to">TO</span><span class="za">ZA</span><span class="logo-band">Band</span></a>
+      <a href="#reference-home" class="logo"><span class="xy">XY</span><span class="to">to</span><span class="za">ZA</span><span class="logo-band">Band</span></a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="song.html">Music</a></li>
@@ -1871,6 +2007,42 @@
   </aside>
 
   <!-- ============ HERO ============ -->
+  <header class="hero reference-hero" id="reference-home">
+    <div class="reference-mosaic" aria-hidden="true">
+      <div class="reference-tile"><img src="https://ik.imagekit.io/5bnhlcghq/Our%20Story/coverweb.png" alt="Foto cover XYtoZA"></div>
+      <div class="reference-tile"><img src="https://images.unsplash.com/photo-1524678606370-a47ad25cb82a?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Headphone dan suasana mendengarkan musik"></div>
+      <div class="reference-tile"><img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Musisi tampil dengan energi positif"></div>
+      <div class="reference-tile"><img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&amp;fit=crop&amp;w=1200&amp;q=85" alt="Penonton menikmati pertunjukan musik"></div>
+      <div class="reference-tile"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&amp;fit=crop&amp;w=1600&amp;q=85" alt="Band tampil di panggung dengan energi positif"></div>
+    </div>
+    <div class="container reference-hero-content">
+      <p class="reference-label"><span class="reference-read">dibaca:</span> eks-way-tu-zia</p>
+      <h1 class="reference-title"><img class="reference-title-logo" src="https://ik.imagekit.io/5bnhlcghq/logoxytozarm.png?updatedAt=1785221782763" alt="XYtoZA"></h1>
+      <div class="reference-bottom">
+        <div class="reference-copy-wrap">
+          <p class="reference-copy">Dari <strong>Generasi X &amp; Y</strong> untuk <strong>Generasi Z &amp; Alpha</strong>. karena Api Semangat harus terus diestafetkan dan musik adalah satu-satunya bahasa yang tidak mengenal batas usia.</p>
+          <div class="reference-listen-row">
+            <a href="#dsp" class="listen-now reference-listen">LISTEN NOW</a>
+            <div class="reference-listen-links" aria-label="Platform musik">
+            <a href="#dsp" class="reference-listen-link" aria-label="Spotify">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+            </a>
+            <a href="#dsp" class="reference-listen-link" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="#dsp" class="reference-listen-link" aria-label="Apple Music">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.54 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+            </a>
+            <a href="#dsp" class="reference-listen-link" aria-label="Deezer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.944 16.712H24v2.256h-5.056zM18.944 13.168H24v2.254h-5.056zM18.944 9.617H24v2.254h-5.056zM0 16.712h5.056v2.256H0zM12.472 16.712h5.057v2.256h-5.057zM6.237 16.712h5.055v2.256H6.237zM12.472 13.168h5.057v2.254h-5.057zM6.237 13.168h5.055v2.254H6.237zM12.472 9.617h5.057v2.254h-5.057z"/></svg>
+            </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
   <header class="hero" id="home">
     <div class="hero-bg"></div>
     <div class="container hero-content">
