@@ -2723,9 +2723,7 @@
         stageName: 'Rahmat Bros',
         position: 'Drum',
         birth: 'Belum tersedia',
-        instagram: '#',
-        tiktok: '#',
-        facebook: '#'
+        socialsUnavailable: true
       },
       james: {
         name: 'James',
@@ -2751,10 +2749,22 @@
       document.getElementById('profileNickname').textContent = profile.stageName;
       document.getElementById('profilePosition').textContent = profile.position;
       document.getElementById('profileBirth').textContent = profile.birth;
-      document.getElementById('profileInstagram').href = profile.instagram || 'https://www.instagram.com/xy_to_za';
-      document.getElementById('profileTiktok').href = profile.tiktok || 'https://www.tiktok.com/@xy_to_za';
-      document.getElementById('profileFacebook').href = profile.facebook || 'https://www.facebook.com/xytoza';
-      document.getElementById('profileTiktok').hidden = !profile.tiktok;
+      const socialLinks = {
+        instagram: document.getElementById('profileInstagram'),
+        tiktok: document.getElementById('profileTiktok'),
+        facebook: document.getElementById('profileFacebook')
+      };
+      const socialDefaults = {
+        instagram: 'https://www.instagram.com/xy_to_za',
+        tiktok: 'https://www.tiktok.com/@xy_to_za',
+        facebook: 'https://www.facebook.com/xytoza'
+      };
+      Object.entries(socialLinks).forEach(([name, link]) => {
+        link.hidden = false;
+        link.href = profile.socialsUnavailable ? '#' : (profile[name] || socialDefaults[name]);
+        link.target = profile.socialsUnavailable ? '_self' : '_blank';
+        link.onclick = profile.socialsUnavailable ? showMerchandiseNotice : null;
+      });
       profileModal.classList.add('open');
       profileModal.setAttribute('aria-hidden', 'false');
       profileModalClose.focus();
@@ -2947,9 +2957,22 @@
       };
     }
 
+    function getTrackWibNowTimestamp() {
+      const now = new Date();
+      return Date.UTC(
+        now.getFullYear(),
+        now.getMonth(),
+        now.getDate(),
+        now.getHours(),
+        now.getMinutes(),
+        now.getSeconds(),
+        now.getMilliseconds()
+      ) - (7 * 60 * 60 * 1000);
+    }
+
     function updateTrackCountdowns() {
       document.querySelectorAll('[data-release-date]').forEach((element) => {
-        const remaining = new Date(element.dataset.releaseDate).getTime() - Date.now();
+        const remaining = new Date(element.dataset.releaseDate).getTime() - getTrackWibNowTimestamp();
         if (remaining <= 0) {
           element.textContent = 'Sudah rilis';
           return;
