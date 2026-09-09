@@ -1,281 +1,1042 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Form</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — XYtoZA</title>
+  <meta name="description" content="Hubungi XYtoZA untuk booking, media, kolaborasi, dan kerja sama." />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="128x128" href="assets/favicon-128.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="128x128" href="assets/favicon-128.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Permanent+Marker&family=Barlow:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --bg: #0a0a0b;
+      --bg-2: #111114;
+      --bg-3: #16161a;
+      --surface: #1c1c20;
+      --line: rgba(255,255,255,0.08);
+      --line-strong: rgba(255,255,255,0.18);
+      --text: #f4f4f5;
+      --text-muted: #a1a1aa;
+      --text-dim: #71717a;
+      --accent: #ff6a00;
+      --accent-soft: rgba(255,106,0,0.12);
+      --accent-strong: #ff7f2a;
+      --shadow-amber: 0 20px 60px -20px rgba(255,106,0,0.35);
+      --radius: 14px;
+      --radius-lg: 22px;
+      --maxw: 1200px;
+      --ease: cubic-bezier(0.22,1,0.36,1);
     }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 120px; }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      min-height: 100vh;
+      font-family: 'Inter', 'Barlow', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, .display {
+      font-family: 'Bebas Neue', 'Barlow', sans-serif;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      line-height: 0.95;
+      text-transform: uppercase;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { font: inherit; cursor: pointer; border: none; background: none; }
+    .container {
+      width: min(var(--maxw), calc(100% - 48px));
+      margin: 0 auto;
+    }
+    .accent { color: var(--accent); }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      font-family: 'Barlow', sans-serif;
+    }
+    .eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    /* NAV */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 18px 0;
+      transition: all 0.4s var(--ease);
+      background: rgba(10,10,11,0);
+      backdrop-filter: blur(0);
+    }
+    .nav.scrolled {
+      background: rgba(10,10,11,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+      padding: 12px 0;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 0;
+      color: var(--text);
+      display: flex;
+      align-items: baseline;
+      gap: 0;
+    }
+    .logo .xy, .logo .za { color: var(--text); }
+    .logo .to {
+      color: var(--accent);
+      font-size: 0.9em;
+      line-height: 1;
+      letter-spacing: 0;
+      margin: 0;
+      text-transform: uppercase;
+      display: inline-block;
+      transform: translateY(1px);
+    }
+    .logo .dot { color: var(--accent); }
+    .logo-band {
+      display: inline-block;
+      margin-left: 6px;
+      color: var(--text-muted);
+      font-family: 'Barlow', sans-serif;
+      font-size: .62em;
+      font-weight: 700;
+      letter-spacing: .03em;
+      text-transform: none;
+      transform: translateY(-2px) scaleY(1.12);
+      transform-origin: left bottom;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'Barlow', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      position: relative;
+      transition: color 0.3s var(--ease);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.3s var(--ease);
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: var(--accent); }
+    .nav-links a.active::after { width: 100%; }
+    .nav-cta {
+      padding: 10px 22px;
+      background: var(--accent);
+      color: #0a0a0b;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      transition: all 0.3s var(--ease);
+    }
+    .nav-cta:hover {
+      background: var(--accent-strong);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-amber);
+    }
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+      cursor: pointer;
+    }
+    .burger span {
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      transition: all 0.3s var(--ease);
+    }
+    .burger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger.active span:nth-child(2) { opacity: 0; }
+    .burger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 360px;
+      height: 100vh;
+      background: var(--bg-2);
+      border-left: 1px solid var(--line);
+      z-index: 99;
+      padding: 100px 32px 32px;
+      transition: right 0.4s var(--ease);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .mobile-menu.active { right: 0; }
+    .mobile-menu a {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28px;
+      letter-spacing: 0.06em;
+      color: var(--text);
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+      transition: color 0.3s var(--ease);
+    }
+    .mobile-menu a:hover { color: var(--accent); padding-left: 8px; }
+    .mobile-menu .nav-cta {
+      margin-top: 24px;
+      align-self: flex-start;
+    }
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+      z-index: 98;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s var(--ease);
+    }
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* HERO */
+    .page-hero {
+      position: relative;
+      min-height: 46vh;
+      display: flex;
+      align-items: flex-end;
+      padding: 150px 0 60px;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 70% 80% at 50% 0%, rgba(255,106,0,0.18) 0%, transparent 65%),
+        linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%);
+    }
+    .page-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255,106,0,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,106,0,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black, transparent 80%);
+    }
+    .page-hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+    .page-hero h1 {
+      font-size: clamp(52px, 9vw, 110px);
+      line-height: 0.88;
+      margin-top: 18px;
+      margin-bottom: 16px;
+    }
+    .page-hero h1 span { color: var(--accent); }
+    .page-hero p {
+      color: var(--text-muted);
+      max-width: 620px;
+      font-size: clamp(15px, 1.5vw, 18px);
+    }
+
+    /* CONTACT */
+    .contact-wrap {
+      padding: 80px 0 60px;
+    }
+    .booking-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .booking-text h2 {
+      font-size: clamp(48px, 7vw, 96px);
+      margin-top: 12px;
+      margin-bottom: 18px;
+    }
+    .booking-text p {
+      color: var(--text-muted);
+      font-size: 16px;
+      margin-bottom: 24px;
+    }
+    .contact-list {
+      list-style: none;
+      margin-top: 26px;
+    }
+    .contact-list li {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .contact-list .ic {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      flex-shrink: 0;
     }
-
-    .form-container {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      padding: 40px;
-      width: 100%;
-      max-width: 500px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    .contact-list .ic svg { width: 18px; height: 18px; }
+    .contact-list .lbl small {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 2px;
+      font-family: 'Barlow', sans-serif;
     }
-
-    .form-container h2 {
-      color: #fff;
-      text-align: center;
-      margin-bottom: 8px;
-      font-size: 1.8rem;
+    .contact-list .lbl strong {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      color: var(--text);
+      font-size: 15px;
     }
+    .contact-list .lbl a:hover strong { color: var(--accent); }
 
-    .form-container p.subtitle {
-      color: rgba(255, 255, 255, 0.6);
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 0.9rem;
+    .booking-form {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 36px;
     }
-
-    .form-group {
-      margin-bottom: 20px;
+    .booking-form h3 {
+      font-size: 28px;
+      margin-bottom: 6px;
     }
-
+    .booking-form .sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .form-group { margin-bottom: 14px; }
+    .form-group.full { grid-column: 1 / -1; }
     .form-group label {
       display: block;
-      color: rgba(255, 255, 255, 0.8);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
       margin-bottom: 6px;
-      font-size: 0.85rem;
-      font-weight: 500;
-    }
-
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.08);
-      color: #fff;
-      font-size: 0.95rem;
-      transition: all 0.3s ease;
-      outline: none;
-    }
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: rgba(255, 255, 255, 0.3);
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      border-color: #7c5cfc;
-      background: rgba(255, 255, 255, 0.12);
-      box-shadow: 0 0 0 3px rgba(124, 92, 252, 0.2);
-    }
-
-    .form-group textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .form-row {
-      display: flex;
-      gap: 16px;
-    }
-
-    .form-row .form-group {
-      flex: 1;
-    }
-
-    .btn-submit {
-      width: 100%;
-      padding: 14px;
-      background: linear-gradient(135deg, #7c5cfc, #a855f7);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
+      font-family: 'Barlow', sans-serif;
       font-weight: 600;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 14px;
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      transition: all 0.3s var(--ease);
+    }
+    .date-picker { position: relative; }
+    .date-picker input { cursor: pointer; }
+    .date-calendar {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      z-index: 20;
+      width: 280px;
+      padding: 16px;
+      background: var(--surface);
+      border: 1px solid var(--line-strong);
+      border-radius: 10px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.45);
+    }
+    .date-calendar.open { display: block; }
+    .date-calendar-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .date-calendar-title {
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: capitalize;
+    }
+    .date-calendar-nav {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      color: var(--accent);
+      font-size: 20px;
+    }
+    .date-calendar-nav:hover { background: var(--accent-soft); }
+    .date-calendar-week, .date-calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+    }
+    .date-calendar-week {
+      margin-bottom: 4px;
+      color: var(--text-dim);
+      font-size: 10px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .date-calendar-day {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+      color: var(--text-muted);
+      font-size: 12px;
+    }
+    .date-calendar-day:hover, .date-calendar-day.selected { background: var(--accent); color: #0a0a0b; }
+    .date-calendar-day.today { border: 1px solid var(--accent); }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+    .form-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--accent);
+      color: #0a0a0b;
+      border-radius: 10px;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       cursor: pointer;
-      transition: all 0.3s ease;
-      position: relative;
+      transition: all 0.3s var(--ease);
+      margin-top: 6px;
+    }
+    .form-submit:hover {
+      background: var(--accent-strong);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-amber);
+    }
+
+    /* FAQ */
+    .faq-wrap {
+      padding: 20px 0 60px;
+    }
+    .faq-card {
+      border-radius: 24px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.08);
       overflow: hidden;
     }
-
-    .btn-submit:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(124, 92, 252, 0.4);
+    .faq-header {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2rem, 2.4vw, 2.8rem);
+      margin: 0;
+      padding: 28px 28px 0;
+      color: var(--text);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
-
-    .btn-submit:active {
-      transform: translateY(0);
+    .faq-list { padding: 0 0 20px; }
+    .faq-item {
+      border-top: 1px solid rgba(255,255,255,0.06);
     }
-
-    .btn-submit:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
+    .faq-item:first-of-type { border-top: none; }
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 22px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: 'Barlow', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      background: transparent;
+      transition: background 0.2s ease;
     }
+    .faq-item summary:hover { background: rgba(255,255,255,0.06); }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary:after {
+      content: '+';
+      font-size: 1.2rem;
+      color: var(--accent);
+      transition: transform 0.3s ease;
+    }
+    .faq-item[open] summary:after {
+      content: '-';
+      transform: rotate(180deg);
+    }
+    .faq-item p {
+      margin: 0;
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-size: 14px;
+      padding: 0 28px 20px;
+    }
+    .faq-item p a { color: var(--accent); }
 
-    .btn-submit .spinner {
-      display: none;
-      width: 20px;
-      height: 20px;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      border-top-color: #fff;
+    /* FOOTER */
+    footer {
+      background: var(--bg-2);
+      border-top: 1px solid var(--line);
+      padding: 60px 0 30px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--line);
+    }
+    .footer-brand .logo { font-size: 36px; margin-bottom: 14px; }
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 14px;
+      max-width: 320px;
+      margin-bottom: 20px;
+    }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+    }
+    .footer-social a {
+      width: 38px;
+      height: 38px;
       border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      margin: 0 auto;
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      transition: all 0.3s var(--ease);
+    }
+    .footer-social a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .footer-social svg { width: 16px; height: 16px; }
+    .footer-col h4 {
+      font-family: 'Barlow', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 10px; }
+    .footer-col a {
+      color: var(--text-muted);
+      font-size: 14px;
+      transition: color 0.3s var(--ease);
+    }
+    .footer-col a:hover { color: var(--text); }
+    .footer-bottom {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 28px;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: #040404;
+      border-radius: 18px;
+      margin-top: 26px;
+      text-align: center;
+    }
+    .footer-bottom p {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--text);
     }
 
-    .btn-submit.loading .btn-text { display: none; }
-    .btn-submit.loading .spinner { display: inline-block; }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
+    @media (max-width: 960px) {
+      .booking-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
     }
 
-    /* Toast notification */
-    .toast {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      padding: 14px 24px;
-      border-radius: 8px;
-      color: #fff;
-      font-size: 0.9rem;
-      font-weight: 500;
-      z-index: 9999;
-      transform: translateX(120%);
-      transition: transform 0.4s ease;
-      max-width: 360px;
+    @media (max-width: 820px) {
+      .nav-links, .nav-cta { display: none; }
+      .burger { display: flex; }
+      .page-hero { padding-top: 120px; }
     }
 
-    .toast.show { transform: translateX(0); }
-
-    .toast.success {
-      background: linear-gradient(135deg, #10b981, #059669);
-    }
-
-    .toast.error {
-      background: linear-gradient(135deg, #ef4444, #dc2626);
-    }
-
-    @media (max-width: 500px) {
-      .form-container { padding: 24px; }
-      .form-row { flex-direction: column; gap: 0; }
+    @media (max-width: 520px) {
+      .container { width: min(var(--maxw), calc(100% - 36px)); }
+      .booking-form { padding: 24px; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-bottom { padding: 18px 16px; }
+      .faq-item summary, .faq-item p { padding-left: 20px; padding-right: 20px; }
+      .faq-header { padding-left: 20px; padding-right: 20px; }
     }
   </style>
 </head>
 <body>
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="index.html#home" class="logo"><span class="xy">XY</span><span class="to">TO</span><span class="za">ZA</span><span class="logo-band">Band</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="song.html">Music</a></li>
+        <li><a href="index.html#dsp">Listen</a></li>
+        <li><a href="index.html#tour">Tour</a></li>
+        <li><a href="artikel.html">Artikel</a></li>
+        <li><a href="ourstory.html">Our Story</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta active">Contact</a>
+      <div class="burger" id="burger" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
 
-  <!-- Toast -->
-  <div id="toast" class="toast"></div>
+  <div class="overlay" id="overlay"></div>
+  <aside class="mobile-menu" id="mobileMenu">
+    <a href="index.html#about">About</a>
+    <a href="song.html">Music</a>
+    <a href="index.html#dsp">Listen</a>
+    <a href="index.html#tour">Tour</a>
+    <a href="artikel.html">Artikel</a>
+    <a href="ourstory.html">Our Story</a>
+    <a href="contact.html" class="nav-cta">Contact</a>
+  </aside>
 
-  <div class="form-container">
-    <h2>Hubungi Kami</h2>
-    <p class="subtitle">Kirim pesan dan kami akan membalas melalui Telegram</p>
+  <main>
+    <section class="contact-wrap">
+      <div class="container booking-grid">
+        <div class="booking-text">
+          <span class="eyebrow">Contact</span>
+          <h2>LET'S TALK!</h2>
+          <p>
+            Untuk keperluan booking, bisnis, kolaborasi &amp; media, silakan hubungi kami melalui email atau isi form di Contact Form.
+          </p>
 
-    <form id="contactForm">
-      <div class="form-row">
-        <div class="form-group">
-          <label for="nama">Nama</label>
-          <input type="text" id="nama" name="nama" placeholder="Nama lengkap" required>
+          <ul class="contact-list">
+            <li>
+              <div class="ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="lbl">
+                <small>Booking &amp; Inquiry</small>
+                <strong>booking@xytoza.com</strong>
+              </div>
+            </li>
+            <li>
+              <div class="ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="lbl">
+                <small>Press &amp; Media</small>
+                <a href="mailto:press@xytoza.com"><strong>press@xytoza.com</strong></a>
+              </div>
+            </li>
+            <li>
+              <div class="ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="lbl">
+                <small>WhatsApp (Chat Only)</small>
+                <strong>+62 895-2000-1567</strong>
+              </div>
+            </li>
+            <li>
+              <div class="ic">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="lbl">
+                <small>Base Location</small>
+                <strong>Bandung, Indonesia</strong>
+              </div>
+            </li>
+          </ul>
         </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="email@contoh.com" required>
+
+        <form class="booking-form" onsubmit="handleSubmit(event)">
+          <h3>Contact Form</h3>
+          <p class="sub">Kami akan balas dalam waktu 2×24 jam kerja.</p>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nama</label>
+              <input type="text" name="name" placeholder="Nama Anda" required />
+            </div>
+            <div class="form-group">
+              <label>Instansi / Event</label>
+              <input type="text" name="org" placeholder="Nama event / instansi" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" name="email" placeholder="email@anda.com" required />
+            </div>
+            <div class="form-group">
+              <label>WhatsApp</label>
+              <input type="tel" name="phone" placeholder="+62 ..." required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Tanggal Event</label>
+              <div class="date-picker">
+                <input type="text" name="date" placeholder="Pilih tanggal" readonly autocomplete="off" />
+                <div class="date-calendar" role="dialog" aria-label="Pilih tanggal">
+                  <div class="date-calendar-head">
+                    <button type="button" class="date-calendar-nav" data-calendar-prev aria-label="Bulan sebelumnya">‹</button>
+                    <span class="date-calendar-title"></span>
+                    <button type="button" class="date-calendar-nav" data-calendar-next aria-label="Bulan berikutnya">›</button>
+                  </div>
+                  <div class="date-calendar-week" aria-hidden="true">
+                    <span>Sen</span><span>Sel</span><span>Rab</span><span>Kam</span><span>Jum</span><span>Sab</span><span>Min</span>
+                  </div>
+                  <div class="date-calendar-grid"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Jenis Acara</label>
+              <select name="type">
+                <option value="">Pilih jenis</option>
+                <optgroup label="PERFORMA BAND (XYtoZA)">
+                  <option>Festival / Konser Musik</option>
+                  <option>Corporate Event / Gathering</option>
+                  <option>Acara Sekolah / Kampus</option>
+                  <option>Private Gig / Wedding / Party</option>
+                </optgroup>
+                <optgroup label="PEMBICARA / SHARING">
+                  <option>Seminar / Workshop / Webinar</option>
+                  <option>Podcast / Interview / Talkshow</option>
+                  <option>Bedah Buku / Event Komunitas</option>
+                </optgroup>
+                <optgroup label="BISNIS &amp; KOLABORASI">
+                  <option>Endorsement / Review Produk</option>
+                  <option>Sponsorship / Iklan Website</option>
+                  <option>Kolaborasi Musik / Aransemen</option>
+                </optgroup>
+                <option>Lainnya</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group full">
+            <label>Pesan</label>
+            <textarea name="message" placeholder="Ceritakan sedikit tentang acara Anda..."></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">Kirim Pesan</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="faq-wrap">
+      <div class="container">
+        <div class="faq-card">
+          <h3 class="faq-header">FAQ XYtoZA</h3>
+          <div class="faq-list">
+            <details class="faq-item" open>
+              <summary>Bagaimana prosedur booking konser XYtoZA?</summary>
+              <p>Kirim proposal acara lengkap ke <a href="mailto:booking@xytoza.com">booking@xytoza.com</a>. Tim kami akan merespons dalam 2–3 hari kerja.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Apakah XYtoZA menerima kolaborasi konten media?</summary>
+              <p>Ya, untuk konten media dan kerja sama kreatif silakan isi Contact Form di atas.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Dimana saya bisa membeli merchandise resmi?</summary>
+              <p>Belum tersedia. Informasi terbaru akan diumumkan melalui kanal resmi kami.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Bolehkah saya gunakan lagu XYtoZA untuk video YouTube/TikTok?</summary>
+              <p>Penggunaan non-komersial diperbolehkan sesuai kebijakan platform. Untuk penggunaan komersial, ajukan izin resmi ke <a href="mailto:admin@xytoza.com">admin@xytoza.com</a>.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Bolehkah saya mengirim kado atau surat untuk XYtoZA?</summary>
+              <p>Kami menghargai dukungan Anda. Surat/kado kecil bisa diserahkan melalui tim operasional saat konser, tetapi hindari makanan basi dan barang pecah belah.</p>
+            </details>
+            <details class="faq-item">
+              <summary>Kapan jadwal tur berikutnya akan dirilis?</summary>
+              <p>Jadwal tur terbaru akan diumumkan di website dan media sosial resmi kami.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo"><span class="xy">XY</span><span class="to">TO</span><span class="za">ZA</span><span class="dot">.</span></div>
+          <p>Dari Generasi X &amp; Y untuk Generasi Z &amp; Alpha. Karena api semangat harus terus diestafetkan.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="#" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+            <a href="#" aria-label="Spotify">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="ourstory.html">Our Story</a></li>
+            <li><a href="song.html">Music</a></li>
+            <li><a href="index.html#tour">Tour</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Listen On</h4>
+          <ul>
+            <li><a href="index.html#dsp">Spotify</a></li>
+            <li><a href="index.html#dsp">Apple Music</a></li>
+            <li><a href="index.html#dsp">YouTube Music</a></li>
+            <li><a href="index.html#dsp">Deezer</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="contact.html">Booking</a></li>
+            <li><a href="contact.html">Management</a></li>
+            <li><a href="artikel/presskit.html">Press Kit</a></li>
+            <li><a href="#" onclick="showMerchandiseNotice(event)">Merchandise</a></li>
+          </ul>
         </div>
       </div>
 
-      <div class="form-group">
-        <label for="subject">Subjek</label>
-        <input type="text" id="subject" name="subject" placeholder="Topik pesan" required>
+      <div class="footer-bottom">
+        <p>© 2026 <span class="accent">XYtoZA</span> Indonesia. All rights reserved.</p>
       </div>
-
-      <div class="form-group">
-        <label for="pesan">Pesan</label>
-        <textarea id="pesan" name="pesan" placeholder="Tulis pesan Anda di sini..." required></textarea>
-      </div>
-
-      <button type="submit" class="btn-submit" id="btnSubmit">
-        <span class="btn-text">Kirim Pesan</span>
-        <span class="spinner"></span>
-      </button>
-    </form>
-  </div>
+    </div>
+  </footer>
 
   <script>
-    // ═══════════════════════════════════════════════════════════
-    //  GANTI URL INI DENGAN URL GOOGLE APPS SCRIPT ANDA
-    // ═══════════════════════════════════════════════════════════
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzPFNZL2hsWqwYgmjClfvbM7oMi45OODph1rWrv_W7jLUApQ4E3rdgOQrVL61Wrnbkh/exec';
-
-    const form      = document.getElementById('contactForm');
-    const btnSubmit = document.getElementById('btnSubmit');
-    const toast     = document.getElementById('toast');
-
-    // ── Toast helper ──────────────────────────────────────────
-    function showToast(message, type = 'success') {
-      toast.textContent = message;
-      toast.className   = 'toast ' + type + ' show';
-      setTimeout(() => { toast.classList.remove('show'); }, 4000);
+    function showMerchandiseNotice(event) {
+      event.preventDefault();
+      window.alert('Belum Tersedia. Coming Soon.');
     }
 
-    // ── Submit handler ────────────────────────────────────────
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
 
-      // Ambil data dari form
-      const data = {
-        nama:    form.nama.value.trim(),
-        email:   form.email.value.trim(),
-        subject: form.subject.value.trim(),
-        pesan:   form.pesan.value.trim()
+    const burger = document.getElementById('burger');
+    const overlay = document.getElementById('overlay');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    function toggleMenu() {
+      const isOpen = mobileMenu.classList.toggle('active');
+      overlay.classList.toggle('active', isOpen);
+      burger.classList.toggle('active', isOpen);
+      burger.setAttribute('aria-expanded', String(isOpen));
+    }
+
+    burger.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+
+    const datePicker = document.querySelector('.date-picker');
+    const dateCalendar = document.querySelector('.date-calendar');
+    const eventDateInput = document.querySelector('input[name="date"]');
+    const dateCalendarTitle = document.querySelector('.date-calendar-title');
+    const dateCalendarGrid = document.querySelector('.date-calendar-grid');
+    const datePickerPrev = document.querySelector('[data-calendar-prev]');
+    const datePickerNext = document.querySelector('[data-calendar-next]');
+    const currentMonth = new Date();
+    let calendarMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1);
+
+    function renderDateCalendar() {
+      dateCalendarGrid.innerHTML = '';
+      const monthLabel = calendarMonth.toLocaleString('id-ID', { month: 'long', year: 'numeric' });
+      dateCalendarTitle.textContent = monthLabel;
+
+      const firstDay = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth(), 1);
+      const startWeekDay = (firstDay.getDay() + 6) % 7;
+      const daysInMonth = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth() + 1, 0).getDate();
+
+      for (let i = 0; i < startWeekDay; i++) {
+        const filler = document.createElement('span');
+        filler.className = 'date-calendar-day';
+        filler.style.visibility = 'hidden';
+        filler.textContent = '';
+        dateCalendarGrid.appendChild(filler);
+      }
+
+      for (let day = 1; day <= daysInMonth; day++) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'date-calendar-day';
+        button.textContent = String(day);
+        const iso = new Date(calendarMonth.getFullYear(), calendarMonth.getMonth(), day);
+        const formatted = iso.toISOString().split('T')[0];
+        button.dataset.date = formatted;
+
+        if (formatted === new Date().toISOString().split('T')[0]) {
+          button.classList.add('today');
+        }
+        if (eventDateInput.value === formatted) {
+          button.classList.add('selected');
+        }
+
+        button.addEventListener('click', () => {
+          eventDateInput.value = formatted;
+          dateCalendar.classList.remove('open');
+        });
+
+        dateCalendarGrid.appendChild(button);
+      }
+    }
+
+    eventDateInput.addEventListener('click', () => {
+      renderDateCalendar();
+      dateCalendar.classList.toggle('open');
+    });
+    datePickerPrev.addEventListener('click', () => {
+      calendarMonth.setMonth(calendarMonth.getMonth() - 1);
+      renderDateCalendar();
+    });
+    datePickerNext.addEventListener('click', () => {
+      calendarMonth.setMonth(calendarMonth.getMonth() + 1);
+      renderDateCalendar();
+    });
+    document.addEventListener('click', (event) => {
+      if (!datePicker.contains(event.target)) {
+        dateCalendar.classList.remove('open');
+      }
+    });
+
+    async function handleSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('.form-submit');
+      const originalText = btn.textContent;
+
+      const formData = {
+        name: form.name.value.trim(),
+        org: form.org.value.trim(),
+        email: form.email.value.trim(),
+        phone: form.phone.value.trim(),
+        date: form.date.value,
+        type: form.type.value,
+        message: form.message.value.trim()
       };
 
-      // Validasi client-side
-      if (!data.nama || !data.email || !data.pesan) {
-        showToast('Mohon lengkapi semua field yang wajib diisi.', 'error');
+      if (!formData.name || !formData.email || !formData.phone) {
+        alert('Mohon isi Nama, Email, dan No. WhatsApp');
         return;
       }
 
-      // UI: loading state
-      btnSubmit.classList.add('loading');
-      btnSubmit.disabled = true;
+      if (formData.email.toLowerCase().endsWith('@titan.email')) {
+        alert('Alamat email dari titan.email tidak dapat digunakan.');
+        return;
+      }
+
+      btn.textContent = 'Mengirim...';
+      btn.disabled = true;
 
       try {
-        const response = await fetch(SCRIPT_URL, {
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzCeaAegcKA6VOYb3MCiGLVraxGs0p6IBOlLpY3VevoOG48ONmVnpoLBX4LLcae9wM/exec';
+        await fetch(SCRIPT_URL, {
           method: 'POST',
-          mode: 'no-cors',   // Google Apps Script memerlukan no-cors
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
+          mode: 'no-cors',
+          body: new URLSearchParams(formData)
         });
 
-        // Karena mode no-cors, kita tidak bisa baca response body.
-        // Jika tidak ada error yang di-lempar, anggap berhasil.
-        showToast('Pesan berhasil dikirim!', 'success');
-        form.reset();
-
-      } catch (err) {
-        showToast('Gagal mengirim pesan. Coba lagi nanti.', 'error');
-        console.error('Error:', err);
-
-      } finally {
-        btnSubmit.classList.remove('loading');
-        btnSubmit.disabled = false;
+        alert('Pesan terkirim. Terima kasih, kami akan segera membalas Anda.');
+        btn.textContent = 'Terkirim ✓';
+        btn.style.background = '#1ed760';
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = '';
+          btn.disabled = false;
+          form.reset();
+        }, 3000);
+      } catch (error) {
+        console.error(error);
+        btn.textContent = 'Gagal mengirim. Coba lagi';
+        btn.style.background = '#ff4444';
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.style.background = '';
+          btn.disabled = false;
+        }, 3000);
       }
-    });
+    }
   </script>
 </body>
 </html>

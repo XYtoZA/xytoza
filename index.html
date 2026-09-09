@@ -1408,34 +1408,41 @@
     }
     .footer-social svg { width: 16px; height: 16px; }
     .social-section {
-      background: var(--bg);
-      padding: 0 0 60px;
+      background: transparent;
+      padding: 10px 0 26px;
+      margin-top: 10px;
+    }
+    .social-section > .container {
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
     }
     .social-card {
-      background: linear-gradient(135deg, rgba(245,184,0,0.10), rgba(255,255,255,0.03));
-      border: 1px solid var(--line);
+      background: #ffffff;
+      border: 1px solid rgba(10,10,11,0.25);
       border-radius: var(--radius-lg);
-      padding: 32px;
+      padding: 30px 32px;
       display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 24px;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+      gap: 28px;
       align-items: center;
     }
     .social-intro h3 {
       font-size: clamp(28px, 3.2vw, 38px);
       margin-bottom: 10px;
-      color: var(--text);
+      color: #0a0a0b;
     }
     .social-intro p {
-      color: var(--text-muted);
+      color: #0a0a0b;
       font-size: 15px;
       max-width: 580px;
+      margin: 0;
     }
     .social-links {
       display: flex;
       flex-wrap: nowrap;
       gap: 8px;
-      justify-content: flex-start;
+      justify-content: flex-end;
       overflow-x: auto;
     }
     .social-link {
@@ -1447,9 +1454,9 @@
       min-height: 34px;
       flex: 0 0 auto;
       border-radius: 999px;
-      border: 1.5px solid rgba(255,255,255,0.2);
-      background: rgba(255,255,255,0.06);
-      color: #f4f4f5;
+      border: 1.5px solid #0a0a0b;
+      background: #0a0a0b;
+      color: #ffffff;
       transition: all 0.3s var(--ease);
       font-family: 'Barlow', sans-serif;
       font-weight: 600;
@@ -1464,6 +1471,11 @@
       box-shadow: 0 10px 24px -12px rgba(245,184,0,0.35);
     }
     .social-link svg { width: 15px; height: 15px; flex-shrink: 0; opacity: 1; }
+    .social-link[aria-label="Instagram"] { order: 1; }
+    .social-link[aria-label="TikTok"] { order: 2; }
+    .social-link[aria-label="Telegram"] { order: 3; }
+    .social-link[aria-label="Threads"] { order: 4; }
+    .social-link[aria-label="X"] { order: 5; }
     .footer-col h4 {
       font-family: 'Barlow', sans-serif;
       font-size: 12px;
@@ -1987,7 +1999,7 @@
         <li><a href="artikel.html">Artikel</a></li>
         <li><a href="ourstory.html">Our Story</a></li>
       </ul>
-      <a href="#contact" class="nav-cta">Contact</a>
+      <a href="contact.html" class="nav-cta">Contact</a>
       <div class="burger" id="burger">
         <span></span><span></span><span></span>
       </div>
@@ -2003,7 +2015,7 @@
     <a href="#tour">Tour</a>
     <a href="artikel.html">Artikel</a>
     <a href="ourstory.html">Our Story</a>
-    <a href="#contact" class="nav-cta">Contact</a>
+    <a href="contact.html" class="nav-cta">Contact</a>
   </aside>
 
   <!-- ============ HERO ============ -->
@@ -2311,174 +2323,6 @@
     </div>
   </section>
 
-
-  <!-- ============ CONTACT ============ -->
-  <section class="booking" id="contact">
-    <div class="container booking-grid">
-      <div class="booking-text reveal">
-        <span class="eyebrow">Contact</span>
-        <h2 class="section-title">LET'S TALK!</h2>
-        <p>
-          Untuk keperluan booking, bisnis, kolaborasi & Media, silahkan hubungi kami melalui email atau isi form di CONTACT FORM.
-        </p>
-
-        <ul class="contact-list">
-          <li>
-            <div class="ic">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div class="lbl">
-              <small>Booking &amp; Inquiry</small>
-              <strong>booking@xytoza.com</strong>
-            </div>
-          </li>
-          <li>
-            <div class="ic">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            </div>
-            <div class="lbl">
-              <small>Press &amp; Media</small>
-              <a href="mailto:press@xytoza.com"><strong>press@xytoza.com</strong></a>
-            </div>
-          </li>
-          <li>
-            <div class="ic">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            </div>
-            <div class="lbl">
-              <small>WhatsApp (Chat Only)</small>
-              <strong>+62 895-2000-1567</strong>
-            </div>
-          </li>
-          <li>
-            <div class="ic">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            </div>
-            <div class="lbl">
-              <small>Base Location</small>
-              <strong>Bandung, Indonesia</strong>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <form class="booking-form reveal" onsubmit="handleSubmit(event)">
-        <h3>Contact Form</h3>
-        <p class="sub">Kami akan balas dalam waktu 2×24 jam kerja.</p>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Nama</label>
-            <input type="text" name="name" placeholder="Nama Anda" required />
-          </div>
-          <div class="form-group">
-            <label>Instansi / Event</label>
-            <input type="text" name="org" placeholder="Nama event / instansi" />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" name="email" placeholder="email@anda.com" required />
-          </div>
-          <div class="form-group">
-            <label>WhatsApp</label>
-            <input type="tel" name="phone" placeholder="+62 ..." required />
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Tanggal Event</label>
-            <div class="date-picker">
-              <input type="text" name="date" placeholder="Pilih tanggal" readonly autocomplete="off" />
-              <div class="date-calendar" role="dialog" aria-label="Pilih tanggal">
-                <div class="date-calendar-head">
-                  <button type="button" class="date-calendar-nav" data-calendar-prev aria-label="Bulan sebelumnya">‹</button>
-                  <span class="date-calendar-title"></span>
-                  <button type="button" class="date-calendar-nav" data-calendar-next aria-label="Bulan berikutnya">›</button>
-                </div>
-                <div class="date-calendar-week" aria-hidden="true">
-                  <span>Sen</span><span>Sel</span><span>Rab</span><span>Kam</span><span>Jum</span><span>Sab</span><span>Min</span>
-                </div>
-                <div class="date-calendar-grid"></div>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Jenis Acara</label>
-            <select name="type">
-              <option value="">Pilih jenis</option>
-              <optgroup label="PERFORMA BAND (XYtoZA)">
-                <option>Festival / Konser Musik</option>
-                <option>Corporate Event / Gathering</option>
-                <option>Acara Sekolah / Kampus</option>
-                <option>Private Gig / Wedding / Party</option>
-              </optgroup>
-              <optgroup label="PEMBICARA / SHARING">
-                <option>Seminar / Workshop / Webinar</option>
-                <option>Podcast / Interview / Talkshow</option>
-                <option>Bedah Buku / Event Komunitas</option>
-              </optgroup>
-              <optgroup label="BISNIS &amp; KOLABORASI">
-                <option>Endorsement / Review Produk</option>
-                <option>Sponsorship / Iklan Website</option>
-                <option>Kolaborasi Musik / Aransemen</option>
-              </optgroup>
-              <option>Lainnya</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group full">
-          <label>Pesan</label>
-          <textarea name="message" placeholder="Ceritakan sedikit tentang acara Anda..."></textarea>
-        </div>
-
-        <button type="submit" class="form-submit">Kirim Pesan</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Inserted image from index.html above footer -->
-  <div class="above-footer-img">
-    <img src="https://ik.imagekit.io/5bnhlcghq/logo%20web%20tangan.png" alt="XYtoZA" loading="lazy" />
-  </div>
-
-  <section class="social-section" id="connect-with-us">
-    <div class="container">
-      <div class="social-card reveal">
-        <div class="social-intro">
-          <h3>Connect With Us</h3>
-          <p>Official - Media Sosial resmi kami.</p>
-        </div>
-        <div class="social-links">
-          <a href="https://www.instagram.com/xy_to_za?igsh=dzRjMnFrdDFiOXdy" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-            Instagram
-          </a>
-          <a href="https://www.youtube.com/@xy_to_za" target="_blank" rel="noopener" class="social-link" aria-label="YouTube">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-            YouTube
-          </a>
-          <a href="https://www.tiktok.com/@xy_to_za?_r=1&_t=ZS-93e2FTCpdLE" target="_blank" rel="noopener" class="social-link" aria-label="TikTok">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.83a8.16 8.16 0 0 0 4.77 1.52V6.89a4.85 4.85 0 0 1-1.84-.2z"/></svg>
-            TikTok
-          </a>
-          <a href="https://open.spotify.com" target="_blank" rel="noopener" class="social-link" aria-label="Spotify">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-            Spotify
-          </a>
-          <a href="https://t.me/xy_to_za" target="_blank" rel="noopener" class="social-link" aria-label="Telegram">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.8 3.2 2.9 10.5c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.8 5.5c.2.6.1.8.7.8.5 0 .7-.2 1-.5l2.3-2.2 4.8 3.5c.9.5 1.5.3 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.8-1.4ZM8.2 13.1l10.9-6.9c.5-.3.9-.1.5.2l-8.8 8-.3 3.2-1.3-4.5-1-.3Z"/></svg>
-            Telegram
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ FOOTER ============ -->
   <footer>
     <div class="container">
@@ -2593,37 +2437,43 @@
         </a>
       </div>
 
-      <div class="footer-faq reveal">
-        <div class="faq-card">
-          <h3 class="faq-header">FAQ XYtoZA</h3>
-          <div class="faq-list">
-            <details class="faq-item">
-              <summary>Bagaimana prosedur booking konser XYtoZA?</summary>
-              <p>Kirim proposal acara lengkap ke <a href="mailto:booking@xytoza.live">booking@xytoza.com</a>. Tim kami akan merespons dalam 2–3 hari kerja.</p>
-            </details>
-            <details class="faq-item">
-              <summary>Apakah XYtoZA menerima kolaborasi konten media?</summary>
-              <p>Ya, untuk konten media dan kerja sama kreatif silakan isi Contact Form diatas</a>.</p>
-            </details>
-            <details class="faq-item">
-              <summary>Dimana saya bisa membeli merchandise resmi?</summary>
-              <p>Belum tersedia.</p>
-            </details>
-            <details class="faq-item">
-              <summary>Bolehkah saya gunakan lagu XYtoZA untuk video YouTube/TikTok?</summary>
-              <p>Penggunaan non-komersial diperbolehkan sesuai kebijakan platform. Untuk penggunaan komersial, ajukan izin resmi ke <a href="mailto:media@xytoza.live">admin@xytoza.com</a>.</p>
-            </details>
-            <details class="faq-item">
-              <summary>Bolehkah saya mengirim kado atau surat untuk XYtoZA?</summary>
-              <p>Kami menghargai dukungan Anda. Surat/kado kecil bisa diserahkan melalui tim operasional saat konser, tetapi hindari makanan basi dan barang pecah belah.</p>
-            </details>
-            <details class="faq-item">
-              <summary>Kapan jadwal tur berikutnya akan dirilis?</summary>
-              <p>Jadwal tur terbaru akan diumumkan di Website dan media sosial resmi</p>
-            </details>
+      <section class="social-section" id="connect-with-us">
+        <div class="container">
+          <div class="social-card reveal">
+            <div class="social-intro">
+              <h3>Connect With Us</h3>
+              <p>Official - Media Sosial resmi kami.</p>
+            </div>
+            <div class="social-links">
+              <a href="https://www.instagram.com/xy_to_za?igsh=dzRjMnFrdDFiOXdy" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                Instagram
+              </a>
+              <a href="#" onclick="showMerchandiseNotice(event)" class="social-link" aria-label="Threads">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.3 11.1c-.2-3.4-2.1-5.3-5.6-5.3-3.1 0-5.1 1.6-5.1 4.1 0 2.3 1.7 3.6 4.5 3.6 1.2 0 2.2-.2 3-.7-.3 1.5-1.3 2.3-2.9 2.3-1.2 0-2.1-.5-2.5-1.4l-2.1.8c.7 1.8 2.3 2.8 4.6 2.8 3.6 0 5.7-2.3 5.7-6.2 0-.1 0-.2 0-.3 1.3.7 1.9 1.7 1.9 3.1 0 2.6-2.2 4.4-5.5 4.4-4.5 0-7.4-2.8-7.4-7.2C5.9 6.6 8.8 3.5 13 3.5c3.3 0 5.7 1.5 6.8 4.3l-2.1.8c-.8-1.9-2.3-2.9-4.6-2.9-2.8 0-4.8 2-4.8 5 0 2.8 1.6 4.6 4.1 4.6 1.5 0 2.5-.7 2.8-1.9-.7.3-1.5.5-2.4.5-1.4 0-2.2-.5-2.2-1.4 0-1 .9-1.6 2.4-1.6 1.7 0 3 .8 4.3 2.1z"/></svg>
+                Threads
+              </a>
+              <a href="https://www.tiktok.com/@xy_to_za?_r=1&_t=ZS-93e2FTCpdLE" target="_blank" rel="noopener" class="social-link" aria-label="TikTok">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.83a8.16 8.16 0 0 0 4.77 1.52V6.89a4.85 4.85 0 0 1-1.84-.2z"/></svg>
+                TikTok
+              </a>
+              <a href="#" onclick="showMerchandiseNotice(event)" class="social-link" aria-label="X">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.4l-5-6.5L6.1 22H3l7.3-8.4L2.8 2h6.5l4.5 5.9L18.9 2Zm-1.1 17.7h1.7L8.3 4.2H6.5l11.3 15.5Z"/></svg>
+                X
+              </a>
+              <a href="https://t.me/xy_to_za" target="_blank" rel="noopener" class="social-link" aria-label="Telegram">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.8 3.2 2.9 10.5c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 1.8 5.5c.2.6.1.8.7.8.5 0 .7-.2 1-.5l2.3-2.2 4.8 3.5c.9.5 1.5.3 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.8-1.4ZM8.2 13.1l10.9-6.9c.5-.3.9-.1.5.2l-8.8 8-.3 3.2-1.3-4.5-1-.3Z"/></svg>
+                Telegram
+              </a>
+            </div>
           </div>
         </div>
+      </section>
+
+      <div class="above-footer-img">
+        <img src="https://ik.imagekit.io/5bnhlcghq/logo%20web%20tangan.png" alt="XYtoZA" loading="lazy" />
       </div>
+
       <div class="footer-top">
         <div class="footer-brand">
           <div class="logo"><span class="xy">XY</span><span class="to">TO</span><span class="za">ZA</span><span class="dot">.</span></div>
@@ -2645,7 +2495,7 @@
         </div>
         <div class="footer-col"><h4>Navigation</h4><ul><li><a href="#home">Home</a></li><li><a href="ourstory.html">Our Story</a></li><li><a href="song.html">Music</a></li><li><a href="#tour">Tour</a></li></ul></div>
         <div class="footer-col"><h4>Listen On</h4><ul><li><a href="#dsp">Spotify</a></li><li><a href="#dsp">Apple Music</a></li><li><a href="#dsp">YouTube Music</a></li><li><a href="#dsp">Deezer</a></li></ul></div>
-        <div class="footer-col"><h4>Contact</h4><ul><li><a href="index.html#contact">Booking</a></li><li><a href="index.html#contact">Management</a></li><li><a href="artikel/presskit.html">Press Kit</a></li><li><a href="#" onclick="showMerchandiseNotice(event)">Merchandise</a></li></ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul><li><a href="contact.html">Booking</a></li><li><a href="contact.html">Management</a></li><li><a href="artikel/presskit.html">Press Kit</a></li><li><a href="#" onclick="showMerchandiseNotice(event)">Merchandise</a></li></ul></div>
       </div>
       <div class="footer-bottom">
         <p>© 2026 <span class="accent">XYtoZA</span> Indonesia. All rights reserved.</p>
@@ -2822,67 +2672,6 @@
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
     revealEls.forEach(el => observer.observe(el));
 
-    const datePicker = document.querySelector('.date-picker');
-    const eventDateInput = datePicker.querySelector('input[name="date"]');
-    const dateCalendar = datePicker.querySelector('.date-calendar');
-    const dateCalendarTitle = datePicker.querySelector('.date-calendar-title');
-    const dateCalendarGrid = datePicker.querySelector('.date-calendar-grid');
-    let calendarMonth = new Date();
-    calendarMonth.setDate(1);
-
-    function renderDateCalendar() {
-      const year = calendarMonth.getFullYear();
-      const month = calendarMonth.getMonth();
-      const firstDay = (new Date(year, month, 1).getDay() + 6) % 7;
-      const daysInMonth = new Date(year, month + 1, 0).getDate();
-      const today = new Date();
-      const monthLabel = new Intl.DateTimeFormat('id-ID', { month: 'long', year: 'numeric' });
-
-      dateCalendarTitle.textContent = monthLabel.format(calendarMonth);
-      dateCalendarGrid.innerHTML = '';
-
-      for (let index = 0; index < firstDay; index += 1) {
-        dateCalendarGrid.appendChild(document.createElement('span'));
-      }
-
-      for (let day = 1; day <= daysInMonth; day += 1) {
-        const dayButton = document.createElement('button');
-        const monthValue = String(month + 1).padStart(2, '0');
-        const dayValue = String(day).padStart(2, '0');
-        dayButton.type = 'button';
-        dayButton.className = 'date-calendar-day';
-        dayButton.textContent = day;
-        dayButton.dataset.date = `${year}-${monthValue}-${dayValue}`;
-        if (year === today.getFullYear() && month === today.getMonth() && day === today.getDate()) {
-          dayButton.classList.add('today');
-        }
-        if (eventDateInput.value === dayButton.dataset.date) {
-          dayButton.classList.add('selected');
-        }
-        dayButton.addEventListener('click', () => {
-          eventDateInput.value = dayButton.dataset.date;
-          dateCalendar.classList.remove('open');
-        });
-        dateCalendarGrid.appendChild(dayButton);
-      }
-    }
-
-    eventDateInput.addEventListener('click', () => {
-      renderDateCalendar();
-      dateCalendar.classList.toggle('open');
-    });
-    datePicker.querySelector('[data-calendar-prev]').addEventListener('click', () => {
-      calendarMonth.setMonth(calendarMonth.getMonth() - 1);
-      renderDateCalendar();
-    });
-    datePicker.querySelector('[data-calendar-next]').addEventListener('click', () => {
-      calendarMonth.setMonth(calendarMonth.getMonth() + 1);
-      renderDateCalendar();
-    });
-    document.addEventListener('click', (event) => {
-      if (!datePicker.contains(event.target)) dateCalendar.classList.remove('open');
-    });
-
     // ============ CONTACT FORM (Google Sheet + Telegram) ============
     async function handleSubmit(e) {
       e.preventDefault();
@@ -2957,22 +2746,19 @@
       };
     }
 
+    function parseTrackWibDate(value) {
+      if (!value) return NaN;
+      const hasTimezone = /(?:Z|[+-]\d{2}:?\d{2})$/.test(value);
+      return new Date(hasTimezone ? value : `${value}+07:00`).getTime();
+    }
+
     function getTrackWibNowTimestamp() {
-      const now = new Date();
-      return Date.UTC(
-        now.getFullYear(),
-        now.getMonth(),
-        now.getDate(),
-        now.getHours(),
-        now.getMinutes(),
-        now.getSeconds(),
-        now.getMilliseconds()
-      ) - (7 * 60 * 60 * 1000);
+      return Date.now();
     }
 
     function updateTrackCountdowns() {
       document.querySelectorAll('[data-release-date]').forEach((element) => {
-        const remaining = new Date(element.dataset.releaseDate).getTime() - getTrackWibNowTimestamp();
+        const remaining = parseTrackWibDate(element.dataset.releaseDate) - getTrackWibNowTimestamp();
         if (remaining <= 0) {
           element.textContent = 'Sudah rilis';
           return;
