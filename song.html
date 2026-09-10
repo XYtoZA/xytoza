@@ -183,7 +183,7 @@
     .plat-spotify{background:#1DB954;color:#000}
     .plat-yt{background:#FF0000;color:#fff}
     .plat-ytmusic{background:#FF0000;color:#fff}
-    .plat-apple{background:#fc3c44;color:#fff}
+    .plat-apple{background:#000;color:#fff;border:1px solid rgba(255,255,255,0.2)}
     .plat-tidal{background:#000;color:#fff;border:1px solid rgba(255,255,255,0.2)}
     .plat-deezer{background:#ef5466;color:#fff}
     .plat-amazon{background:#232F3E;color:#ff9900}
@@ -263,7 +263,27 @@
       .play-main svg{width:10px;height:10px}
       .platform-panel,.lyrics-panel{padding-left:12px}
     }
-  </style>
+  /* footer-bottom-index-override */    .footer-bottom {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 28px;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: #040404;
+      border-radius: 18px;
+      margin-top: 26px;
+      text-align: center;
+    }
+    .footer-bottom p {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.5;
+      letter-spacing: 0.02em;
+      margin: 0;
+    }
+    .footer-bottom .accent { color: var(--accent); }</style>
 </head>
 <body>
 
@@ -435,7 +455,7 @@
     // ── ALBUM 1: OBROLAN CERMIN (01–10) ──
     {num:1,album:'album1',title:'SATU PAKET',tags:['Album 1'],released:false,releaseDate:'2026-09-11T00:00:00+07:00',
      photo:'https://ik.imagekit.io/5bnhlcghq/ChatGPT%20Image%20Aug%2012,%202026,%2006_30_10%20PM.png',
-     platforms:{spotify:'#',youtube:'#',apple:'#',ytmusic:'#',deezer:'#',tidal:'#',amazon:'#',joox:'#'},
+     platforms:{spotify:'#',youtube:'#',apple:'#'},
      lyrics:`Hidup ini satu paket tak bisa ditawar\nAda senang ada sedih, menangis dan tertawa\nHidup ini satu paket tak bisa ditawar\nSiang malam hujan panas\nDatang pergi jatuh bangkit\n\nHidup ini mudah tapi juga susah\nHidup menyenangkan kadang menyedihkan\nHidup mengasyikan juga membosankan\nHidup ini indah juga melelahkan\n\nJika nanti bahagia rendah hati tak sombong\nBila nanti bersedih tetap sabar dan tabah\nBila nanti terjadi… Bergumulah…`},
     {num:2,album:'album1',title:'Minggir Loe Miskin',tags:['Album 1'],released:false,releaseDate:'2026-10-09T00:00:00+07:00',photo:'https://ik.imagekit.io/5bnhlcghq/artwork_mlm1.png',platforms:{},lyrics:''},
     {num:3,album:'album1',title:'Coming Soon',tags:['Album 1'],released:false,releaseDate:'2026-11-13T00:00:00+07:00',photo:'',platforms:{},lyrics:''},

@@ -414,7 +414,27 @@
     @media (max-width: 480px) {
       .footer-top { grid-template-columns: 1fr; }
     }
-  </style>
+  /* footer-bottom-index-override */    .footer-bottom {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 28px;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: #040404;
+      border-radius: 18px;
+      margin-top: 26px;
+      text-align: center;
+    }
+    .footer-bottom p {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.5;
+      letter-spacing: 0.02em;
+      margin: 0;
+    }
+    .footer-bottom .accent { color: var(--accent); }</style>
 </head>
 <body>
   <nav class="nav" id="nav">
@@ -524,7 +544,7 @@
         <div class="footer-col"><h4>Listen On</h4><ul><li><a href="../index.html#dsp">Spotify</a></li><li><a href="../index.html#dsp">Apple Music</a></li><li><a href="../index.html#dsp">YouTube Music</a></li><li><a href="../index.html#dsp">Deezer</a></li></ul></div>
         <div class="footer-col"><h4>Contact</h4><ul><li><a href="../index.html#contact">Booking</a></li><li><a href="../index.html#contact">Management</a></li><li><a href="presskit.html">Press Kit</a></li><li><a href="#" onclick="showMerchandiseNotice(event)">Merchandise</a></li></ul></div>
       </div>
-      <div class="footer-bottom">&copy; 2026 <span class="accent">XYtoZA</span> Indonesia. All rights reserved.</div>
+      <div class="footer-bottom">© 2026 <span class="accent">XYtoZA</span> Indonesia. All rights reserved.</div>
     </div>
   </footer>
 
