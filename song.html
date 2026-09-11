@@ -576,7 +576,8 @@
     // Platform panel (only for released)
     let platformHTML = '';
     if (isReleased && song.platforms) {
-      const btns = Object.entries(song.platforms).map(([key, url]) => {
+      const platformLinks = Object.keys(song.platforms).length ? song.platforms : STREAMING_PLATFORMS;
+      const btns = Object.entries(platformLinks).map(([key, url]) => {
         if (!DSP_SVGS[key]) return '';
         return `<a href="${url}" class="plat-btn ${DSP_CLASSES[key]}" target="_blank" rel="noopener">${DSP_SVGS[key]}${DSP_NAMES[key]}</a>`;
       }).join('');
