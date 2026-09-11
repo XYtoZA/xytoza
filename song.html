@@ -451,11 +451,18 @@
   // ═══════════════════════════════════════════════════════════
   // SONG DATA — 30 lagu, hanya SATU PAKET (num 01) yang released
   // ═══════════════════════════════════════════════════════════
+  const STREAMING_PLATFORMS = {
+    ytmusic:'https://music.youtube.com/watch?v=9Q7sF3aS8go&si=FOTZiL_yanD_QyF3',
+    youtube:'https://youtu.be/_xLQrGW3O08',
+    spotify:'https://open.spotify.com/album/5fIX8CkF5G1vURPi1IHc38?si=YrJ2Iey1QeqaZnZHZvJYLQ',
+    apple:'https://music.apple.com/us/artist/xytoza/6801004025'
+  };
+
   const SONGS = [
     // ── ALBUM 1: OBROLAN CERMIN (01–10) ──
     {num:1,album:'album1',title:'SATU PAKET',tags:['Album 1'],released:false,releaseDate:'2026-09-11T00:00:00+07:00',
      photo:'https://ik.imagekit.io/5bnhlcghq/ChatGPT%20Image%20Aug%2012,%202026,%2006_30_10%20PM.png',
-     platforms:{spotify:'#',youtube:'#',apple:'#'},
+    platforms:STREAMING_PLATFORMS,
      lyrics:`Hidup ini satu paket tak bisa ditawar\nAda senang ada sedih, menangis dan tertawa\nHidup ini satu paket tak bisa ditawar\nSiang malam hujan panas\nDatang pergi jatuh bangkit\n\nHidup ini mudah tapi juga susah\nHidup menyenangkan kadang menyedihkan\nHidup mengasyikan juga membosankan\nHidup ini indah juga melelahkan\n\nJika nanti bahagia rendah hati tak sombong\nBila nanti bersedih tetap sabar dan tabah\nBila nanti terjadi… Bergumulah…`},
     {num:2,album:'album1',title:'Minggir Loe Miskin',tags:['Album 1'],released:false,releaseDate:'2026-10-09T00:00:00+07:00',photo:'https://ik.imagekit.io/5bnhlcghq/artwork_mlm1.png',platforms:{},lyrics:''},
     {num:3,album:'album1',title:'Coming Soon',tags:['Album 1'],released:false,releaseDate:'2026-11-13T00:00:00+07:00',photo:'',platforms:{},lyrics:''},
