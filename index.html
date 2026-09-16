@@ -297,39 +297,6 @@
       mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black, transparent 80%);
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .hero-text .gen-line {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(18px, 2vw, 22px);
-      color: #ffffff;
-      letter-spacing: 0.3em;
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .hero-text .gen-line span { color: var(--accent); }
-
-    /* Small lowercase label: use a non-all-caps font and disable transform */
-    .hero-text .gen-line .small-read {
-      font-family: 'Barlow', 'Inter', sans-serif;
-      text-transform: none;
-      letter-spacing: 0.28em;
-      font-weight: 600;
-      color: #ffffff;
-      display: inline-block;
-      margin-right: 8px;
-      font-size: 14px;
-    }
-
     .hero-title {
       /* Increased ~10% from previous reduced size */
       font-size: clamp(53px, 9.2vw, 132px);
@@ -941,46 +908,6 @@
       letter-spacing: 0.05em;
     }
     .track-sub span { color: var(--accent); margin: 0 8px; }
-    .track-countdown {
-      display: inline-flex;
-      align-items: flex-end;
-      gap: 6px;
-      margin-top: 6px;
-      margin-left: 4px;
-      font-style: normal;
-    }
-    .track-countdown .countdown-unit {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-    }
-    .track-countdown .countdown-label {
-      color: var(--text-dim);
-      font-size: 9px;
-      line-height: 1;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-    .track-countdown .countdown-value {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 38px;
-      height: 32px;
-      padding: 0 6px;
-      border: 1px solid rgba(255,106,0,0.4);
-      border-radius: 3px;
-      background: rgba(255,106,0,0.08);
-      color: var(--accent);
-      font-size: 12px;
-      line-height: 1;
-      font-variant-numeric: tabular-nums;
-    }
-    .track-sub .track-countdown span {
-      margin: 0;
-    }
-
     .lyrics-snippet {
       padding: 24px 28px;
       border-left: 2px solid var(--accent);
@@ -1817,27 +1744,6 @@
         line-height: 1.2;
         margin: -1.35em 0 0;
       }
-      .track-countdown {
-        width: 100%;
-        justify-content: space-between;
-        gap: 10px;
-        margin: 0;
-      }
-      .track-countdown .countdown-unit {
-        flex: 1;
-        min-width: 0;
-      }
-      .track-countdown .countdown-label {
-        font-size: 11px;
-        letter-spacing: 0.08em;
-      }
-      .track-countdown .countdown-value {
-        width: 100%;
-        min-width: 0;
-        height: 46px;
-        padding: 0 8px;
-        font-size: 16px;
-      }
       .listen-now {
         padding: 10px 22px;
         font-size: 14px;
@@ -2267,17 +2173,17 @@
       <div class="music-grid reveal">
         <div class="music-card">
           <div class="album-art">
-            <img src="https://ik.imagekit.io/5bnhlcghq/satu_paket_12.png?updatedAt=1787373613286" alt="Satu Paket - Album Art" />
+            <img src="https://ik.imagekit.io/5bnhlcghq/asf.png" alt="Tabur Tuai - Album Art" />
             <div class="play-overlay">
-              <a href="#dsp" class="play-btn pulse" aria-label="Play Satu Paket">
+              <a href="#dsp" class="play-btn pulse" aria-label="Play Tabur Tuai">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
               </a>
             </div>
           </div>
           <div class="track-meta">
-            <div class="label">Released</div>
-            <h3 class="track-title">SATU PAKET</h3>
-            <p class="track-sub"><span class="track-date">11 September 2026</span></p>
+            <div class="label">Coming Soon</div>
+            <h3 class="track-title">TABUR TUAI</h3>
+            <p class="track-sub"><span class="track-date">25 September 2025</span></p>
           </div>
         </div>
 
@@ -2293,7 +2199,7 @@
           <div class="track-meta">
             <div class="label">Coming Soon</div>
             <h3 class="track-title">MINGGIR LOE MISKIN</h3>
-            <p class="track-sub"><span class="track-date">09 Oktober 2026</span><span class="track-countdown" data-release-date="2026-10-09T00:00:00+07:00"><span class="countdown-unit"><span class="countdown-label">Hari</span><span class="countdown-value" data-countdown-unit="days">--</span></span><span class="countdown-unit"><span class="countdown-label">Jam</span><span class="countdown-value" data-countdown-unit="hours">--</span></span><span class="countdown-unit"><span class="countdown-label">Menit</span><span class="countdown-value" data-countdown-unit="minutes">--</span></span><span class="countdown-unit"><span class="countdown-label">Detik</span><span class="countdown-value" data-countdown-unit="seconds">--</span></span></span></p>
+            <p class="track-sub"><span class="track-date">09 Oktober 2025</span></p>
           </div>
         </div>
 
@@ -2679,52 +2585,6 @@
       }
     }
 
-    function getTrackCountdownParts(milliseconds) {
-      const totalSeconds = Math.max(0, Math.floor(milliseconds / 1000));
-      return {
-        days: Math.floor(totalSeconds / 86400),
-        hours: Math.floor((totalSeconds % 86400) / 3600),
-        minutes: Math.floor((totalSeconds % 3600) / 60),
-        seconds: totalSeconds % 60
-      };
-    }
-
-    function parseTrackWibDate(value) {
-      if (!value) return NaN;
-      const hasTimezone = /(?:Z|[+-]\d{2}:?\d{2})$/.test(value);
-      return new Date(hasTimezone ? value : `${value}+07:00`).getTime();
-    }
-
-    function getTrackWibNowTimestamp() {
-      const now = new Date();
-      return Date.UTC(
-        now.getFullYear(),
-        now.getMonth(),
-        now.getDate(),
-        now.getHours(),
-        now.getMinutes(),
-        now.getSeconds(),
-        now.getMilliseconds()
-      ) - (7 * 60 * 60 * 1000);
-    }
-
-    function updateTrackCountdowns() {
-      document.querySelectorAll('[data-release-date]').forEach((element) => {
-        const remaining = parseTrackWibDate(element.dataset.releaseDate) - getTrackWibNowTimestamp();
-        if (remaining <= 0) {
-          element.textContent = 'Sudah rilis';
-          return;
-        }
-        const parts = getTrackCountdownParts(remaining);
-        Object.entries(parts).forEach(([unit, value]) => {
-          const valueElement = element.querySelector(`[data-countdown-unit="${unit}"]`);
-          if (valueElement) valueElement.textContent = String(value).padStart(2, '0');
-        });
-      });
-    }
-
-    updateTrackCountdowns();
-    window.setInterval(updateTrackCountdowns, 1000);
   </script>
 
 </body>

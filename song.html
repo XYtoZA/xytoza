@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>30 Tracks Sound Of Drive — XYtoZA</title>
-  <meta name="description" content="Semua lagu XYtoZA. 30 Tracks Sound of Drive. Dengarkan SATU PAKET dari album OBROLAN CERMIN." />
+  <meta name="description" content="Semua lagu XYtoZA. 30 Tracks Sound of Drive dari album OBROLAN CERMIN." />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="icon" type="image/png" sizes="128x128" href="assets/favicon-128.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
@@ -153,12 +153,6 @@
     .song-tag{font-size:0.58rem;letter-spacing:0.18em;text-transform:uppercase;padding:2px 8px;border:1px solid rgba(139,149,168,0.2);color:var(--text-dim);border-radius:3px;font-family:'Barlow',sans-serif;font-weight:600}
     .song-tag.released-tag{border-color:rgba(255,106,0,0.4);color:var(--accent)}
     .song-tag.cs-tag{border-color:rgba(255,255,255,0.06);color:var(--text-dim);font-style:italic}
-    .release-countdown{display:inline-flex;align-items:flex-end;gap:4px;margin-left:4px;font-style:normal}
-    .release-info{display:inline-flex;flex-direction:column;align-items:flex-start;gap:4px;margin-left:4px;font-style:normal}
-    .release-date{font-size:0.58rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);line-height:1}
-    .countdown-unit{display:flex;flex-direction:column;align-items:center;gap:2px}
-    .countdown-label{font-size:0.42rem;line-height:1;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-dim)}
-    .countdown-value{display:flex;align-items:center;justify-content:center;min-width:28px;height:24px;padding:0 4px;border:1px solid rgba(255,106,0,0.4);border-radius:3px;background:rgba(255,106,0,0.08);color:var(--accent);font-size:0.58rem;line-height:1;font-variant-numeric:tabular-nums}
 
     .song-actions{display:flex;align-items:center;gap:0;padding:0 14px;flex-shrink:0}
     .lyric-btn{display:flex;align-items:center;gap:5px;font-size:0.62rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-dim);background:none;border:1px solid rgba(255,255,255,0.08);padding:6px 10px;cursor:pointer;transition:color 0.2s,border-color 0.2s;font-family:'Barlow',sans-serif;font-weight:600;margin-right:8px;border-radius:4px}
@@ -445,7 +439,7 @@
   }
 
   // ═══════════════════════════════════════════════════════════
-  // SONG DATA — 30 lagu, hanya SATU PAKET (num 01) yang released
+  // SONG DATA — 30 lagu dari tiga album
   // ═══════════════════════════════════════════════════════════
   const STREAMING_PLATFORMS = {
     ytmusic:'https://music.youtube.com/watch?v=9Q7sF3aS8go&si=FOTZiL_yanD_QyF3',
@@ -456,19 +450,19 @@
 
   const SONGS = [
     // ── ALBUM 1: OBROLAN CERMIN (01–10) ──
-    {num:1,album:'album1',title:'SATU PAKET',tags:['Album 1'],released:false,releaseDate:'2026-09-11T00:00:00+07:00',
+    {num:1,album:'album1',title:'SATU PAKET',tags:['Album 1'],released:true,
      photo:'https://ik.imagekit.io/5bnhlcghq/ChatGPT%20Image%20Aug%2012,%202026,%2006_30_10%20PM.png',
     platforms:STREAMING_PLATFORMS,
      lyrics:`Hidup ini satu paket tak bisa ditawar\nAda senang ada sedih, menangis dan tertawa\nHidup ini satu paket tak bisa ditawar\nSiang malam hujan panas\nDatang pergi jatuh bangkit\n\nHidup ini mudah tapi juga susah\nHidup menyenangkan kadang menyedihkan\nHidup mengasyikan juga membosankan\nHidup ini indah juga melelahkan\n\nJika nanti bahagia rendah hati tak sombong\nBila nanti bersedih tetap sabar dan tabah\nBila nanti terjadi… Bergumulah…`},
-    {num:2,album:'album1',title:'Minggir Loe Miskin',tags:['Album 1'],released:false,releaseDate:'2026-10-09T00:00:00+07:00',photo:'https://ik.imagekit.io/5bnhlcghq/artwork_mlm1.png',platforms:{},lyrics:''},
-    {num:3,album:'album1',title:'Coming Soon',tags:['Album 1'],released:false,releaseDate:'2026-11-13T00:00:00+07:00',photo:'',platforms:{},lyrics:''},
-    {num:4,album:'album1',title:'Coming Soon',tags:['Album 1'],released:false,releaseDate:'2026-12-11T00:00:00+07:00',photo:'',platforms:{},lyrics:''},
-    {num:5,album:'album1',title:'Coming Soon',tags:['Album 1'],released:false,releaseDate:'2027-01-15T00:00:00+07:00',photo:'',platforms:{},lyrics:''},
-    {num:6,album:'album1',title:'Coming Soon',tags:['Album 1'],released:false,releaseDate:'2027-02-12T00:00:00+07:00',photo:'',platforms:{},lyrics:''},
-    {num:7,album:'album1',title:'Coming Soon',tags:['Album 1'],released:false,releaseDate:'2027-03-12T00:00:00+07:00',photo:'',platforms:{},lyrics:''},
-    {num:8,album:'album1',title:'Coming Soon',tags:['Album 1'],released:false,releaseDate:'2027-04-09T00:00:00+07:00',photo:'',platforms:{},lyrics:''},
-    {num:9,album:'album1',title:'Coming Soon',tags:['Album 1'],released:false,releaseDate:'2027-05-14T00:00:00+07:00',photo:'',platforms:{},lyrics:''},
-    {num:10,album:'album1',title:'Coming Soon',tags:['Album 1'],released:false,releaseDate:'2027-06-11T00:00:00+07:00',photo:'',platforms:{},lyrics:''},
+    {num:2,album:'album1',title:'Tabur Tuai',tags:['Album 1'],released:false,photo:'https://ik.imagekit.io/5bnhlcghq/asf.png',platforms:{},lyrics:''},
+    {num:3,album:'album1',title:'Minggir Loe Miskin',tags:['Album 1'],released:false,photo:'https://ik.imagekit.io/5bnhlcghq/artwork_mlm1.png',platforms:{},lyrics:''},
+    {num:4,album:'album1',title:'Tim Impian',tags:['Album 1'],released:false,photo:'https://ik.imagekit.io/5bnhlcghq/tim.png',platforms:{},lyrics:''},
+    {num:5,album:'album1',title:'Coming Soon',tags:['Album 1'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:6,album:'album1',title:'Coming Soon',tags:['Album 1'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:7,album:'album1',title:'Coming Soon',tags:['Album 1'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:8,album:'album1',title:'Coming Soon',tags:['Album 1'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:9,album:'album1',title:'Coming Soon',tags:['Album 1'],released:false,photo:'',platforms:{},lyrics:''},
+    {num:10,album:'album1',title:'Coming Soon',tags:['Album 1'],released:false,photo:'',platforms:{},lyrics:''},
 
     // ── ALBUM 2: Coming Soon (11–20) ──
     {num:11,album:'album2',title:'Coming Soon',tags:['Album 2'],released:false,photo:'',platforms:{},lyrics:''},
@@ -539,21 +533,8 @@
     });
   }
 
-  function getWibNowTimestamp() {
-    const now = new Date();
-    return Date.UTC(
-      now.getFullYear(),
-      now.getMonth(),
-      now.getDate(),
-      now.getHours(),
-      now.getMinutes(),
-      now.getSeconds(),
-      now.getMilliseconds()
-    ) - (7 * 60 * 60 * 1000);
-  }
-
   function buildSongRow(song) {
-    const isReleased = song.released || (song.releaseDate && getWibNowTimestamp() >= parseWibDate(song.releaseDate));
+    const isReleased = song.released;
     const rowClass = isReleased ? 'released' : 'coming-soon';
     const numStr = String(song.num).padStart(2,'0');
 
@@ -563,15 +544,9 @@
       : `<div class="song-photo-ph">${MUSIC_ICON}</div>`;
 
     // Tags
-    const countdownHTML = !isReleased && song.releaseDate
-      ? `<span class="release-countdown" data-countdown="${song.releaseDate}"><span class="countdown-unit"><span class="countdown-label">Hari</span><span class="countdown-value" data-countdown-unit="days">--</span></span><span class="countdown-unit"><span class="countdown-label">Jam</span><span class="countdown-value" data-countdown-unit="hours">--</span></span><span class="countdown-unit"><span class="countdown-label">Menit</span><span class="countdown-value" data-countdown-unit="minutes">--</span></span><span class="countdown-unit"><span class="countdown-label">Detik</span><span class="countdown-value" data-countdown-unit="seconds">--</span></span></span>`
-      : '';
-    const releaseInfoHTML = !isReleased && song.releaseDate
-      ? `<span class="release-info"><span class="release-date">Rilis: ${new Intl.DateTimeFormat('id-ID', {day:'numeric', month:'long', year:'numeric', timeZone:'Asia/Jakarta'}).format(new Date(song.releaseDate))}</span>${countdownHTML}</span>`
-      : '';
     const tagHTML = isReleased
       ? song.tags.map(t => `<span class="song-tag released-tag">${t}</span>`).join('') + '<span class="song-tag released-tag">Released</span>'
-      : song.tags.map(t => `<span class="song-tag cs-tag">${t}</span>`).join('') + '<span class="song-tag cs-tag">Coming Soon</span>' + releaseInfoHTML;
+      : song.tags.map(t => `<span class="song-tag cs-tag">${t}</span>`).join('') + '<span class="song-tag cs-tag">Coming Soon</span>';
 
     // Platform panel (only for released)
     let platformHTML = '';
@@ -639,38 +614,6 @@
     panel.classList.toggle('show');
   }
 
-  function parseWibDate(value) {
-    if (!value) return NaN;
-    const hasTimezone = /(?:Z|[+-]\d{2}:?\d{2})$/.test(value);
-    return new Date(hasTimezone ? value : `${value}+07:00`).getTime();
-  }
-
-  function getCountdownParts(milliseconds) {
-    const totalSeconds = Math.max(0, Math.floor(milliseconds / 1000));
-    return {
-      days: Math.floor(totalSeconds / 86400),
-      hours: Math.floor((totalSeconds % 86400) / 3600),
-      minutes: Math.floor((totalSeconds % 3600) / 60),
-      seconds: totalSeconds % 60
-    };
-  }
-
-  function updateCountdowns() {
-    let reachedReleaseDate = false;
-    document.querySelectorAll('[data-countdown]').forEach(element => {
-      const remaining = parseWibDate(element.dataset.countdown) - getWibNowTimestamp();
-      if (remaining <= 0) reachedReleaseDate = true;
-      else {
-        const parts = getCountdownParts(remaining);
-        Object.entries(parts).forEach(([unit, value]) => {
-          const valueElement = element.querySelector(`[data-countdown-unit="${unit}"]`);
-          if (valueElement) valueElement.textContent = String(value).padStart(2, '0');
-        });
-      }
-    });
-    if (reachedReleaseDate) renderSongs();
-  }
-
   // ═══════════════════════════════════════════════════════════
   // TABS SCROLL
   // ═══════════════════════════════════════════════════════════
@@ -731,8 +674,6 @@
   // INIT
   // ═══════════════════════════════════════════════════════════
   renderSongs();
-  updateCountdowns();
-  window.setInterval(updateCountdowns, 1000);
   </script>
 </body>
   <script>
