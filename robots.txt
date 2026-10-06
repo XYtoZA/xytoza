@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /maintenance.html
+Disallow: /order.html
+
+Sitemap: https://www.xytoza.com/sitemap.xml
