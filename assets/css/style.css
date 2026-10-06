@@ -473,7 +473,8 @@ body.menu-open { overflow: hidden; }
   flex-wrap: wrap;
   align-items: baseline;
   gap: 4px 14px;
-  font: italic 400 clamp(21px, 2vw, 27px)/1.2 var(--f-serif);
+  font: 400 clamp(21px, 2vw, 27px)/1.2 var(--f-body);
+  letter-spacing: .04em;
 }
 .hero__phonetic .pos { color: var(--muted); }
 .hero__lede { margin-top: 18px; }
@@ -1146,6 +1147,9 @@ a.channel:hover strong { color: var(--accent-text); }
   .hero__grid, .about, .listen__grid, .contact, .book-hero, .checkout, .section-head--split, .faq-wrap { grid-template-columns: 1fr; }
   .hero__photo .duo { aspect-ratio: 4 / 3; }
   .hero__photo { max-width: 620px; }
+  .pull { font-size: clamp(28px, 7vw, 46px); max-width: 14ch; }
+  .about__emblem { max-width: min(100%, 280px); }
+  .about__body p:first-child { font-size: clamp(18px, 4vw, 22px); }
   .release__card { grid-template-columns: 1fr; }
   .release__art { max-width: 420px; }
   .trio { grid-template-columns: 1fr; }
