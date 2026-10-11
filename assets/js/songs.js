@@ -92,9 +92,44 @@ Dan mengharapkan tuai kebaikan`
     {
       num: 3,
       title: 'Minggir Loe Miskin',
-      released: false,
+      released: true,
       date: '2026-10-09',
-      art: 'https://ik.imagekit.io/5bnhlcghq/artwork_mlm1.png'
+      art: 'https://ik.imagekit.io/5bnhlcghq/artwork_mlm1.png',
+      note: 'Bukan soal dompet kosong, tapi soal mental. Tak punya uang hanya sementara; bermental miskin bisa selama-lamanya. Teruslah berusaha, jangan malu, jangan ragu.',
+      article: 'artikel/rilis_lagu_minggir_loe_miskin.html',
+      spotify: 'album/3G2rXfR3d646Vnowwb6k1N',
+      platforms: {
+        spotify: 'https://open.spotify.com/album/3G2rXfR3d646Vnowwb6k1N',
+        apple: 'https://music.apple.com/us/album/minggir-loe-miskin-single/6801771162',
+        ytmusic: 'https://music.youtube.com/watch?v=lvnadP9KoYE',
+        youtube: 'https://www.youtube.com/watch?v=eFl72RtNAY0'
+      },
+      lyrics: `Hai Laki-laki janganlah jadi miskin
+Hidup tak adil buat orang miskin
+Hai laki-laki jangan bermental miskin
+Dunia tak adil buat orang miskin
+
+Hobbylah belajar, terus berusaha
+Agar kelak kau tak jadi miskin
+Hargai gurumu yang gajinya kecil
+Buatlah bangga orang tuamu
+
+Hai Laki-laki berdirilah berani
+Hadapi dunia dengan gagah berani
+Hai laki-laki kejarlah cita-citamu
+Agar kelak kau tak jadi miskin
+
+Tak punya uang hanya sementara
+Bermental miskin bisa selama-lamanya
+Carilah cara untuk terus berusaha
+Harga diri lelaki itu berusaha
+
+Teruslah berusaha jangan pernah takut
+Jangan malu, jangan ragu teruslah maju
+Teruslah berusaha jangan pernah takut
+Jangan malu, jangan ragu teruslah maju
+….
+Jangan mau kau dibilang…Minggir loe Miskin`
     },
     {
       num: 4,
