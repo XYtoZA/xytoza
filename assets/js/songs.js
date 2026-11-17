@@ -135,6 +135,8 @@ Jangan mau kau dibilang…Minggir loe Miskin`
       num: 4,
       title: 'Tim Impian',
       released: true,
+      date: '2026-11-18',
+      article: 'artikel/rilis_lagu_tim_impian.html',
       art: 'https://ik.imagekit.io/5bnhlcghq/tim.png',
       spotify: 'album/0YkBuA3O79idMIciRbL4rv',
       platforms: {
