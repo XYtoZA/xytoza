@@ -134,8 +134,46 @@ Jangan mau kau dibilang…Minggir loe Miskin`
     {
       num: 4,
       title: 'Tim Impian',
+      released: true,
+      art: 'https://ik.imagekit.io/5bnhlcghq/tim.png',
+      spotify: 'album/0YkBuA3O79idMIciRbL4rv',
+      platforms: {
+        spotify: 'https://open.spotify.com/intl-id/album/0YkBuA3O79idMIciRbL4rv',
+        apple: 'https://music.apple.com/us/album/tim-impian-single/6814215062',
+        ytmusic: 'https://music.youtube.com/watch?v=tqUMVlhZmwk',
+        youtube: 'https://www.youtube.com/watch?v=av6tWL0dz_A'
+      },
+      lyrics: `Indahnya hidup bersama-sama
+Indahnya hidup bekerjasama
+Jalan tersulitpun terlalui
+Puncakpun tak jadi masalah
+
+Sendiri mendapatkan sedikit
+Bersama mendapatkan berlimpah
+Beban terberatpun jadilah mudah
+Berkat Tim Impian
+
+Bersama bukan untuk bersaing
+Bersama tuk saling melengkapi
+Raih yang terbaik bersama-sama
+Bentuklah Tim Impian
+
+Tim Impian membawaku terbang
+Melesat dan cepat ke titik gemilang
+Tim Impian membawaku terbang
+Ke negeri impian dan menjadi nyata
+
+Ciptakan Tim Impian
+Bentuklah Tim Impian
+Dan wujudkanlah impianmu
+Bersama Tim Impian`
+    },
+    {
+      num: 5,
+      title: 'Lanjutkan',
       released: false,
-      art: 'https://ik.imagekit.io/5bnhlcghq/tim.png'
+      date: '2026-12-04',
+      art: 'assets/img/lanjutkan.jpg'
     }
   ]
 };
